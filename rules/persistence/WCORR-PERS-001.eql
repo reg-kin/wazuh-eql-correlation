@@ -1,0 +1,9 @@
+sequence by agent.id.keyword with maxspan=30m
+  [any where rule.id.keyword == "5715"]
+  [any where rule.id.keyword == "2834"]
+  [any where rule.id.keyword in ("550", "554") and (
+    syscheck.path.keyword like "/var/spool/cron/*" or
+    syscheck.path.keyword like "/var/spool/cron/crontabs/*" or
+    syscheck.path.keyword like "/etc/cron.d/*" or
+    syscheck.path.keyword == "/etc/crontab"
+  )]

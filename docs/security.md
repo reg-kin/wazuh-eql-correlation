@@ -1,0 +1,15 @@
+# Security and publication review
+
+Project: **Wazuh EQL Correlation** (`wazuh-eql-correlation`).
+
+Construction is local and offline. No production access, SSH, network calls, package installation, service changes, Elasticsearch/Kibana calls, remediation, Git staging, commit, remote initialisation or publication is performed. There are no private repository dependencies or runtime Python services.
+
+Use a dedicated least-privilege Elasticsearch ingest identity instead of the historical `elastic` superuser. Scope index privileges to the intended pattern and required write/index-creation operations for the chosen provisioning model. Template management and ILM are disabled in the example; an administrator must preflight mappings and privileges. Avoid broad cluster privileges. Secure readers and rule administrators separately. Credentials belong in protected deployment configuration or a keystore, never tracked examples. Environment secrets may be visible to privileged local processes; protect the host and diagnostic output.
+
+TLS certificate verification is full. Only a CA *path* is tracked, not certificate bytes; no private keys are needed in the repository. Protect the Wazuh alerts file, ACLs, queue, checkpoint and Elasticsearch data as sensitive. Review source IPs, usernames, host identifiers, URLs and paths before sharing evidence. Use labelled synthetic events rather than exporting production payloads.
+
+The publication review checks all repository publication candidates, not an external host; no Git metadata or history exists in this workspace. The repository contains only localhost endpoints and reference service paths, no private address literals, real host/user identifiers, certificate/key material, production event logs or private repository links. The WordPress volume name `web_wp_data` and root-target predicate are supplied detection context, not evidence of an actual host or account compromise. Rule IDs and file paths are intentional source material. CHANGE_ME values are unusable examples. Automated pattern scans and manual review reduce accidental disclosure risk but are not a formal secret-detection guarantee.
+
+Publication blockers for claims of a validated detection pack: incomplete historical reproducibility, missing final-expression lab execution, unverified optional join semantics, rootcheck path availability, query-window coverage and deployment integration. Source recovery and MAL-001 refinement are complete. A sanitised source-only reference may be reviewed for publication with these limitations explicit; no GitHub publication is authorised or performed. Apache-2.0 covers repository content; review third-party service licensing separately.
+
+Phase 3 finds no remaining source-publication security blocker. The repository is suitable for experimental source publication with the stated limitations. Re-scan the exact release tree if files or Git history are added. This audit did not publish to GitHub. See the [Phase 3 audit](verification/PHASE3_PUBLICATION_AUDIT.md). The [Phase 4 rename report](verification/PHASE4_RENAME_REPORT.md) records the current identity and consistency review.

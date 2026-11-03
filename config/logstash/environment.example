@@ -1,0 +1,7 @@
+# Illustrative values. This file is NOT automatically loaded by Logstash.
+WAZUH_ALERTS_PATH=/var/ossec/logs/alerts/alerts.json
+ELASTICSEARCH_URL=https://localhost:9201
+# Provision a dedicated least-privilege ingest identity; do not use elastic routinely.
+ELASTICSEARCH_USERNAME=CHANGE_ME
+ELASTICSEARCH_PASSWORD=CHANGE_ME
+ELASTICSEARCH_CA_PATH=/etc/logstash/certs/http_ca.crt

@@ -1,0 +1,4 @@
+# Install the companion pipeline at this path on a separately approved lab host.
+- pipeline.id: wazuh-alerts
+  path.config: "/etc/logstash/conf.d/logstash.conf"
+  pipeline.ecs_compatibility: disabled

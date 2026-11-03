@@ -1,0 +1,26 @@
+# Local secrets and operational data
+.env
+.env.*
+!environment.example
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.jks
+*.log
+*.jsonl
+alerts.json
+sincedb*
+queue/
+dead_letter_queue/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editor and local scratch artefacts
+*.swp
+*.swo
+*~
+*.tmp
+.DS_Store

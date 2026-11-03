@@ -1,0 +1,5 @@
+sequence by agent.id.keyword with maxspan=20m
+  [any where rule.id.keyword in ("5402", "5407")]
+  [any where rule.id.keyword == "80705"
+    and data.audit.type.keyword == "CONFIG_CHANGE"]
+  [any where rule.id.keyword == "80703"]

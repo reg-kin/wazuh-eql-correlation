@@ -1,0 +1,8 @@
+sequence by agent.id.keyword with maxspan=30m
+  [any where rule.id.keyword == "5715"]
+  [any where rule.id.keyword in ("550", "554") and (
+    syscheck.path.keyword like "/etc/systemd/system/*.service" or
+    syscheck.path.keyword like "/usr/lib/systemd/system/*.service" or
+    syscheck.path.keyword like "/lib/systemd/system/*.service"
+  )]
+  [any where rule.id.keyword == "40704"]
