@@ -1,0 +1,234 @@
+{
+  "web003": {
+    "_meta": {
+      "owner": "wcorr-phase6g-synthetic",
+      "schema": 1
+    },
+    "dynamic": "strict",
+    "properties": {
+      "agent": {
+        "properties": {
+          "id": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "dstip": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "method": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "request": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "srcip": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "status": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "url": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "event": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "path": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "type": "text"
+      }
+    }
+  },
+  "web004": {
+    "_meta": {
+      "owner": "wcorr-phase6g-synthetic",
+      "schema": 1
+    },
+    "dynamic": "strict",
+    "properties": {
+      "agent": {
+        "properties": {
+          "id": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "dstip": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "method": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "request": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "srcip": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "status": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "url": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "event": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "path": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "type": "text"
+      }
+    }
+  }
+}

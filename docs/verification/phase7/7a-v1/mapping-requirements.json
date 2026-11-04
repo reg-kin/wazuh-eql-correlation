@@ -1,0 +1,2215 @@
+{
+  "schema_version": 1,
+  "phase": "7A",
+  "status": "DEVELOPMENT ONLY; native compatibility and production readiness NOT ASSESSED",
+  "production_access": false,
+  "fields": [
+    {
+      "field": "agent.id.keyword",
+      "source_path": "agent.id",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents agent; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 3,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 2,
+          "roles": [
+            "global join"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.audit.command.keyword",
+      "source_path": "data.audit.command",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data, audit; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.audit.type.keyword",
+      "source_path": "data.audit.type",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data, audit; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.command.keyword",
+      "source_path": "data.command",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.dstuser.keyword",
+      "source_path": "data.dstuser",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate",
+            "stage join"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.file.keyword",
+      "source_path": "data.file",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate",
+            "stage join"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.srcip.keyword",
+      "source_path": "data.srcip",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate",
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate",
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate",
+            "global join"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate",
+            "global join"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.srcuser.keyword",
+      "source_path": "data.srcuser",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate",
+            "stage join"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 3,
+          "roles": [
+            "optional-syntax stage join"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "data.url.keyword",
+      "source_path": "data.url",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents data; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "rule.id.keyword",
+      "source_path": "rule.id",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents rule; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "syscheck.event.keyword",
+      "source_path": "syscheck.event",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents syscheck; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "syscheck.mode.keyword",
+      "source_path": "syscheck.mode",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents syscheck; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "syscheck.path.keyword",
+      "source_path": "syscheck.path",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Inspect ordinary object parents syscheck; nested, flattened, disabled objects, runtime fields or literal dotted source keys are not established substitutes.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate",
+            "stage join"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 3,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "mandatory predicate"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "mandatory predicate"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "timestamp",
+      "source_path": "timestamp",
+      "expected_type": "date",
+      "keyword_multifield_required": false,
+      "parent_type": null,
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "not applicable",
+      "missing_null_empty": "No native evidence. Missing required predicates/joins can fail matching; unmapped nonoptional fields can fail query verification. Explicit null usually has no indexed value unless null_value changes it. Empty strings remain distinct from null; non-null guards do not reject empty. Timestamp must parse and be populated.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Root scalar field; no nested structure required.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    },
+    {
+      "field": "type.keyword",
+      "source_path": "type",
+      "expected_type": "keyword",
+      "keyword_multifield_required": true,
+      "parent_type": "Phase 6 text parent is fixture design, not a required production parent type",
+      "searchable_required": true,
+      "doc_values": "retain; inspect aggregatability and per-index conflicts",
+      "ignore_above": "Inspect effective limit at exact leaf; long source values can exist while keyword is unindexed, breaking predicates/joins. Most exposed: commands, URLs and paths. No safe production limit inferred.",
+      "missing_null_empty": "any has no category literal; missing/null category semantics untested, do not claim all events require a populated value. Keep configured field and investigate.",
+      "scalar_array": "Scalar synthetic evidence only; inspect source shape. Arrays may change predicate/join semantics; empty arrays may have no indexed values. No multi-value compatibility claim.",
+      "object_nested": "Root scalar field; no nested structure required.",
+      "normalisation": "No query-side normalization. Preserve case, whitespace, leading zeros, carriage returns and path/IP/user string identity; inspect normalizer, null_value and ingest transformations. Do not silently normalize production.",
+      "uses": [
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-EVAS-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-MAL-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PERS-002",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-PRIV-001",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-003",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-004",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-SSH-005",
+          "stage": 3,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-001",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-002",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-003",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 1,
+          "roles": [
+            "request metadata"
+          ]
+        },
+        {
+          "rule": "WCORR-WEB-004",
+          "stage": 2,
+          "roles": [
+            "request metadata"
+          ]
+        }
+      ],
+      "production_mapping": "UNVERIFIED"
+    }
+  ],
+  "fixture_mapping_snapshots": {
+    "tests/fixtures/phase6/6b-mappings.json": {
+      "ssh": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "data.srcip": {
+          "type": "text"
+        },
+        "data.srcip.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        }
+      },
+      "pers": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/6c-mappings.json": {
+      "ssh": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "service.name": {
+          "type": "text"
+        },
+        "service.name.keyword": {
+          "type": "keyword"
+        }
+      },
+      "pers": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "service.name": {
+          "type": "text"
+        },
+        "service.name.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/6d-mappings.json": {
+      "ssh003": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        }
+      },
+      "ssh004": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/6e-mappings.json": {
+      "ssh005": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        },
+        "data.audit.command": {
+          "type": "text"
+        },
+        "data.audit.command.keyword": {
+          "type": "keyword"
+        },
+        "data.audit.type": {
+          "type": "text"
+        },
+        "data.audit.type.keyword": {
+          "type": "keyword"
+        }
+      },
+      "evas001": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        },
+        "data.audit.command": {
+          "type": "text"
+        },
+        "data.audit.command.keyword": {
+          "type": "keyword"
+        },
+        "data.audit.type": {
+          "type": "text"
+        },
+        "data.audit.type.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/6f-mappings.json": {
+      "web001": {
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "data.dstip": {
+          "type": "text"
+        },
+        "data.dstip.keyword": {
+          "type": "keyword"
+        },
+        "data.method": {
+          "type": "text"
+        },
+        "data.method.keyword": {
+          "type": "keyword"
+        },
+        "data.request": {
+          "type": "text"
+        },
+        "data.request.keyword": {
+          "type": "keyword"
+        },
+        "data.srcip": {
+          "type": "text"
+        },
+        "data.srcip.keyword": {
+          "type": "keyword"
+        },
+        "data.status": {
+          "type": "text"
+        },
+        "data.status.keyword": {
+          "type": "keyword"
+        },
+        "data.url": {
+          "type": "text"
+        },
+        "data.url.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.event": {
+          "type": "text"
+        },
+        "syscheck.event.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        }
+      },
+      "web002": {
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "data.dstip": {
+          "type": "text"
+        },
+        "data.dstip.keyword": {
+          "type": "keyword"
+        },
+        "data.method": {
+          "type": "text"
+        },
+        "data.method.keyword": {
+          "type": "keyword"
+        },
+        "data.request": {
+          "type": "text"
+        },
+        "data.request.keyword": {
+          "type": "keyword"
+        },
+        "data.srcip": {
+          "type": "text"
+        },
+        "data.srcip.keyword": {
+          "type": "keyword"
+        },
+        "data.status": {
+          "type": "text"
+        },
+        "data.status.keyword": {
+          "type": "keyword"
+        },
+        "data.url": {
+          "type": "text"
+        },
+        "data.url.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.event": {
+          "type": "text"
+        },
+        "syscheck.event.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/6g-mappings.json": {
+      "web003": {
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "data.dstip": {
+          "type": "text"
+        },
+        "data.dstip.keyword": {
+          "type": "keyword"
+        },
+        "data.method": {
+          "type": "text"
+        },
+        "data.method.keyword": {
+          "type": "keyword"
+        },
+        "data.request": {
+          "type": "text"
+        },
+        "data.request.keyword": {
+          "type": "keyword"
+        },
+        "data.srcip": {
+          "type": "text"
+        },
+        "data.srcip.keyword": {
+          "type": "keyword"
+        },
+        "data.status": {
+          "type": "text"
+        },
+        "data.status.keyword": {
+          "type": "keyword"
+        },
+        "data.url": {
+          "type": "text"
+        },
+        "data.url.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.event": {
+          "type": "text"
+        },
+        "syscheck.event.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        }
+      },
+      "web004": {
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "data.dstip": {
+          "type": "text"
+        },
+        "data.dstip.keyword": {
+          "type": "keyword"
+        },
+        "data.method": {
+          "type": "text"
+        },
+        "data.method.keyword": {
+          "type": "keyword"
+        },
+        "data.request": {
+          "type": "text"
+        },
+        "data.request.keyword": {
+          "type": "keyword"
+        },
+        "data.srcip": {
+          "type": "text"
+        },
+        "data.srcip.keyword": {
+          "type": "keyword"
+        },
+        "data.status": {
+          "type": "text"
+        },
+        "data.status.keyword": {
+          "type": "keyword"
+        },
+        "data.url": {
+          "type": "text"
+        },
+        "data.url.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.event": {
+          "type": "text"
+        },
+        "syscheck.event.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        },
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        }
+      }
+    },
+    "tests/fixtures/phase6/mappings.json": {
+      "priv": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "data.dstuser": {
+          "type": "text"
+        },
+        "data.dstuser.keyword": {
+          "type": "keyword"
+        },
+        "data.srcuser": {
+          "type": "text"
+        },
+        "data.srcuser.keyword": {
+          "type": "keyword"
+        },
+        "data.command": {
+          "type": "text"
+        },
+        "data.command.keyword": {
+          "type": "keyword"
+        }
+      },
+      "mal": {
+        "timestamp": {
+          "type": "date"
+        },
+        "type": {
+          "type": "text"
+        },
+        "type.keyword": {
+          "type": "keyword"
+        },
+        "agent.id": {
+          "type": "text"
+        },
+        "agent.id.keyword": {
+          "type": "keyword"
+        },
+        "rule.id": {
+          "type": "text"
+        },
+        "rule.id.keyword": {
+          "type": "keyword"
+        },
+        "data.file": {
+          "type": "text"
+        },
+        "data.file.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.mode": {
+          "type": "text"
+        },
+        "syscheck.mode.keyword": {
+          "type": "keyword"
+        },
+        "syscheck.path": {
+          "type": "text"
+        },
+        "syscheck.path.keyword": {
+          "type": "keyword"
+        }
+      }
+    }
+  },
+  "production_assumptions": [],
+  "timestamp_note": "date is observed and required baseline; format/timezone/precision must be verified. date_nanos is a separate version-specific laboratory question; @timestamp is not an automatic substitute.",
+  "multifield_note": "Exact .keyword paths must exist and be compatible. A keyword at the unsuffixed parent does not supply .keyword. No analyzed-text parent requirement is inferred. Adding multifields would not backfill indexed history and is outside scope."
+}

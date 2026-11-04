@@ -1,0 +1,1491 @@
+{
+  "schema_version": 1,
+  "phase": "7A",
+  "status": "DEVELOPMENT ONLY; native compatibility and production readiness NOT ASSESSED",
+  "production_access": false,
+  "stages": [
+    {
+      "rule": "WCORR-EVAS-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5402",
+        "5407"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Sudo/privilege"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"5402\", \"5407\")",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-EVAS-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "80705"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Audit"
+      ],
+      "predicate_eql": "rule.id.keyword == \"80705\"\n    and data.audit.type.keyword == \"CONFIG_CHANGE\"",
+      "predicate_fields": [
+        "data.audit.type.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-EVAS-001",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "80703"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Audit"
+      ],
+      "predicate_eql": "rule.id.keyword == \"80703\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-MAL-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword like \"/usr/bin/*\" or\n      syscheck.path.keyword like \"/usr/sbin/*\" or\n      syscheck.path.keyword like \"/bin/*\" or\n      syscheck.path.keyword like \"/sbin/*\"\n    )",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [
+        "syscheck.path.keyword"
+      ],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-MAL-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "510",
+        "521"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Rootcheck"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"510\", \"521\") and\n    data.file.keyword != null and\n    data.file.keyword != \"/dev/null\\r\"",
+      "predicate_fields": [
+        "data.file.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [
+        "data.file.keyword"
+      ],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "2834"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Cron editor"
+      ],
+      "predicate_eql": "rule.id.keyword == \"2834\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-001",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/var/spool/cron/*\" or\n    syscheck.path.keyword like \"/var/spool/cron/crontabs/*\" or\n    syscheck.path.keyword like \"/etc/cron.d/*\" or\n    syscheck.path.keyword == \"/etc/crontab\"\n  )",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-002",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-002",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/etc/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/usr/lib/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/lib/systemd/system/*.service\"\n  )",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PERS-002",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "40704"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Systemd/service"
+      ],
+      "predicate_eql": "rule.id.keyword == \"40704\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PRIV-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\" and\n    data.dstuser.keyword != null",
+      "predicate_fields": [
+        "data.dstuser.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [
+        "data.dstuser.keyword"
+      ],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PRIV-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "5402",
+        "5407"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Sudo/privilege"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    data.srcuser.keyword != null and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*adduser*\"\n    )",
+      "predicate_fields": [
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "data.srcuser.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [
+        "data.srcuser.keyword"
+      ],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-PRIV-001",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "5902"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Sudo/privilege"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5902\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [
+        "data.srcuser.keyword"
+      ],
+      "optional_syntax_fields": [
+        "data.srcuser.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5712",
+        "5763"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"5712\", \"5763\") and\n    data.srcip.keyword != null",
+      "predicate_fields": [
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\" and\n    data.srcip.keyword != null",
+      "predicate_fields": [
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-002",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-002",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "5402",
+        "5407"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Sudo/privilege"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*usermod*\" or\n      data.command.keyword like \"*passwd*\" or\n      data.command.keyword like \"*visudo*\" or\n      data.command.keyword like \"*systemctl disable*\" or\n      data.command.keyword like \"*systemctl stop*\" or\n      data.command.keyword like \"*crontab*\" or\n      data.command.keyword like \"*chmod*\" or\n      data.command.keyword like \"*chown*\"\n    )",
+      "predicate_fields": [
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-003",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-003",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-004",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-004",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "5402",
+        "5407"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Sudo/privilege"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"5402\", \"5407\")",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-004",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-005",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "5715"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "SSH authentication"
+      ],
+      "predicate_eql": "rule.id.keyword == \"5715\"",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-005",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "92603"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Audit"
+      ],
+      "predicate_eql": "rule.id.keyword == \"92603\" and\n    data.audit.command.keyword == \"scp\"",
+      "predicate_fields": [
+        "data.audit.command.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-SSH-005",
+      "stage": 3,
+      "wazuh_rule_ids": [
+        "550",
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword in (\"550\", \"554\")",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-001",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "31151",
+        "31515",
+        "31516"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Web-server/application"
+      ],
+      "predicate_eql": "rule.id.keyword in\n    (\"31151\", \"31515\", \"31516\")\n    and data.srcip.keyword != null",
+      "predicate_fields": [
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-001",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "31103",
+        "31104",
+        "31105",
+        "31110",
+        "31164",
+        "31166",
+        "31168"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Web-server/application"
+      ],
+      "predicate_eql": "rule.id.keyword in\n    (\"31103\", \"31104\", \"31105\", \"31110\",\n     \"31164\", \"31166\", \"31168\")\n    and data.srcip.keyword != null",
+      "predicate_fields": [
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-002",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "31151",
+        "31103",
+        "31104",
+        "31105"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Web-server/application"
+      ],
+      "predicate_eql": "rule.id.keyword in\n    (\"31151\", \"31103\", \"31104\", \"31105\")",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-002",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-003",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "31106",
+        "31110",
+        "31166",
+        "31168"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "Web-server/application"
+      ],
+      "predicate_eql": "rule.id.keyword in\n    (\"31106\", \"31110\", \"31166\", \"31168\")",
+      "predicate_fields": [
+        "rule.id.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-003",
+      "stage": 2,
+      "wazuh_rule_ids": [
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-004",
+      "stage": 1,
+      "wazuh_rule_ids": [
+        "554"
+      ],
+      "rule_id_unrestricted": false,
+      "telemetry_families": [
+        "File integrity monitoring"
+      ],
+      "predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+      "predicate_fields": [
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    },
+    {
+      "rule": "WCORR-WEB-004",
+      "stage": 2,
+      "wazuh_rule_ids": [],
+      "rule_id_unrestricted": true,
+      "telemetry_families": [
+        "Native URL-bearing alert; no required Wazuh rule ID"
+      ],
+      "predicate_eql": "data.url.keyword != null\n    and data.url.keyword like\n      \"/wp-content/uploads/*.php*\"",
+      "predicate_fields": [
+        "data.url.keyword"
+      ],
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "stage_join_fields": [],
+      "optional_syntax_fields": [],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "production_availability": "UNVERIFIED"
+    }
+  ],
+  "rule_id_reverse_index": {
+    "510": [
+      {
+        "rule": "WCORR-MAL-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.file.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "521": [
+      {
+        "rule": "WCORR-MAL-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.file.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "550": [
+      {
+        "rule": "WCORR-MAL-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.mode.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PERS-001",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PERS-002",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-003",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.mode.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-004",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-005",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "554": [
+      {
+        "rule": "WCORR-MAL-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.mode.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PERS-001",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PERS-002",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-003",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.mode.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-004",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-005",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-002",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.event.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-003",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.event.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-004",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "syscheck.event.keyword",
+          "syscheck.path.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "2834": [
+      {
+        "rule": "WCORR-PERS-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5402": [
+      {
+        "rule": "WCORR-EVAS-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PRIV-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.command.keyword",
+          "data.dstuser.keyword",
+          "data.srcuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-002",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.command.keyword",
+          "data.dstuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-004",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5407": [
+      {
+        "rule": "WCORR-EVAS-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PRIV-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.command.keyword",
+          "data.dstuser.keyword",
+          "data.srcuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-002",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.command.keyword",
+          "data.dstuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-004",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5712": [
+      {
+        "rule": "WCORR-SSH-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5715": [
+      {
+        "rule": "WCORR-PERS-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PERS-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-PRIV-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.dstuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-003",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-004",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-SSH-005",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5763": [
+      {
+        "rule": "WCORR-SSH-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "5902": [
+      {
+        "rule": "WCORR-PRIV-001",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcuser.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31103": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31104": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31105": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31106": [
+      {
+        "rule": "WCORR-WEB-003",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31110": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-003",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31151": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-002",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31164": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31166": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-003",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31168": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      },
+      {
+        "rule": "WCORR-WEB-003",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31515": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "31516": [
+      {
+        "rule": "WCORR-WEB-001",
+        "stage": 1,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.srcip.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "40704": [
+      {
+        "rule": "WCORR-PERS-002",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "80703": [
+      {
+        "rule": "WCORR-EVAS-001",
+        "stage": 3,
+        "required_fields": [
+          "agent.id.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "80705": [
+      {
+        "rule": "WCORR-EVAS-001",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.audit.type.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ],
+    "92603": [
+      {
+        "rule": "WCORR-SSH-005",
+        "stage": 2,
+        "required_fields": [
+          "agent.id.keyword",
+          "data.audit.command.keyword",
+          "rule.id.keyword",
+          "timestamp"
+        ]
+      }
+    ]
+  },
+  "interpretation": "IDs and telemetry families follow published predicates and evidence, not independent verification of installed Wazuh definitions. No ID enabled/populated status inferred. 5902 account creation is a privilege dependency; 2834 cron editor is distinct from sudo."
+}

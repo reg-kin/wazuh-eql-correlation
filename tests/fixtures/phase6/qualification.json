@@ -1,0 +1,204 @@
+{
+  "evidence_sha256": "a2c3ee0eacdd56518c96d75741c0cedb0cfe3a2b7c05a31d93f1a0b3e920f458",
+  "scenarios": {
+    "priv-positive": {
+      "expected": [
+        [
+          "priv-positive-s1",
+          "priv-positive-s2",
+          "priv-positive-s3"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "priv-alternate-rule-command": {
+      "expected": [
+        [
+          "priv-alternate-rule-command-s1",
+          "priv-alternate-rule-command-s2",
+          "priv-alternate-rule-command-s3"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "priv-different-agent": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-mismatched-stage2-user": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-mismatched-stage3-user": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-reversed-order": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-invalid-command": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-non-root-target": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-missing-dstuser": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-missing-srcuser": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-missing-command": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-missing-agent": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-outside-window": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "priv-inside-window": {
+      "expected": [
+        [
+          "priv-inside-window-s1",
+          "priv-inside-window-s2",
+          "priv-inside-window-s3"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "priv-exact-window": {
+      "expected": [
+        [
+          "priv-exact-window-s1",
+          "priv-exact-window-s2",
+          "priv-exact-window-s3"
+        ]
+      ],
+      "classification": "observed_inclusive_boundary"
+    },
+    "priv-optional-user-absent": {
+      "expected": [],
+      "classification": "known_semantic_limitation"
+    },
+    "priv-optional-user-null": {
+      "expected": [],
+      "classification": "known_semantic_limitation"
+    },
+    "mal-positive": {
+      "expected": [
+        [
+          "mal-positive-s1",
+          "mal-positive-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-alternate-rules": {
+      "expected": [
+        [
+          "mal-alternate-rules-s1",
+          "mal-alternate-rules-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-directory-usr-sbin": {
+      "expected": [
+        [
+          "mal-directory-usr-sbin-s1",
+          "mal-directory-usr-sbin-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-directory-bin": {
+      "expected": [
+        [
+          "mal-directory-bin-s1",
+          "mal-directory-bin-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-directory-sbin": {
+      "expected": [
+        [
+          "mal-directory-sbin-s1",
+          "mal-directory-sbin-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-different-agent": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-different-path": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-scheduled": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-unsupported-path": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-reversed-order": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-outside-window": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-inside-window": {
+      "expected": [
+        [
+          "mal-inside-window-s1",
+          "mal-inside-window-s2"
+        ]
+      ],
+      "classification": "predeclared_assertion"
+    },
+    "mal-exact-window": {
+      "expected": [
+        [
+          "mal-exact-window-s1",
+          "mal-exact-window-s2"
+        ]
+      ],
+      "classification": "observed_inclusive_boundary"
+    },
+    "mal-missing-path": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-missing-file": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-missing-mode": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-dev-null-cr-stage2": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    },
+    "mal-dev-null-cr-both": {
+      "expected": [],
+      "classification": "predeclared_assertion"
+    }
+  }
+}

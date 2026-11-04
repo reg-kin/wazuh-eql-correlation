@@ -1,0 +1,1762 @@
+[
+  {
+    "id": "priv-positive",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-positive-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-positive-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-positive-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "priv-positive-s1",
+        "priv-positive-s2",
+        "priv-positive-s3"
+      ]
+    ],
+    "note": "Populated matching third-stage username."
+  },
+  {
+    "id": "priv-alternate-rule-command",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-alternate-rule-command-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-alternate-rule-command-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5407"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/adduser labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-alternate-rule-command-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "priv-alternate-rule-command-s1",
+        "priv-alternate-rule-command-s2",
+        "priv-alternate-rule-command-s3"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "priv-different-agent",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-different-agent-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-different-agent-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-different-agent-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-b"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-mismatched-stage2-user",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-mismatched-stage2-user-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-mismatched-stage2-user-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "otheruser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-mismatched-stage2-user-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-mismatched-stage3-user",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-mismatched-stage3-user-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-mismatched-stage3-user-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-mismatched-stage3-user-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "otheruser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-reversed-order",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-reversed-order-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-reversed-order-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:03:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-reversed-order-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-invalid-command",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-invalid-command-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-invalid-command-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/bin/id"
+          }
+        }
+      },
+      {
+        "id": "priv-invalid-command-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-non-root-target",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-non-root-target-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-non-root-target-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "otheruser",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-non-root-target-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-missing-dstuser",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-missing-dstuser-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {}
+        }
+      },
+      {
+        "id": "priv-missing-dstuser-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-dstuser-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-missing-srcuser",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-missing-srcuser-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-srcuser-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-srcuser-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-missing-command",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-missing-command-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-command-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-command-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-missing-agent",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-missing-agent-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-agent-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-missing-agent-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-outside-window",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-outside-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-outside-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-outside-window-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:30:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "priv-inside-window",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-inside-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-inside-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-inside-window-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:29:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "priv-inside-window-s1",
+        "priv-inside-window-s2",
+        "priv-inside-window-s3"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "priv-exact-window",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-exact-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-exact-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-exact-window-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:30:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": "labuser"
+          }
+        }
+      }
+    ],
+    "expected": null,
+    "note": "Investigate equality at maxspan boundary."
+  },
+  {
+    "id": "priv-optional-user-absent",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-optional-user-absent-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-optional-user-absent-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-optional-user-absent-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {}
+        }
+      }
+    ],
+    "expected": null,
+    "note": "Investigate optional join: absence must not be assumed wildcard."
+  },
+  {
+    "id": "priv-optional-user-null",
+    "rule": "priv",
+    "events": [
+      {
+        "id": "priv-optional-user-null-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": "labuser"
+          }
+        }
+      },
+      {
+        "id": "priv-optional-user-null-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "srcuser": "labuser",
+            "command": "/usr/sbin/useradd labaccount"
+          }
+        }
+      },
+      {
+        "id": "priv-optional-user-null-s3",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "5902"
+          },
+          "data": {
+            "srcuser": null
+          }
+        }
+      }
+    ],
+    "expected": null,
+    "note": "Investigate explicit null optional join."
+  },
+  {
+    "id": "mal-positive",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-positive-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-positive-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-positive-s1",
+        "mal-positive-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-alternate-rules",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-alternate-rules-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-alternate-rules-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "521"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-alternate-rules-s1",
+        "mal-alternate-rules-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-directory-usr-sbin",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-directory-usr-sbin-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/sbin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-directory-usr-sbin-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/sbin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-directory-usr-sbin-s1",
+        "mal-directory-usr-sbin-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-directory-bin",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-directory-bin-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-directory-bin-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-directory-bin-s1",
+        "mal-directory-bin-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-directory-sbin",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-directory-sbin-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/sbin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-directory-sbin-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/sbin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-directory-sbin-s1",
+        "mal-directory-sbin-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-different-agent",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-different-agent-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-different-agent-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-b"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-different-path",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-different-path-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-different-path-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/otherlabtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-scheduled",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-scheduled-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "scheduled",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-scheduled-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-unsupported-path",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-unsupported-path-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/tmp/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-unsupported-path-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/tmp/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-reversed-order",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-reversed-order-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-reversed-order-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-outside-window",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-outside-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-outside-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T01:00:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-inside-window",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-inside-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-inside-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:59:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "mal-inside-window-s1",
+        "mal-inside-window-s2"
+      ]
+    ],
+    "note": ""
+  },
+  {
+    "id": "mal-exact-window",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-exact-window-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-exact-window-s2",
+        "source": {
+          "timestamp": "2026-01-01T01:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": null,
+    "note": "Investigate equality at maxspan boundary."
+  },
+  {
+    "id": "mal-missing-path",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-missing-path-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime"
+          }
+        }
+      },
+      {
+        "id": "mal-missing-path-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-missing-file",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-missing-file-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-missing-file-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {}
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-missing-mode",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-missing-mode-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-missing-mode-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/usr/bin/labtool"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": ""
+  },
+  {
+    "id": "mal-dev-null-cr-stage2",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-dev-null-cr-stage2-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/usr/bin/labtool"
+          }
+        }
+      },
+      {
+        "id": "mal-dev-null-cr-stage2-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/dev/null\r"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "No match cannot isolate exclusion: path join also fails."
+  },
+  {
+    "id": "mal-dev-null-cr-both",
+    "rule": "mal",
+    "events": [
+      {
+        "id": "mal-dev-null-cr-both-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime",
+            "path": "/dev/null\r"
+          }
+        }
+      },
+      {
+        "id": "mal-dev-null-cr-both-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent-a"
+          },
+          "rule": {
+            "id": "510"
+          },
+          "data": {
+            "file": "/dev/null\r"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "No match cannot isolate exclusion: executable directory predicate also fails."
+  }
+]

@@ -1,0 +1,194 @@
+{
+  "ssh": {
+    "dynamic": "strict",
+    "_meta": {
+      "owner": "wcorr-phase6c-synthetic",
+      "schema": 1
+    },
+    "properties": {
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "agent": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "srcuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "dstuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "command": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "path": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "service": {
+        "properties": {
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "pers": {
+    "dynamic": "strict",
+    "_meta": {
+      "owner": "wcorr-phase6c-synthetic",
+      "schema": 1
+    },
+    "properties": {
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "agent": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "srcuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "dstuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "command": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "path": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "service": {
+        "properties": {
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

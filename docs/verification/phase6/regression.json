@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_phase6*.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "output": "test_endpoint_scope (test_phase6_engine.HarnessChecks.test_endpoint_scope) ... ok\ntest_fixture_contract (test_phase6_engine.HarnessChecks.test_fixture_contract) ... ok\ntest_resource_stop (test_phase6_engine.HarnessChecks.test_resource_stop) ... ok\ntest_write_scope_before_http (test_phase6_engine.HarnessChecks.test_write_scope_before_http) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.029s\n\nOK\n"
+  },
+  {
+    "command": [
+      "python3",
+      "tests/validate_repository.py"
+    ],
+    "exit_code": 1,
+    "output": "test_configuration_variable_consistency (__main__.RepositoryChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.RepositoryChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.RepositoryChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.RepositoryChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.RepositoryChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.RepositoryChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.RepositoryChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.RepositoryChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.RepositoryChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.RepositoryChecks.test_publication_manifest) ... FAIL\ntest_report_exact_inventory (__main__.RepositoryChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.RepositoryChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.RepositoryChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.RepositoryChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.RepositoryChecks.test_structure) ... ok\n\n======================================================================\nFAIL: test_publication_manifest (__main__.RepositoryChecks.test_publication_manifest)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<repository>/tests/validate_repository.py\", line 296, in test_publication_manifest\n    self.assertEqual(set(manifest['publication_files']), actual)\nAssertionError: Items in the second set but not the first:\n'tests/phase6_engine.py'\n'docs/verification/phase6/regression.json'\n'docs/verification/phase6/6a-v1/results.json'\n'tests/fixtures/phase6/mappings.json'\n'docs/verification/phase6/REPORT.md'\n'tests/fixtures/phase6/scenarios.json'\n'docs/verification/phase6/README.md'\n'tests/test_phase6_engine.py'\n'docs/verification/phase6/integrity.json'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.248s\n\nFAILED (failures=1, skipped=1)\n"
+  },
+  {
+    "command": [
+      "python3",
+      "tests/phase6_engine.py",
+      "--run-id",
+      "6a-v1"
+    ],
+    "exit_code": 1,
+    "output": "Evidence directory already exists; use a new explicit run ID\n"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "output": ""
+  }
+]

@@ -1,0 +1,1568 @@
+{
+  "authorized_validator_change": {
+    "after": "a6b0861677731d29a63ad1c138ccb4dffa59e9d11f727e701d904ec8ebfd3b71",
+    "before": "c367473a3935e7288d64e9f24132b9a7f9774e9bd98b7cd7ee53b3e73f8ddd90",
+    "reason": "Nine explicit Phase 6E inventory additions only"
+  },
+  "baseline": {
+    "branch": "main",
+    "commit": "90110451048b1707cdfdecd03ad4a10c7ec2fea2",
+    "preflight": "PASS: all 41 exact sources/counts/UUIDs; 50 publication bytes; 14 rules; prior evidence pins; historical/development/offline checks; absent targets and evidence; green 8.19.20; resources and 2GiB limit",
+    "prior_indices": {
+      "phase6-wcorr-6a-v1-mal-alternate-rules": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-alternate-rules",
+          "store.size": "8.8kb",
+          "uuid": "BgaFtgLsTUKpF4QPgmz0eA"
+        },
+        "sources_sha256": "da85fbc0cd2dd75df9e1a0bec213a096a3ca01a8375a4f3d52cf6433dd61c5c2"
+      },
+      "phase6-wcorr-6a-v1-mal-dev-null-cr-both": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-both",
+          "store.size": "8.7kb",
+          "uuid": "zdPgWBpJQvyRZUhf4JlVVg"
+        },
+        "sources_sha256": "7c4b926478e337279b2dc6b4539fe3b6e9b911e43b3be345c6481724dffabbec"
+      },
+      "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2",
+          "store.size": "8.7kb",
+          "uuid": "o8CY1tl-R_upr4YemEVjyA"
+        },
+        "sources_sha256": "ad85ec587c86c39be98cf100cc7e2c301e300b8f4d2bedf66c0db453f4094b2e"
+      },
+      "phase6-wcorr-6a-v1-mal-different-agent": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-different-agent",
+          "store.size": "8.8kb",
+          "uuid": "9FRdiPn8Te2g0daPLiVfvA"
+        },
+        "sources_sha256": "359239a058404dba98164479484aed8e90f1b8aa1918bc83f18dc1426444994a"
+      },
+      "phase6-wcorr-6a-v1-mal-different-path": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-different-path",
+          "store.size": "8.8kb",
+          "uuid": "F_QsAN2mQnOnp2u6laPv5g"
+        },
+        "sources_sha256": "077754e4eb9652988fde150ef792aa82cb91593d30245ace33b0ea49272affc3"
+      },
+      "phase6-wcorr-6a-v1-mal-directory-bin": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-directory-bin",
+          "store.size": "8.7kb",
+          "uuid": "rZ6ZpXhxSqmuljSDDR-F_w"
+        },
+        "sources_sha256": "ec438208bd9bf38c9c540ab1cf4cc0ec23974bc44252de10063ae709f08cba0e"
+      },
+      "phase6-wcorr-6a-v1-mal-directory-sbin": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-directory-sbin",
+          "store.size": "8.7kb",
+          "uuid": "k09qMJ38SyCBVzF_2up30w"
+        },
+        "sources_sha256": "26011b33246bd681e0c35bc2411feaf7c1fdbebf64152043eb23d61138022eda"
+      },
+      "phase6-wcorr-6a-v1-mal-directory-usr-sbin": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-directory-usr-sbin",
+          "store.size": "8.8kb",
+          "uuid": "aQHtc6x2Q22qH5k2L7ET0Q"
+        },
+        "sources_sha256": "0d001b0441b700f21ec023651189a45fe0a81c56c0b21bdc88b91708a7bb50ec"
+      },
+      "phase6-wcorr-6a-v1-mal-exact-window": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-exact-window",
+          "store.size": "8.8kb",
+          "uuid": "TQcnEupkSC-lcxpkDOFNJg"
+        },
+        "sources_sha256": "27a9ed9b5869b0ef2b1419d4b813cddb4bc52e72c4da7b82e66f860dd24def0f"
+      },
+      "phase6-wcorr-6a-v1-mal-inside-window": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-inside-window",
+          "store.size": "8.7kb",
+          "uuid": "lrNA6IYLT_yvRebiqpSb9Q"
+        },
+        "sources_sha256": "b5f35045f6b0bec6ac7c09943ee58d6d7d0da214164f7676dbf89e216c86dfb5"
+      },
+      "phase6-wcorr-6a-v1-mal-missing-file": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-missing-file",
+          "store.size": "8kb",
+          "uuid": "xdK6KwUTTMqgyy7fZYqnSA"
+        },
+        "sources_sha256": "b6e262366060e0022ec5eb981c60722212f171b1976ef1d989c8a028a80cde26"
+      },
+      "phase6-wcorr-6a-v1-mal-missing-mode": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-missing-mode",
+          "store.size": "8.1kb",
+          "uuid": "Q4hUkxJzR3eghoZcxzD42g"
+        },
+        "sources_sha256": "41faeb4d887389532e4308d735154096938d3e8779e6cc5ec891128eb774819a"
+      },
+      "phase6-wcorr-6a-v1-mal-missing-path": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-missing-path",
+          "store.size": "8kb",
+          "uuid": "xaWujbztQKu7udsWKpADIg"
+        },
+        "sources_sha256": "68a8ec73ba6fb3e6cb4f24fe52d74c63940a915b8ae72c3c4fced3bad0d595b5"
+      },
+      "phase6-wcorr-6a-v1-mal-outside-window": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-outside-window",
+          "store.size": "8.8kb",
+          "uuid": "N-t1mYmbTX-qtENNaoILDg"
+        },
+        "sources_sha256": "a8a19b243fa72e308e5a2545648a4827a2a90a442f2018c2e77215b942edb64c"
+      },
+      "phase6-wcorr-6a-v1-mal-positive": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-positive",
+          "store.size": "8.7kb",
+          "uuid": "rvsdtXX1QZCKQb_sQLB0Fg"
+        },
+        "sources_sha256": "a1da7853f42a31a100a1c5410666b837b91569b7c1bd66dbff681c7d77de3c6a"
+      },
+      "phase6-wcorr-6a-v1-mal-reversed-order": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-reversed-order",
+          "store.size": "8.8kb",
+          "uuid": "Fbn1162fQ4Ktc0Hl2GaDSw"
+        },
+        "sources_sha256": "8a20639178b2ceca48a9faca58c1b4aa4406978231afe1bbc621277411e35d41"
+      },
+      "phase6-wcorr-6a-v1-mal-scheduled": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-scheduled",
+          "store.size": "8.7kb",
+          "uuid": "0OoKYN8fSGW74FC3oNlzlA"
+        },
+        "sources_sha256": "307eaf442049792da26c4b019b0026200b1d9e739efa2439693726c669660af5"
+      },
+      "phase6-wcorr-6a-v1-mal-unsupported-path": {
+        "inventory": {
+          "docs.count": "2",
+          "index": "phase6-wcorr-6a-v1-mal-unsupported-path",
+          "store.size": "8.7kb",
+          "uuid": "pINLxUzSRgW_BLrK5nYK9w"
+        },
+        "sources_sha256": "7dd1df54011d26750e6f0a43f3838c9d6b02a1c91f20bdf0733cde29e1fb24dd"
+      },
+      "phase6-wcorr-6a-v1-priv-alternate-rule-command": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-alternate-rule-command",
+          "store.size": "9.1kb",
+          "uuid": "vUM8qjiJRzSkS4a-UQy6tA"
+        },
+        "sources_sha256": "62e34c3f7c43d6ebabf45dee0e6b0b05cad46710457971061d2219643a9ce70b"
+      },
+      "phase6-wcorr-6a-v1-priv-different-agent": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-different-agent",
+          "store.size": "9.1kb",
+          "uuid": "7lbT3LkFQG-kon-bjuOl9g"
+        },
+        "sources_sha256": "1e8bbc74efd674c03a5f53b6dac18a8a8774c3c0440f1f3ba07ff18a19ee231a"
+      },
+      "phase6-wcorr-6a-v1-priv-exact-window": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-exact-window",
+          "store.size": "9kb",
+          "uuid": "JeYBekFqSFiMUhjvFpJtEw"
+        },
+        "sources_sha256": "fcea7efe4017aca470a0cb6101c0af004ac744926bc000282486666c1d03868a"
+      },
+      "phase6-wcorr-6a-v1-priv-inside-window": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-inside-window",
+          "store.size": "9.1kb",
+          "uuid": "szLw9ajbSEmE699ql_U8Aw"
+        },
+        "sources_sha256": "79f6e96213cbde53a86b1d4e78b72bb7a0cebf8eb159c5f1dc51631740199625"
+      },
+      "phase6-wcorr-6a-v1-priv-invalid-command": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-invalid-command",
+          "store.size": "9kb",
+          "uuid": "JoPWAflLRpWG_YEXVw2iKA"
+        },
+        "sources_sha256": "25598a98812dfa0ef38141bd031b23ecf3b8618fc3442e7285ef340ca183ecb0"
+      },
+      "phase6-wcorr-6a-v1-priv-mismatched-stage2-user": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-mismatched-stage2-user",
+          "store.size": "9.1kb",
+          "uuid": "kPsEGHstSS2g6zjoZT9u9Q"
+        },
+        "sources_sha256": "fd80a2f2cc63d0c560157b1e4f4e497b484d519b2ea076ced169fe82d65ccd6b"
+      },
+      "phase6-wcorr-6a-v1-priv-mismatched-stage3-user": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-mismatched-stage3-user",
+          "store.size": "9.1kb",
+          "uuid": "obzJts35RzGxs2XGy77o8w"
+        },
+        "sources_sha256": "ea9eecf9c8826c311aeedec55c0baffcba58c401a8557c3091e2bda51237059b"
+      },
+      "phase6-wcorr-6a-v1-priv-missing-agent": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-missing-agent",
+          "store.size": "9kb",
+          "uuid": "JY9t68hQTY24O6DNdvAe_g"
+        },
+        "sources_sha256": "fcc5b98cefd05a6986f6fad4e7cce028772274e151367ced7cfec3eac4e9de65"
+      },
+      "phase6-wcorr-6a-v1-priv-missing-command": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-missing-command",
+          "store.size": "8.2kb",
+          "uuid": "fKju4g6jTCWR7S4Sjsbs1w"
+        },
+        "sources_sha256": "98182fe1a0a4b53e514da5941fba965792bb7dd62c861333e6cae7aab68bb7dc"
+      },
+      "phase6-wcorr-6a-v1-priv-missing-dstuser": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-missing-dstuser",
+          "store.size": "9kb",
+          "uuid": "2WXNkir_SiOoF39yb92smQ"
+        },
+        "sources_sha256": "f4d57712b05c1249b59132f1479501b2098a62b370837e0b183411d9a57f1459"
+      },
+      "phase6-wcorr-6a-v1-priv-missing-srcuser": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-missing-srcuser",
+          "store.size": "9kb",
+          "uuid": "w9s736LESemX_fVGFbnHBQ"
+        },
+        "sources_sha256": "ed28036f9a89bdf9d98a2ba0eb9bf36659d2fc4483f0f66827afc38594500e4f"
+      },
+      "phase6-wcorr-6a-v1-priv-non-root-target": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-non-root-target",
+          "store.size": "9.1kb",
+          "uuid": "uhnaxxjMSqCLDFkexWtwLg"
+        },
+        "sources_sha256": "3eb52b2f050c9fd431d822aebd134684a7b869f7aaf52a8944d0c32654389835"
+      },
+      "phase6-wcorr-6a-v1-priv-optional-user-absent": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-optional-user-absent",
+          "store.size": "9kb",
+          "uuid": "Zn80C7wLQ--qS-JvakNm4w"
+        },
+        "sources_sha256": "a977afcf95cada198c976a57377ddd2830e02a2cfc80e8cdf5740025e8412364"
+      },
+      "phase6-wcorr-6a-v1-priv-optional-user-null": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-optional-user-null",
+          "store.size": "9.1kb",
+          "uuid": "Ktx9ohnlSJW0P3z-hfGEQA"
+        },
+        "sources_sha256": "8bab6679dfd34e453ff11c00fe4514f06a9026acc14c9baa67f5a5f9e8558076"
+      },
+      "phase6-wcorr-6a-v1-priv-outside-window": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-outside-window",
+          "store.size": "9.1kb",
+          "uuid": "hInt0-ldQr60J_6zj_ZXnQ"
+        },
+        "sources_sha256": "2d9370f61532995f14e69ee11f1483fb824ffc0a8e1a26625bf0e5c3d6aded7c"
+      },
+      "phase6-wcorr-6a-v1-priv-positive": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-positive",
+          "store.size": "9kb",
+          "uuid": "o1kbj6j_SQWrWH8oyrZpVw"
+        },
+        "sources_sha256": "11718b418f6bc9fca5484fda7591dd369f1dae372c08ae912feb9f535cb44719"
+      },
+      "phase6-wcorr-6a-v1-priv-reversed-order": {
+        "inventory": {
+          "docs.count": "3",
+          "index": "phase6-wcorr-6a-v1-priv-reversed-order",
+          "store.size": "9.1kb",
+          "uuid": "WWWG8CmLSHSP9kBbxs1Kdg"
+        },
+        "sources_sha256": "264a296ecd065515b68dd64e05d178825429c8ac8775b4c3bfbdb6ad9dd0b297"
+      },
+      "phase6-wcorr-6b-v1-pers": {
+        "inventory": {
+          "docs.count": "102",
+          "index": "phase6-wcorr-6b-v1-pers",
+          "store.size": "37.2kb",
+          "uuid": "hxRzlOI7TO6lKhram5vXEg"
+        },
+        "sources_sha256": "074d41ea8ece4d826576d094d98fda9f07f1c499a022ed5edea27c45796d0fb8"
+      },
+      "phase6-wcorr-6b-v1-ssh": {
+        "inventory": {
+          "docs.count": "54",
+          "index": "phase6-wcorr-6b-v1-ssh",
+          "store.size": "74.4kb",
+          "uuid": "OVKAueN_TDmGVwnAQ8IW6Q"
+        },
+        "sources_sha256": "be39f02ae0d14f0506751857926f5ef280293c78bf7bc8158821e54bb1657977"
+      },
+      "phase6-wcorr-6c-v1-pers": {
+        "inventory": {
+          "docs.count": "108",
+          "index": "phase6-wcorr-6c-v1-pers",
+          "store.size": "44.3kb",
+          "uuid": "F4TbEIjmQq2vDdUbUHTEPg"
+        },
+        "sources_sha256": "b03abf76238b123433b495e0392c57c7eccf70e3ded8482b1e8eaa6d860cb998"
+      },
+      "phase6-wcorr-6c-v1-ssh": {
+        "inventory": {
+          "docs.count": "78",
+          "index": "phase6-wcorr-6c-v1-ssh",
+          "store.size": "50.2kb",
+          "uuid": "obEzIPLYQfWUAghMZo-_iw"
+        },
+        "sources_sha256": "11cb7b27f0af5babd6186eea8f7c1b87e72282ac7b68aed511b948d3d0a53e90"
+      },
+      "phase6-wcorr-6d-v1-ssh003": {
+        "inventory": {
+          "docs.count": "86",
+          "index": "phase6-wcorr-6d-v1-ssh003",
+          "store.size": "146.7kb",
+          "uuid": "-q2fftW4S5y_wgjNLsQJzQ"
+        },
+        "sources_sha256": "201c01ad8b3064413be1a475ac0c5fac2abc3521c21fe26632f09ef6a2d57ed7"
+      },
+      "phase6-wcorr-6d-v1-ssh004": {
+        "inventory": {
+          "docs.count": "183",
+          "index": "phase6-wcorr-6d-v1-ssh004",
+          "store.size": "182.2kb",
+          "uuid": "YSFatdQvR7-EseYNeGJSfQ"
+        },
+        "sources_sha256": "180f95a40ce724bd3aaab6f07bf5974f2fd57493f48a716f4f471807a6278e4e"
+      }
+    }
+  },
+  "execution_log": "ssh005-positive PASS expected= [['ssh005-positive-s1', 'ssh005-positive-s2', 'ssh005-positive-s3']] actual= [['ssh005-positive-s1', 'ssh005-positive-s2', 'ssh005-positive-s3']] HTTP 200\nssh005-alternate-id PASS expected= [['ssh005-alternate-id-s1', 'ssh005-alternate-id-s2', 'ssh005-alternate-id-s3']] actual= [['ssh005-alternate-id-s1', 'ssh005-alternate-id-s2', 'ssh005-alternate-id-s3']] HTTP 200\nssh005-wrong-id-1 PASS expected= [] actual= [] HTTP 200\nssh005-agent-mismatch-1 PASS expected= [] actual= [] HTTP 200\nssh005-agent-missing-1 PASS expected= [] actual= [] HTTP 200\nssh005-agent-null-1 PASS expected= [] actual= [] HTTP 200\nssh005-rule-missing-1 PASS expected= [] actual= [] HTTP 200\nssh005-rule-null-1 PASS expected= [] actual= [] HTTP 200\nssh005-wrong-id-2 PASS expected= [] actual= [] HTTP 200\nssh005-agent-mismatch-2 PASS expected= [] actual= [] HTTP 200\nssh005-agent-missing-2 PASS expected= [] actual= [] HTTP 200\nssh005-agent-null-2 PASS expected= [] actual= [] HTTP 200\nssh005-rule-missing-2 PASS expected= [] actual= [] HTTP 200\nssh005-rule-null-2 PASS expected= [] actual= [] HTTP 200\nssh005-wrong-id-3 PASS expected= [] actual= [] HTTP 200\nssh005-agent-mismatch-3 PASS expected= [] actual= [] HTTP 200\nssh005-agent-missing-3 PASS expected= [] actual= [] HTTP 200\nssh005-agent-null-3 PASS expected= [] actual= [] HTTP 200\nssh005-rule-missing-3 PASS expected= [] actual= [] HTTP 200\nssh005-rule-null-3 PASS expected= [] actual= [] HTTP 200\nssh005-inside PASS expected= [['ssh005-inside-s1', 'ssh005-inside-s2', 'ssh005-inside-s3']] actual= [['ssh005-inside-s1', 'ssh005-inside-s2', 'ssh005-inside-s3']] HTTP 200\nssh005-boundary PASS expected= [['ssh005-boundary-s1', 'ssh005-boundary-s2', 'ssh005-boundary-s3']] actual= [['ssh005-boundary-s1', 'ssh005-boundary-s2', 'ssh005-boundary-s3']] HTTP 200\nssh005-outside PASS expected= [] actual= [] HTTP 200\nssh005-adjacent-total-outside PASS expected= [] actual= [] HTTP 200\nssh005-reversed PASS expected= [] actual= [] HTTP 200\nssh005-first-pair-reversed PASS expected= [] actual= [] HTTP 200\nssh005-last-pair-reversed PASS expected= [] actual= [] HTTP 200\nssh005-all-equal INCONCLUSIVE expected= None actual= [['ssh005-all-equal-s1', 'ssh005-all-equal-s2', 'ssh005-all-equal-s3']] HTTP 200\nssh005-first-pair-tied INCONCLUSIVE expected= None actual= [['ssh005-first-pair-tied-s1', 'ssh005-first-pair-tied-s2', 'ssh005-first-pair-tied-s3']] HTTP 200\nssh005-last-pair-tied INCONCLUSIVE expected= None actual= [['ssh005-last-pair-tied-s1', 'ssh005-last-pair-tied-s2', 'ssh005-last-pair-tied-s3']] HTTP 200\nssh005-predicate-case PASS expected= [] actual= [] HTTP 200\nssh005-predicate-prefix PASS expected= [] actual= [] HTTP 200\nssh005-predicate-suffix PASS expected= [] actual= [] HTTP 200\nssh005-predicate-path PASS expected= [] actual= [] HTTP 200\nssh005-predicate-null PASS expected= [] actual= [] HTTP 200\nssh005-predicate-empty PASS expected= [] actual= [] HTTP 200\nssh005-predicate-missing PASS expected= [] actual= [] HTTP 200\nssh005-audit-missing PASS expected= [] actual= [] HTTP 200\nssh005-predicate-wrong-stage PASS expected= [] actual= [] HTTP 200\nssh005-unrelated-users-path-mode PASS expected= [['ssh005-unrelated-users-path-mode-s1', 'ssh005-unrelated-users-path-mode-s2', 'ssh005-unrelated-users-path-mode-s3']] actual= [['ssh005-unrelated-users-path-mode-s1', 'ssh005-unrelated-users-path-mode-s2', 'ssh005-unrelated-users-path-mode-s3']] HTTP 200\nssh005-category-different PASS expected= [['ssh005-category-different-s1', 'ssh005-category-different-s2', 'ssh005-category-different-s3']] actual= [['ssh005-category-different-s1', 'ssh005-category-different-s2', 'ssh005-category-different-s3']] HTTP 200\nevas001-positive PASS expected= [['evas001-positive-s1', 'evas001-positive-s2', 'evas001-positive-s3']] actual= [['evas001-positive-s1', 'evas001-positive-s2', 'evas001-positive-s3']] HTTP 200\nevas001-alternate-id PASS expected= [['evas001-alternate-id-s1', 'evas001-alternate-id-s2', 'evas001-alternate-id-s3']] actual= [['evas001-alternate-id-s1', 'evas001-alternate-id-s2', 'evas001-alternate-id-s3']] HTTP 200\nevas001-wrong-id-1 PASS expected= [] actual= [] HTTP 200\nevas001-agent-mismatch-1 PASS expected= [] actual= [] HTTP 200\nevas001-agent-missing-1 PASS expected= [] actual= [] HTTP 200\nevas001-agent-null-1 PASS expected= [] actual= [] HTTP 200\nevas001-rule-missing-1 PASS expected= [] actual= [] HTTP 200\nevas001-rule-null-1 PASS expected= [] actual= [] HTTP 200\nevas001-wrong-id-2 PASS expected= [] actual= [] HTTP 200\nevas001-agent-mismatch-2 PASS expected= [] actual= [] HTTP 200\nevas001-agent-missing-2 PASS expected= [] actual= [] HTTP 200\nevas001-agent-null-2 PASS expected= [] actual= [] HTTP 200\nevas001-rule-missing-2 PASS expected= [] actual= [] HTTP 200\nevas001-rule-null-2 PASS expected= [] actual= [] HTTP 200\nevas001-wrong-id-3 PASS expected= [] actual= [] HTTP 200\nevas001-agent-mismatch-3 PASS expected= [] actual= [] HTTP 200\nevas001-agent-missing-3 PASS expected= [] actual= [] HTTP 200\nevas001-agent-null-3 PASS expected= [] actual= [] HTTP 200\nevas001-rule-missing-3 PASS expected= [] actual= [] HTTP 200\nevas001-rule-null-3 PASS expected= [] actual= [] HTTP 200\nevas001-inside PASS expected= [['evas001-inside-s1', 'evas001-inside-s2', 'evas001-inside-s3']] actual= [['evas001-inside-s1', 'evas001-inside-s2', 'evas001-inside-s3']] HTTP 200\nevas001-boundary PASS expected= [['evas001-boundary-s1', 'evas001-boundary-s2', 'evas001-boundary-s3']] actual= [['evas001-boundary-s1', 'evas001-boundary-s2', 'evas001-boundary-s3']] HTTP 200\nevas001-outside PASS expected= [] actual= [] HTTP 200\nevas001-adjacent-total-outside PASS expected= [] actual= [] HTTP 200\nevas001-reversed PASS expected= [] actual= [] HTTP 200\nevas001-first-pair-reversed PASS expected= [] actual= [] HTTP 200\nevas001-last-pair-reversed PASS expected= [] actual= [] HTTP 200\nevas001-all-equal INCONCLUSIVE expected= None actual= [['evas001-all-equal-s1', 'evas001-all-equal-s2', 'evas001-all-equal-s3']] HTTP 200\nevas001-first-pair-tied INCONCLUSIVE expected= None actual= [['evas001-first-pair-tied-s1', 'evas001-first-pair-tied-s2', 'evas001-first-pair-tied-s3']] HTTP 200\nevas001-last-pair-tied INCONCLUSIVE expected= None actual= [['evas001-last-pair-tied-s1', 'evas001-last-pair-tied-s2', 'evas001-last-pair-tied-s3']] HTTP 200\nevas001-predicate-case PASS expected= [] actual= [] HTTP 200\nevas001-predicate-prefix PASS expected= [] actual= [] HTTP 200\nevas001-predicate-suffix PASS expected= [] actual= [] HTTP 200\nevas001-predicate-path PASS expected= [] actual= [] HTTP 200\nevas001-predicate-null PASS expected= [] actual= [] HTTP 200\nevas001-predicate-empty PASS expected= [] actual= [] HTTP 200\nevas001-predicate-missing PASS expected= [] actual= [] HTTP 200\nevas001-audit-missing PASS expected= [] actual= [] HTTP 200\nevas001-predicate-wrong-stage PASS expected= [] actual= [] HTTP 200\nevas001-unrelated-users-path-mode PASS expected= [['evas001-unrelated-users-path-mode-s1', 'evas001-unrelated-users-path-mode-s2', 'evas001-unrelated-users-path-mode-s3']] actual= [['evas001-unrelated-users-path-mode-s1', 'evas001-unrelated-users-path-mode-s2', 'evas001-unrelated-users-path-mode-s3']] HTTP 200\nevas001-category-different PASS expected= [['evas001-category-different-s1', 'evas001-category-different-s2', 'evas001-category-different-s3']] actual= [['evas001-category-different-s1', 'evas001-category-different-s2', 'evas001-category-different-s3']] HTTP 200\n",
+  "predeclared_expectations": true,
+  "preexisting_unchanged": {
+    ".gitignore": {
+      "after": "494b3ea4744b4e6f77398388217774e18793fa60c98f0b456fc8947a88e1f397",
+      "before": "494b3ea4744b4e6f77398388217774e18793fa60c98f0b456fc8947a88e1f397"
+    },
+    "CONTRIBUTING.md": {
+      "after": "6d25f8b096f90adc6f479b0a4c923fe29146266fd6c6a2dd284a3a3ffae56418",
+      "before": "6d25f8b096f90adc6f479b0a4c923fe29146266fd6c6a2dd284a3a3ffae56418"
+    },
+    "LICENSE": {
+      "after": "5c9817c129b98e7bb966bca028c43c19107102ef8e03fe799bffb4354f4ef015",
+      "before": "5c9817c129b98e7bb966bca028c43c19107102ef8e03fe799bffb4354f4ef015"
+    },
+    "README.md": {
+      "after": "f2bda65821fb305ffb13502eb4df1cc69697b74edfd809351f720e7c55cbd3b4",
+      "before": "f2bda65821fb305ffb13502eb4df1cc69697b74edfd809351f720e7c55cbd3b4"
+    },
+    "config/logstash/environment.example": {
+      "after": "1a4395ee468d86387570087ca0883d05c37d84c1eae0096d01d668f07fe848d0",
+      "before": "1a4395ee468d86387570087ca0883d05c37d84c1eae0096d01d668f07fe848d0"
+    },
+    "config/logstash/logstash.conf": {
+      "after": "80f39c7859afe609f040b26c5c7988bc2f6492522b01a494c17974825c0cb545",
+      "before": "80f39c7859afe609f040b26c5c7988bc2f6492522b01a494c17974825c0cb545"
+    },
+    "config/logstash/pipelines.yml": {
+      "after": "64b627ad00c8fb02987b4816351356aa899fd131f01cbf2b67d44fe7562cde9a",
+      "before": "64b627ad00c8fb02987b4816351356aa899fd131f01cbf2b67d44fe7562cde9a"
+    },
+    "docs/architecture.md": {
+      "after": "6de9bb9107d7b49035ada1bc95f1f2f4d08e112d45e40294410e7d12ebba77b6",
+      "before": "6de9bb9107d7b49035ada1bc95f1f2f4d08e112d45e40294410e7d12ebba77b6"
+    },
+    "docs/configuration.md": {
+      "after": "7f4e240351f20f76fc7af0d30b756e3b16b9e4a12ebb8c7e6c0d3df3d41a7b1f",
+      "before": "7f4e240351f20f76fc7af0d30b756e3b16b9e4a12ebb8c7e6c0d3df3d41a7b1f"
+    },
+    "docs/correlation-rule-catalogue.md": {
+      "after": "fb63f5e5424c486205ee5666f917c1814ad16bbbad797ecc0e4e1e97c9905e30",
+      "before": "fb63f5e5424c486205ee5666f917c1814ad16bbbad797ecc0e4e1e97c9905e30"
+    },
+    "docs/ecs-normalisation-decision.md": {
+      "after": "30f6f2827deaca2ef590affdf66ecfb66eff4211da16f25f2d2db1ecedbd8ec3",
+      "before": "30f6f2827deaca2ef590affdf66ecfb66eff4211da16f25f2d2db1ecedbd8ec3"
+    },
+    "docs/installation.md": {
+      "after": "86b6c5c4f0c33cc9ba65e7569b29b702d7fe13308dea9805a329228c0dc05f26",
+      "before": "86b6c5c4f0c33cc9ba65e7569b29b702d7fe13308dea9805a329228c0dc05f26"
+    },
+    "docs/security.md": {
+      "after": "7b037ad2cb918190c23b38e623600732c99baa47592c161dc0e46ecad68a6bd0",
+      "before": "7b037ad2cb918190c23b38e623600732c99baa47592c161dc0e46ecad68a6bd0"
+    },
+    "docs/troubleshooting.md": {
+      "after": "98716efedd68fa72cb41ade16b47445ded706e5ebb10b6b6cd2fca4aba06a68a",
+      "before": "98716efedd68fa72cb41ade16b47445ded706e5ebb10b6b6cd2fca4aba06a68a"
+    },
+    "docs/validation-results.md": {
+      "after": "2c7ddc71b0f6c4b3f3aa32f4897367697c89ae727722ddf3d6a881b31f49148d",
+      "before": "2c7ddc71b0f6c4b3f3aa32f4897367697c89ae727722ddf3d6a881b31f49148d"
+    },
+    "docs/verification/PHASE1_REPORT.md": {
+      "after": "d8870257ef2efb04c10294167e3606166c0c2d2b8baee7c9724509abcbef4716",
+      "before": "d8870257ef2efb04c10294167e3606166c0c2d2b8baee7c9724509abcbef4716"
+    },
+    "docs/verification/PHASE2_REPORT.md": {
+      "after": "51f5fc508dcbab9ae6feb67d04c76804b583b5edfeebb582c6334e8df70a515c",
+      "before": "51f5fc508dcbab9ae6feb67d04c76804b583b5edfeebb582c6334e8df70a515c"
+    },
+    "docs/verification/PHASE3_PUBLICATION_AUDIT.md": {
+      "after": "352329e2ad267d2365633b5aa8af241e0ea5de66a0def5d4c9ee4482fb3f0603",
+      "before": "352329e2ad267d2365633b5aa8af241e0ea5de66a0def5d4c9ee4482fb3f0603"
+    },
+    "docs/verification/PHASE4_RENAME_REPORT.md": {
+      "after": "eebf7c30e081a24952850617045f3f0504b7334e381ed45860b787a2d7ebe9fa",
+      "before": "eebf7c30e081a24952850617045f3f0504b7334e381ed45860b787a2d7ebe9fa"
+    },
+    "docs/verification/PUBLICATION_MANIFEST.json": {
+      "after": "bb208468d0b08b913db523bfedf183f70ab4f3ae961a7884bc35f743d9b79ed9",
+      "before": "bb208468d0b08b913db523bfedf183f70ab4f3ae961a7884bc35f743d9b79ed9"
+    },
+    "docs/verification/phase6/6a-v1/results.json": {
+      "after": "a2c3ee0eacdd56518c96d75741c0cedb0cfe3a2b7c05a31d93f1a0b3e920f458",
+      "before": "a2c3ee0eacdd56518c96d75741c0cedb0cfe3a2b7c05a31d93f1a0b3e920f458"
+    },
+    "docs/verification/phase6/6b-v1/README.md": {
+      "after": "95aeb98db4a17704bf29f7fc58ba4711703a7948105c8f3394145e7c33fb8004",
+      "before": "95aeb98db4a17704bf29f7fc58ba4711703a7948105c8f3394145e7c33fb8004"
+    },
+    "docs/verification/phase6/6b-v1/REPORT.md": {
+      "after": "2e5791fd69b31ba51e172b7e8066c30713205781018502c59ad4aa4b7212ce34",
+      "before": "2e5791fd69b31ba51e172b7e8066c30713205781018502c59ad4aa4b7212ce34"
+    },
+    "docs/verification/phase6/6b-v1/integrity.json": {
+      "after": "14cd2b3084579928b92879f5ae12c19a7d5fe9f5b1f93ff213624fe06cca570e",
+      "before": "14cd2b3084579928b92879f5ae12c19a7d5fe9f5b1f93ff213624fe06cca570e"
+    },
+    "docs/verification/phase6/6b-v1/regression.json": {
+      "after": "8dd96f3d0bf6dc642df8dd4d84fad76bef7f2f830c65a9f6833756dc51f49675",
+      "before": "8dd96f3d0bf6dc642df8dd4d84fad76bef7f2f830c65a9f6833756dc51f49675"
+    },
+    "docs/verification/phase6/6b-v1/results.json": {
+      "after": "0a73c380ad806007059413f3374320f6a98533acd452d7859255107038773fd6",
+      "before": "0a73c380ad806007059413f3374320f6a98533acd452d7859255107038773fd6"
+    },
+    "docs/verification/phase6/6c-v1/README.md": {
+      "after": "ea66f98787d2b06715439c15af947624baac4f0fd92e26a3d3e23e8e9da28d3b",
+      "before": "ea66f98787d2b06715439c15af947624baac4f0fd92e26a3d3e23e8e9da28d3b"
+    },
+    "docs/verification/phase6/6c-v1/REPORT.md": {
+      "after": "1b5ef12ea54399eb52c37bcf390652061372df52a125b3394ac07ddabd9b2834",
+      "before": "1b5ef12ea54399eb52c37bcf390652061372df52a125b3394ac07ddabd9b2834"
+    },
+    "docs/verification/phase6/6c-v1/integrity.json": {
+      "after": "2bf13c72c1a90a02da233b5fff9368cfffd3bfe430469faf6762ae23b6030934",
+      "before": "2bf13c72c1a90a02da233b5fff9368cfffd3bfe430469faf6762ae23b6030934"
+    },
+    "docs/verification/phase6/6c-v1/regression.json": {
+      "after": "e9f97ae759f695d78a176229bc3324bbfc8f138a3dfcf2afebfb437586dde6cb",
+      "before": "e9f97ae759f695d78a176229bc3324bbfc8f138a3dfcf2afebfb437586dde6cb"
+    },
+    "docs/verification/phase6/6c-v1/results.json": {
+      "after": "525ec2cfe2b73fa39eae01074392a9618e02fdf358688a86a41f6f8ebd1bcccc",
+      "before": "525ec2cfe2b73fa39eae01074392a9618e02fdf358688a86a41f6f8ebd1bcccc"
+    },
+    "docs/verification/phase6/6d-v1/README.md": {
+      "after": "21ae03ac5c2e19e79298f44942d5a0d842cc320f602ecfbf3c3e52e4ef259902",
+      "before": "21ae03ac5c2e19e79298f44942d5a0d842cc320f602ecfbf3c3e52e4ef259902"
+    },
+    "docs/verification/phase6/6d-v1/REPORT.md": {
+      "after": "36d04168a60c8118e2a35b5cf05acd10f9b4bc43faa4949a8876dba80bd4fd7f",
+      "before": "36d04168a60c8118e2a35b5cf05acd10f9b4bc43faa4949a8876dba80bd4fd7f"
+    },
+    "docs/verification/phase6/6d-v1/integrity.json": {
+      "after": "77142f7aedf33dbda5d9cba1f1ea4bfe4b26f1d666aed3d1947e45d3be2cdae8",
+      "before": "77142f7aedf33dbda5d9cba1f1ea4bfe4b26f1d666aed3d1947e45d3be2cdae8"
+    },
+    "docs/verification/phase6/6d-v1/regression.json": {
+      "after": "8458c5845b3752afd1ed348dbf04e1cca51df799824b67a86b3cac467dd19d68",
+      "before": "8458c5845b3752afd1ed348dbf04e1cca51df799824b67a86b3cac467dd19d68"
+    },
+    "docs/verification/phase6/6d-v1/results.json": {
+      "after": "3fc9ca2db097d83fe15cf85324febfa71c7c438fbc4fdac154a8059a97c75101",
+      "before": "3fc9ca2db097d83fe15cf85324febfa71c7c438fbc4fdac154a8059a97c75101"
+    },
+    "docs/verification/phase6/QUALIFICATION.md": {
+      "after": "6ca25c910af6171b50a0cda5227fe415ff8c0a4cba936f4205e95e8ff37e6b59",
+      "before": "6ca25c910af6171b50a0cda5227fe415ff8c0a4cba936f4205e95e8ff37e6b59"
+    },
+    "docs/verification/phase6/README.md": {
+      "after": "b4eae1c343b904122f2b4dae63cf13a0fce9174f4787c823c5892116f719d17d",
+      "before": "b4eae1c343b904122f2b4dae63cf13a0fce9174f4787c823c5892116f719d17d"
+    },
+    "docs/verification/phase6/REPORT.md": {
+      "after": "af92f5af2674f523bf7c52b7785ab0cb56384fe1887a3e22c2b3facf79841e61",
+      "before": "af92f5af2674f523bf7c52b7785ab0cb56384fe1887a3e22c2b3facf79841e61"
+    },
+    "docs/verification/phase6/integrity.json": {
+      "after": "6fba4374bf84e5a7c5e57399f80e6acae0011bf5eb292ebbb40603a93741a732",
+      "before": "6fba4374bf84e5a7c5e57399f80e6acae0011bf5eb292ebbb40603a93741a732"
+    },
+    "docs/verification/phase6/regression.json": {
+      "after": "c66f6f6a40244bf28c804c7f58b62994f31fc4ac5d0c7db27dca5f39dd33242c",
+      "before": "c66f6f6a40244bf28c804c7f58b62994f31fc4ac5d0c7db27dca5f39dd33242c"
+    },
+    "rules/defence-evasion/WCORR-EVAS-001.eql": {
+      "after": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "before": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f"
+    },
+    "rules/defence-evasion/WCORR-EVAS-001.md": {
+      "after": "fd0f5fe9947d96cf569046c5996f4369d68ef0662f753124dba7591050a08dc5",
+      "before": "fd0f5fe9947d96cf569046c5996f4369d68ef0662f753124dba7591050a08dc5"
+    },
+    "rules/malware/WCORR-MAL-001.eql": {
+      "after": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "before": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a"
+    },
+    "rules/malware/WCORR-MAL-001.md": {
+      "after": "e84f7b2a6e5445708825879549b166b147487b1790d04c41058084e54cc8b210",
+      "before": "e84f7b2a6e5445708825879549b166b147487b1790d04c41058084e54cc8b210"
+    },
+    "rules/persistence/WCORR-PERS-001.eql": {
+      "after": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "before": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9"
+    },
+    "rules/persistence/WCORR-PERS-001.md": {
+      "after": "bb1c05f06eefb60acbddd066d3852fd52c17d8b6e78a2c4ace5b73e2dabb3acc",
+      "before": "bb1c05f06eefb60acbddd066d3852fd52c17d8b6e78a2c4ace5b73e2dabb3acc"
+    },
+    "rules/persistence/WCORR-PERS-002.eql": {
+      "after": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "before": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c"
+    },
+    "rules/persistence/WCORR-PERS-002.md": {
+      "after": "b74646b7a201d267f6fbce556caa439d0c670af6d107943cc78e686acdc39d4e",
+      "before": "b74646b7a201d267f6fbce556caa439d0c670af6d107943cc78e686acdc39d4e"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.eql": {
+      "after": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "before": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.md": {
+      "after": "446de8880dfed567e07b689f237f58daf3a1dfeb83467590f7cdfc99343019ea",
+      "before": "446de8880dfed567e07b689f237f58daf3a1dfeb83467590f7cdfc99343019ea"
+    },
+    "rules/ssh/WCORR-SSH-001.eql": {
+      "after": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "before": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91"
+    },
+    "rules/ssh/WCORR-SSH-001.md": {
+      "after": "0b3204f20447ea9a8c54523e2a3977c1f5ae9a58323e33fbf275b441c0cfc0b0",
+      "before": "0b3204f20447ea9a8c54523e2a3977c1f5ae9a58323e33fbf275b441c0cfc0b0"
+    },
+    "rules/ssh/WCORR-SSH-002.eql": {
+      "after": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "before": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12"
+    },
+    "rules/ssh/WCORR-SSH-002.md": {
+      "after": "c79664a214466d310ca671e90395e11fd12bb266d3a4906a6757ce8ac8336d2a",
+      "before": "c79664a214466d310ca671e90395e11fd12bb266d3a4906a6757ce8ac8336d2a"
+    },
+    "rules/ssh/WCORR-SSH-003.eql": {
+      "after": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "before": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776"
+    },
+    "rules/ssh/WCORR-SSH-003.md": {
+      "after": "ba10ee1792f708a8dc7eca13477ed48d207ae7d792f0bf642cb25e685e023ef3",
+      "before": "ba10ee1792f708a8dc7eca13477ed48d207ae7d792f0bf642cb25e685e023ef3"
+    },
+    "rules/ssh/WCORR-SSH-004.eql": {
+      "after": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "before": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f"
+    },
+    "rules/ssh/WCORR-SSH-004.md": {
+      "after": "5e25f5b2e923baccb863c07b1ec7d3eef5b6d54c7706af6ce76e5c8450c5331e",
+      "before": "5e25f5b2e923baccb863c07b1ec7d3eef5b6d54c7706af6ce76e5c8450c5331e"
+    },
+    "rules/ssh/WCORR-SSH-005.eql": {
+      "after": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "before": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c"
+    },
+    "rules/ssh/WCORR-SSH-005.md": {
+      "after": "ce4782e929261c255b71b57f04e4087bc07466788274af6609130a108e7b78f2",
+      "before": "ce4782e929261c255b71b57f04e4087bc07466788274af6609130a108e7b78f2"
+    },
+    "rules/web/WCORR-WEB-001.eql": {
+      "after": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "before": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f"
+    },
+    "rules/web/WCORR-WEB-001.md": {
+      "after": "ac419ee7df404f4024459a29f872d30c12e4091b4a5a1dc04cdf8f3e22f9884b",
+      "before": "ac419ee7df404f4024459a29f872d30c12e4091b4a5a1dc04cdf8f3e22f9884b"
+    },
+    "rules/web/WCORR-WEB-002.eql": {
+      "after": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "before": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff"
+    },
+    "rules/web/WCORR-WEB-002.md": {
+      "after": "083685ee95d8fa5b76c2bd36592bdd8460484b0e4be6c6304ee8eac406f84dd1",
+      "before": "083685ee95d8fa5b76c2bd36592bdd8460484b0e4be6c6304ee8eac406f84dd1"
+    },
+    "rules/web/WCORR-WEB-003.eql": {
+      "after": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "before": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428"
+    },
+    "rules/web/WCORR-WEB-003.md": {
+      "after": "7f222c753814d224662f68f41dfe52a9ca8e20f89885abc4b3311802114d95c8",
+      "before": "7f222c753814d224662f68f41dfe52a9ca8e20f89885abc4b3311802114d95c8"
+    },
+    "rules/web/WCORR-WEB-004.eql": {
+      "after": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "before": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03"
+    },
+    "rules/web/WCORR-WEB-004.md": {
+      "after": "3cc92e1821baef5363de0c5dc9c280111a8a0a831bfba3626b71c29020d6af48",
+      "before": "3cc92e1821baef5363de0c5dc9c280111a8a0a831bfba3626b71c29020d6af48"
+    },
+    "tests/fixtures/phase6/6b-mappings.json": {
+      "after": "664e384d10966c13b6dadf70b32a070d4e24b222da67edae7f6d75104f51e31d",
+      "before": "664e384d10966c13b6dadf70b32a070d4e24b222da67edae7f6d75104f51e31d"
+    },
+    "tests/fixtures/phase6/6b-scenarios.json": {
+      "after": "1266b5be930c1a37cb0604caf873b5d840a32265104a59d83fd0c3da52f2df04",
+      "before": "1266b5be930c1a37cb0604caf873b5d840a32265104a59d83fd0c3da52f2df04"
+    },
+    "tests/fixtures/phase6/6c-mappings.json": {
+      "after": "778258b036e6f165fa32b93264b82f226711203f3aef07630d059c04d12783d4",
+      "before": "778258b036e6f165fa32b93264b82f226711203f3aef07630d059c04d12783d4"
+    },
+    "tests/fixtures/phase6/6c-scenarios.json": {
+      "after": "55f5d20456a14332fe81e164dd10e538992ca291db1a8af9b069cc0e8452f215",
+      "before": "55f5d20456a14332fe81e164dd10e538992ca291db1a8af9b069cc0e8452f215"
+    },
+    "tests/fixtures/phase6/6d-mappings.json": {
+      "after": "6d4171e025a271d29821a86fe07d96897af53994de4f51c4bf5809aafdea59f6",
+      "before": "6d4171e025a271d29821a86fe07d96897af53994de4f51c4bf5809aafdea59f6"
+    },
+    "tests/fixtures/phase6/6d-scenarios.json": {
+      "after": "fbe30b612d2518332a34c73d068400f18c581d6414d755f0b5d4fb39a1b22914",
+      "before": "fbe30b612d2518332a34c73d068400f18c581d6414d755f0b5d4fb39a1b22914"
+    },
+    "tests/fixtures/phase6/mappings.json": {
+      "after": "de69ba27b1690efd96b8e9f3e2d8d5289f4d751f83d2419b8e50b581065a7bce",
+      "before": "de69ba27b1690efd96b8e9f3e2d8d5289f4d751f83d2419b8e50b581065a7bce"
+    },
+    "tests/fixtures/phase6/qualification.json": {
+      "after": "e62a1abc123ea7b7f9ad38c1d361ef02c8c7cc4d6cbe5b83a1afabb861fb5eb8",
+      "before": "e62a1abc123ea7b7f9ad38c1d361ef02c8c7cc4d6cbe5b83a1afabb861fb5eb8"
+    },
+    "tests/fixtures/phase6/scenarios.json": {
+      "after": "1d8be1bb9e41f74ac36bd4309728602752c7b9f4762a938713532d26ffa9dd70",
+      "before": "1d8be1bb9e41f74ac36bd4309728602752c7b9f4762a938713532d26ffa9dd70"
+    },
+    "tests/phase6_engine.py": {
+      "after": "59792d0e22554544135e46083ebf24561414638a07c8b35fefa6d64b24f9e023",
+      "before": "59792d0e22554544135e46083ebf24561414638a07c8b35fefa6d64b24f9e023"
+    },
+    "tests/phase6b_engine.py": {
+      "after": "d6f6d446f12b1822a5589919558b91a5783c17e74cd77f60d17320533ffa0c02",
+      "before": "d6f6d446f12b1822a5589919558b91a5783c17e74cd77f60d17320533ffa0c02"
+    },
+    "tests/phase6c_engine.py": {
+      "after": "8d3e13d48cf34abbb7df063a1f088f389c1bd2f214d85bbbb5d584a02714b84f",
+      "before": "8d3e13d48cf34abbb7df063a1f088f389c1bd2f214d85bbbb5d584a02714b84f"
+    },
+    "tests/phase6d_engine.py": {
+      "after": "81dca932e58d5891eb1b01de83f71585ca70e74ae7a1274bda5485d62482ecbc",
+      "before": "81dca932e58d5891eb1b01de83f71585ca70e74ae7a1274bda5485d62482ecbc"
+    },
+    "tests/rule-manifest.json": {
+      "after": "bfd6dd427a4de82127d594bf0951f03ade00e01a611b4b46ca177aa398e5379d",
+      "before": "bfd6dd427a4de82127d594bf0951f03ade00e01a611b4b46ca177aa398e5379d"
+    },
+    "tests/test_phase6_engine.py": {
+      "after": "fc02967164cb48665ff68d0d54df4c1c685893fc5af337cb01dd1c0e44b0120b",
+      "before": "fc02967164cb48665ff68d0d54df4c1c685893fc5af337cb01dd1c0e44b0120b"
+    },
+    "tests/test_phase6_qualification.py": {
+      "after": "3569bb615d8864f07c3b76e4e4716db9e1e874f322323a8feacd6c1a15999dcc",
+      "before": "3569bb615d8864f07c3b76e4e4716db9e1e874f322323a8feacd6c1a15999dcc"
+    },
+    "tests/test_phase6b_engine.py": {
+      "after": "beb543c6f273e54ef28e3342cc6a237458c570cb7c4426f0a65c6a794a8f1137",
+      "before": "beb543c6f273e54ef28e3342cc6a237458c570cb7c4426f0a65c6a794a8f1137"
+    },
+    "tests/test_phase6c_engine.py": {
+      "after": "3e4a003e3377acd7c78f6ec6c6e45cdc06260ce39eb9d55564bf7935bf2a6aec",
+      "before": "3e4a003e3377acd7c78f6ec6c6e45cdc06260ce39eb9d55564bf7935bf2a6aec"
+    },
+    "tests/test_phase6d_engine.py": {
+      "after": "6e59fd75cf47ed3e60178d84306c588fafe7da28b562086ce39946800646d808",
+      "before": "6e59fd75cf47ed3e60178d84306c588fafe7da28b562086ce39946800646d808"
+    },
+    "tests/validate_repository.py": {
+      "after": "c28f86a126a8bffba26583733889cb0b69113bae838d1ff9bbb7ddccc2dafc93",
+      "before": "c28f86a126a8bffba26583733889cb0b69113bae838d1ff9bbb7ddccc2dafc93"
+    }
+  },
+  "prior_indices_postrun": {
+    "phase6-wcorr-6a-v1-mal-alternate-rules": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-alternate-rules",
+        "store.size": "8.8kb",
+        "uuid": "BgaFtgLsTUKpF4QPgmz0eA"
+      },
+      "sources_sha256": "da85fbc0cd2dd75df9e1a0bec213a096a3ca01a8375a4f3d52cf6433dd61c5c2"
+    },
+    "phase6-wcorr-6a-v1-mal-dev-null-cr-both": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-both",
+        "store.size": "8.7kb",
+        "uuid": "zdPgWBpJQvyRZUhf4JlVVg"
+      },
+      "sources_sha256": "7c4b926478e337279b2dc6b4539fe3b6e9b911e43b3be345c6481724dffabbec"
+    },
+    "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2",
+        "store.size": "8.7kb",
+        "uuid": "o8CY1tl-R_upr4YemEVjyA"
+      },
+      "sources_sha256": "ad85ec587c86c39be98cf100cc7e2c301e300b8f4d2bedf66c0db453f4094b2e"
+    },
+    "phase6-wcorr-6a-v1-mal-different-agent": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-different-agent",
+        "store.size": "8.8kb",
+        "uuid": "9FRdiPn8Te2g0daPLiVfvA"
+      },
+      "sources_sha256": "359239a058404dba98164479484aed8e90f1b8aa1918bc83f18dc1426444994a"
+    },
+    "phase6-wcorr-6a-v1-mal-different-path": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-different-path",
+        "store.size": "8.8kb",
+        "uuid": "F_QsAN2mQnOnp2u6laPv5g"
+      },
+      "sources_sha256": "077754e4eb9652988fde150ef792aa82cb91593d30245ace33b0ea49272affc3"
+    },
+    "phase6-wcorr-6a-v1-mal-directory-bin": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-bin",
+        "store.size": "8.7kb",
+        "uuid": "rZ6ZpXhxSqmuljSDDR-F_w"
+      },
+      "sources_sha256": "ec438208bd9bf38c9c540ab1cf4cc0ec23974bc44252de10063ae709f08cba0e"
+    },
+    "phase6-wcorr-6a-v1-mal-directory-sbin": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-sbin",
+        "store.size": "8.7kb",
+        "uuid": "k09qMJ38SyCBVzF_2up30w"
+      },
+      "sources_sha256": "26011b33246bd681e0c35bc2411feaf7c1fdbebf64152043eb23d61138022eda"
+    },
+    "phase6-wcorr-6a-v1-mal-directory-usr-sbin": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-usr-sbin",
+        "store.size": "8.8kb",
+        "uuid": "aQHtc6x2Q22qH5k2L7ET0Q"
+      },
+      "sources_sha256": "0d001b0441b700f21ec023651189a45fe0a81c56c0b21bdc88b91708a7bb50ec"
+    },
+    "phase6-wcorr-6a-v1-mal-exact-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-exact-window",
+        "store.size": "8.8kb",
+        "uuid": "TQcnEupkSC-lcxpkDOFNJg"
+      },
+      "sources_sha256": "27a9ed9b5869b0ef2b1419d4b813cddb4bc52e72c4da7b82e66f860dd24def0f"
+    },
+    "phase6-wcorr-6a-v1-mal-inside-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-inside-window",
+        "store.size": "8.7kb",
+        "uuid": "lrNA6IYLT_yvRebiqpSb9Q"
+      },
+      "sources_sha256": "b5f35045f6b0bec6ac7c09943ee58d6d7d0da214164f7676dbf89e216c86dfb5"
+    },
+    "phase6-wcorr-6a-v1-mal-missing-file": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-file",
+        "store.size": "8kb",
+        "uuid": "xdK6KwUTTMqgyy7fZYqnSA"
+      },
+      "sources_sha256": "b6e262366060e0022ec5eb981c60722212f171b1976ef1d989c8a028a80cde26"
+    },
+    "phase6-wcorr-6a-v1-mal-missing-mode": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-mode",
+        "store.size": "8.1kb",
+        "uuid": "Q4hUkxJzR3eghoZcxzD42g"
+      },
+      "sources_sha256": "41faeb4d887389532e4308d735154096938d3e8779e6cc5ec891128eb774819a"
+    },
+    "phase6-wcorr-6a-v1-mal-missing-path": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-path",
+        "store.size": "8kb",
+        "uuid": "xaWujbztQKu7udsWKpADIg"
+      },
+      "sources_sha256": "68a8ec73ba6fb3e6cb4f24fe52d74c63940a915b8ae72c3c4fced3bad0d595b5"
+    },
+    "phase6-wcorr-6a-v1-mal-outside-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-outside-window",
+        "store.size": "8.8kb",
+        "uuid": "N-t1mYmbTX-qtENNaoILDg"
+      },
+      "sources_sha256": "a8a19b243fa72e308e5a2545648a4827a2a90a442f2018c2e77215b942edb64c"
+    },
+    "phase6-wcorr-6a-v1-mal-positive": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-positive",
+        "store.size": "8.7kb",
+        "uuid": "rvsdtXX1QZCKQb_sQLB0Fg"
+      },
+      "sources_sha256": "a1da7853f42a31a100a1c5410666b837b91569b7c1bd66dbff681c7d77de3c6a"
+    },
+    "phase6-wcorr-6a-v1-mal-reversed-order": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-reversed-order",
+        "store.size": "8.8kb",
+        "uuid": "Fbn1162fQ4Ktc0Hl2GaDSw"
+      },
+      "sources_sha256": "8a20639178b2ceca48a9faca58c1b4aa4406978231afe1bbc621277411e35d41"
+    },
+    "phase6-wcorr-6a-v1-mal-scheduled": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-scheduled",
+        "store.size": "8.7kb",
+        "uuid": "0OoKYN8fSGW74FC3oNlzlA"
+      },
+      "sources_sha256": "307eaf442049792da26c4b019b0026200b1d9e739efa2439693726c669660af5"
+    },
+    "phase6-wcorr-6a-v1-mal-unsupported-path": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-unsupported-path",
+        "store.size": "8.7kb",
+        "uuid": "pINLxUzSRgW_BLrK5nYK9w"
+      },
+      "sources_sha256": "7dd1df54011d26750e6f0a43f3838c9d6b02a1c91f20bdf0733cde29e1fb24dd"
+    },
+    "phase6-wcorr-6a-v1-priv-alternate-rule-command": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-alternate-rule-command",
+        "store.size": "9.1kb",
+        "uuid": "vUM8qjiJRzSkS4a-UQy6tA"
+      },
+      "sources_sha256": "62e34c3f7c43d6ebabf45dee0e6b0b05cad46710457971061d2219643a9ce70b"
+    },
+    "phase6-wcorr-6a-v1-priv-different-agent": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-different-agent",
+        "store.size": "9.1kb",
+        "uuid": "7lbT3LkFQG-kon-bjuOl9g"
+      },
+      "sources_sha256": "1e8bbc74efd674c03a5f53b6dac18a8a8774c3c0440f1f3ba07ff18a19ee231a"
+    },
+    "phase6-wcorr-6a-v1-priv-exact-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-exact-window",
+        "store.size": "9kb",
+        "uuid": "JeYBekFqSFiMUhjvFpJtEw"
+      },
+      "sources_sha256": "fcea7efe4017aca470a0cb6101c0af004ac744926bc000282486666c1d03868a"
+    },
+    "phase6-wcorr-6a-v1-priv-inside-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-inside-window",
+        "store.size": "9.1kb",
+        "uuid": "szLw9ajbSEmE699ql_U8Aw"
+      },
+      "sources_sha256": "79f6e96213cbde53a86b1d4e78b72bb7a0cebf8eb159c5f1dc51631740199625"
+    },
+    "phase6-wcorr-6a-v1-priv-invalid-command": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-invalid-command",
+        "store.size": "9kb",
+        "uuid": "JoPWAflLRpWG_YEXVw2iKA"
+      },
+      "sources_sha256": "25598a98812dfa0ef38141bd031b23ecf3b8618fc3442e7285ef340ca183ecb0"
+    },
+    "phase6-wcorr-6a-v1-priv-mismatched-stage2-user": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage2-user",
+        "store.size": "9.1kb",
+        "uuid": "kPsEGHstSS2g6zjoZT9u9Q"
+      },
+      "sources_sha256": "fd80a2f2cc63d0c560157b1e4f4e497b484d519b2ea076ced169fe82d65ccd6b"
+    },
+    "phase6-wcorr-6a-v1-priv-mismatched-stage3-user": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage3-user",
+        "store.size": "9.1kb",
+        "uuid": "obzJts35RzGxs2XGy77o8w"
+      },
+      "sources_sha256": "ea9eecf9c8826c311aeedec55c0baffcba58c401a8557c3091e2bda51237059b"
+    },
+    "phase6-wcorr-6a-v1-priv-missing-agent": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-agent",
+        "store.size": "9kb",
+        "uuid": "JY9t68hQTY24O6DNdvAe_g"
+      },
+      "sources_sha256": "fcc5b98cefd05a6986f6fad4e7cce028772274e151367ced7cfec3eac4e9de65"
+    },
+    "phase6-wcorr-6a-v1-priv-missing-command": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-command",
+        "store.size": "8.2kb",
+        "uuid": "fKju4g6jTCWR7S4Sjsbs1w"
+      },
+      "sources_sha256": "98182fe1a0a4b53e514da5941fba965792bb7dd62c861333e6cae7aab68bb7dc"
+    },
+    "phase6-wcorr-6a-v1-priv-missing-dstuser": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-dstuser",
+        "store.size": "9kb",
+        "uuid": "2WXNkir_SiOoF39yb92smQ"
+      },
+      "sources_sha256": "f4d57712b05c1249b59132f1479501b2098a62b370837e0b183411d9a57f1459"
+    },
+    "phase6-wcorr-6a-v1-priv-missing-srcuser": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-srcuser",
+        "store.size": "9kb",
+        "uuid": "w9s736LESemX_fVGFbnHBQ"
+      },
+      "sources_sha256": "ed28036f9a89bdf9d98a2ba0eb9bf36659d2fc4483f0f66827afc38594500e4f"
+    },
+    "phase6-wcorr-6a-v1-priv-non-root-target": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-non-root-target",
+        "store.size": "9.1kb",
+        "uuid": "uhnaxxjMSqCLDFkexWtwLg"
+      },
+      "sources_sha256": "3eb52b2f050c9fd431d822aebd134684a7b869f7aaf52a8944d0c32654389835"
+    },
+    "phase6-wcorr-6a-v1-priv-optional-user-absent": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-absent",
+        "store.size": "9kb",
+        "uuid": "Zn80C7wLQ--qS-JvakNm4w"
+      },
+      "sources_sha256": "a977afcf95cada198c976a57377ddd2830e02a2cfc80e8cdf5740025e8412364"
+    },
+    "phase6-wcorr-6a-v1-priv-optional-user-null": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-null",
+        "store.size": "9.1kb",
+        "uuid": "Ktx9ohnlSJW0P3z-hfGEQA"
+      },
+      "sources_sha256": "8bab6679dfd34e453ff11c00fe4514f06a9026acc14c9baa67f5a5f9e8558076"
+    },
+    "phase6-wcorr-6a-v1-priv-outside-window": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-outside-window",
+        "store.size": "9.1kb",
+        "uuid": "hInt0-ldQr60J_6zj_ZXnQ"
+      },
+      "sources_sha256": "2d9370f61532995f14e69ee11f1483fb824ffc0a8e1a26625bf0e5c3d6aded7c"
+    },
+    "phase6-wcorr-6a-v1-priv-positive": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-positive",
+        "store.size": "9kb",
+        "uuid": "o1kbj6j_SQWrWH8oyrZpVw"
+      },
+      "sources_sha256": "11718b418f6bc9fca5484fda7591dd369f1dae372c08ae912feb9f535cb44719"
+    },
+    "phase6-wcorr-6a-v1-priv-reversed-order": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-reversed-order",
+        "store.size": "9.1kb",
+        "uuid": "WWWG8CmLSHSP9kBbxs1Kdg"
+      },
+      "sources_sha256": "264a296ecd065515b68dd64e05d178825429c8ac8775b4c3bfbdb6ad9dd0b297"
+    },
+    "phase6-wcorr-6b-v1-pers": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "102",
+        "index": "phase6-wcorr-6b-v1-pers",
+        "store.size": "37.2kb",
+        "uuid": "hxRzlOI7TO6lKhram5vXEg"
+      },
+      "sources_sha256": "074d41ea8ece4d826576d094d98fda9f07f1c499a022ed5edea27c45796d0fb8"
+    },
+    "phase6-wcorr-6b-v1-ssh": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "54",
+        "index": "phase6-wcorr-6b-v1-ssh",
+        "store.size": "74.4kb",
+        "uuid": "OVKAueN_TDmGVwnAQ8IW6Q"
+      },
+      "sources_sha256": "be39f02ae0d14f0506751857926f5ef280293c78bf7bc8158821e54bb1657977"
+    },
+    "phase6-wcorr-6c-v1-pers": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "108",
+        "index": "phase6-wcorr-6c-v1-pers",
+        "store.size": "44.3kb",
+        "uuid": "F4TbEIjmQq2vDdUbUHTEPg"
+      },
+      "sources_sha256": "b03abf76238b123433b495e0392c57c7eccf70e3ded8482b1e8eaa6d860cb998"
+    },
+    "phase6-wcorr-6c-v1-ssh": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "78",
+        "index": "phase6-wcorr-6c-v1-ssh",
+        "store.size": "50.2kb",
+        "uuid": "obEzIPLYQfWUAghMZo-_iw"
+      },
+      "sources_sha256": "11cb7b27f0af5babd6186eea8f7c1b87e72282ac7b68aed511b948d3d0a53e90"
+    },
+    "phase6-wcorr-6d-v1-ssh003": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "86",
+        "index": "phase6-wcorr-6d-v1-ssh003",
+        "store.size": "101.3kb",
+        "uuid": "-q2fftW4S5y_wgjNLsQJzQ"
+      },
+      "sources_sha256": "201c01ad8b3064413be1a475ac0c5fac2abc3521c21fe26632f09ef6a2d57ed7"
+    },
+    "phase6-wcorr-6d-v1-ssh004": {
+      "all_ids_and_sources_equal": true,
+      "inventory": {
+        "docs.count": "183",
+        "index": "phase6-wcorr-6d-v1-ssh004",
+        "store.size": "93.1kb",
+        "uuid": "YSFatdQvR7-EseYNeGJSfQ"
+      },
+      "sources_sha256": "180f95a40ce724bd3aaab6f07bf5974f2fd57493f48a716f4f471807a6278e4e"
+    }
+  },
+  "publication_files_identical_to_v1.0.0": [
+    ".gitignore",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "config/logstash/environment.example",
+    "config/logstash/logstash.conf",
+    "config/logstash/pipelines.yml",
+    "docs/architecture.md",
+    "docs/configuration.md",
+    "docs/correlation-rule-catalogue.md",
+    "docs/ecs-normalisation-decision.md",
+    "docs/installation.md",
+    "docs/security.md",
+    "docs/troubleshooting.md",
+    "docs/validation-results.md",
+    "docs/verification/PHASE1_REPORT.md",
+    "docs/verification/PHASE2_REPORT.md",
+    "docs/verification/PHASE3_PUBLICATION_AUDIT.md",
+    "docs/verification/PHASE4_RENAME_REPORT.md",
+    "docs/verification/PUBLICATION_MANIFEST.json",
+    "rules/defence-evasion/WCORR-EVAS-001.eql",
+    "rules/defence-evasion/WCORR-EVAS-001.md",
+    "rules/malware/WCORR-MAL-001.eql",
+    "rules/malware/WCORR-MAL-001.md",
+    "rules/persistence/WCORR-PERS-001.eql",
+    "rules/persistence/WCORR-PERS-001.md",
+    "rules/persistence/WCORR-PERS-002.eql",
+    "rules/persistence/WCORR-PERS-002.md",
+    "rules/privilege-escalation/WCORR-PRIV-001.eql",
+    "rules/privilege-escalation/WCORR-PRIV-001.md",
+    "rules/ssh/WCORR-SSH-001.eql",
+    "rules/ssh/WCORR-SSH-001.md",
+    "rules/ssh/WCORR-SSH-002.eql",
+    "rules/ssh/WCORR-SSH-002.md",
+    "rules/ssh/WCORR-SSH-003.eql",
+    "rules/ssh/WCORR-SSH-003.md",
+    "rules/ssh/WCORR-SSH-004.eql",
+    "rules/ssh/WCORR-SSH-004.md",
+    "rules/ssh/WCORR-SSH-005.eql",
+    "rules/ssh/WCORR-SSH-005.md",
+    "rules/web/WCORR-WEB-001.eql",
+    "rules/web/WCORR-WEB-001.md",
+    "rules/web/WCORR-WEB-002.eql",
+    "rules/web/WCORR-WEB-002.md",
+    "rules/web/WCORR-WEB-003.eql",
+    "rules/web/WCORR-WEB-003.md",
+    "rules/web/WCORR-WEB-004.eql",
+    "rules/web/WCORR-WEB-004.md",
+    "tests/rule-manifest.json",
+    "tests/validate_repository.py"
+  ],
+  "results_sha256": "aaefa5fde96359dfdf2ce542c628a92e502d7cb6adb5502ffa3054343e8ff29a",
+  "retained_index_checks": {
+    "phase6-wcorr-6e-v1-evas001": {
+      "_count": {
+        "_shards": {
+          "failed": 0,
+          "skipped": 0,
+          "successful": 1,
+          "total": 1
+        },
+        "count": 123
+      },
+      "_mapping": {
+        "phase6-wcorr-6e-v1-evas001": {
+          "mappings": {
+            "_meta": {
+              "owner": "wcorr-phase6d-synthetic",
+              "schema": 1
+            },
+            "dynamic": "strict",
+            "properties": {
+              "agent": {
+                "properties": {
+                  "id": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "data": {
+                "properties": {
+                  "audit": {
+                    "properties": {
+                      "command": {
+                        "fields": {
+                          "keyword": {
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "text"
+                      },
+                      "type": {
+                        "fields": {
+                          "keyword": {
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "text"
+                      }
+                    }
+                  },
+                  "command": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "dstuser": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "srcuser": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "rule": {
+                "properties": {
+                  "id": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "syscheck": {
+                "properties": {
+                  "mode": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "path": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "timestamp": {
+                "type": "date"
+              },
+              "type": {
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                },
+                "type": "text"
+              }
+            }
+          }
+        }
+      },
+      "_settings": {
+        "phase6-wcorr-6e-v1-evas001": {
+          "settings": {
+            "index": {
+              "creation_date": "1793789150217",
+              "number_of_replicas": "0",
+              "number_of_shards": "1",
+              "provided_name": "phase6-wcorr-6e-v1-evas001",
+              "routing": {
+                "allocation": {
+                  "include": {
+                    "_tier_preference": "data_content"
+                  }
+                }
+              },
+              "uuid": "qvjH8PZuSVmO_PLc47uLbA",
+              "version": {
+                "created": "8537000"
+              }
+            }
+          }
+        }
+      }
+    },
+    "phase6-wcorr-6e-v1-ssh005": {
+      "_count": {
+        "_shards": {
+          "failed": 0,
+          "skipped": 0,
+          "successful": 1,
+          "total": 1
+        },
+        "count": 123
+      },
+      "_mapping": {
+        "phase6-wcorr-6e-v1-ssh005": {
+          "mappings": {
+            "_meta": {
+              "owner": "wcorr-phase6d-synthetic",
+              "schema": 1
+            },
+            "dynamic": "strict",
+            "properties": {
+              "agent": {
+                "properties": {
+                  "id": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "data": {
+                "properties": {
+                  "audit": {
+                    "properties": {
+                      "command": {
+                        "fields": {
+                          "keyword": {
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "text"
+                      },
+                      "type": {
+                        "fields": {
+                          "keyword": {
+                            "type": "keyword"
+                          }
+                        },
+                        "type": "text"
+                      }
+                    }
+                  },
+                  "command": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "dstuser": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "srcuser": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "rule": {
+                "properties": {
+                  "id": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "syscheck": {
+                "properties": {
+                  "mode": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  },
+                  "path": {
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    },
+                    "type": "text"
+                  }
+                }
+              },
+              "timestamp": {
+                "type": "date"
+              },
+              "type": {
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                },
+                "type": "text"
+              }
+            }
+          }
+        }
+      },
+      "_settings": {
+        "phase6-wcorr-6e-v1-ssh005": {
+          "settings": {
+            "index": {
+              "creation_date": "1793789067243",
+              "number_of_replicas": "0",
+              "number_of_shards": "1",
+              "provided_name": "phase6-wcorr-6e-v1-ssh005",
+              "routing": {
+                "allocation": {
+                  "include": {
+                    "_tier_preference": "data_content"
+                  }
+                }
+              },
+              "uuid": "Sb4skhJ1Trmgfkbl6cA4BA",
+              "version": {
+                "created": "8537000"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rules": {
+    "rules/defence-evasion/WCORR-EVAS-001.eql": {
+      "actual": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "expected": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f"
+    },
+    "rules/malware/WCORR-MAL-001.eql": {
+      "actual": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "expected": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a"
+    },
+    "rules/persistence/WCORR-PERS-001.eql": {
+      "actual": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "expected": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9"
+    },
+    "rules/persistence/WCORR-PERS-002.eql": {
+      "actual": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "expected": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.eql": {
+      "actual": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "expected": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2"
+    },
+    "rules/ssh/WCORR-SSH-001.eql": {
+      "actual": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "expected": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91"
+    },
+    "rules/ssh/WCORR-SSH-002.eql": {
+      "actual": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "expected": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12"
+    },
+    "rules/ssh/WCORR-SSH-003.eql": {
+      "actual": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "expected": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776"
+    },
+    "rules/ssh/WCORR-SSH-004.eql": {
+      "actual": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "expected": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f"
+    },
+    "rules/ssh/WCORR-SSH-005.eql": {
+      "actual": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "expected": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c"
+    },
+    "rules/web/WCORR-WEB-001.eql": {
+      "actual": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "expected": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f"
+    },
+    "rules/web/WCORR-WEB-002.eql": {
+      "actual": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "expected": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff"
+    },
+    "rules/web/WCORR-WEB-003.eql": {
+      "actual": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "expected": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428"
+    },
+    "rules/web/WCORR-WEB-004.eql": {
+      "actual": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "expected": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03"
+    }
+  }
+}

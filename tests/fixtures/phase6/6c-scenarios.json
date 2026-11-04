@@ -1,0 +1,4078 @@
+[
+  {
+    "id": "ssh-positive",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-positive-s1",
+        "ssh-positive-s2"
+      ]
+    ],
+    "note": "positive",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-01T00:00:00+00:00",
+          "lt": "2031-01-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-positive-s1",
+        "source": {
+          "timestamp": "2031-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-positive-s2",
+        "source": {
+          "timestamp": "2031-01-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-alternate-id",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-alternate-id-s1",
+        "ssh-alternate-id-s2"
+      ]
+    ],
+    "note": "alternate-id",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-02T00:00:00+00:00",
+          "lt": "2031-01-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-alternate-id-s1",
+        "source": {
+          "timestamp": "2031-01-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-alternate-id-s2",
+        "source": {
+          "timestamp": "2031-01-02T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5407"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-wrong-id-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-id-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-03T00:00:00+00:00",
+          "lt": "2031-01-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-wrong-id-1-s1",
+        "source": {
+          "timestamp": "2031-01-03T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "ssh-wrong-id-1-s2",
+        "source": {
+          "timestamp": "2031-01-03T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-different-agent-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "different-agent-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-04T00:00:00+00:00",
+          "lt": "2031-01-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-different-agent-1-s1",
+        "source": {
+          "timestamp": "2031-01-04T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-different-agent-1-s2",
+        "source": {
+          "timestamp": "2031-01-04T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-agent-missing-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-missing-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-05T00:00:00+00:00",
+          "lt": "2031-01-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-agent-missing-1-s1",
+        "source": {
+          "timestamp": "2031-01-05T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-agent-missing-1-s2",
+        "source": {
+          "timestamp": "2031-01-05T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-agent-null-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-null-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-06T00:00:00+00:00",
+          "lt": "2031-01-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-agent-null-1-s1",
+        "source": {
+          "timestamp": "2031-01-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-agent-null-1-s2",
+        "source": {
+          "timestamp": "2031-01-06T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-rule-missing-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-missing-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-07T00:00:00+00:00",
+          "lt": "2031-01-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-rule-missing-1-s1",
+        "source": {
+          "timestamp": "2031-01-07T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "ssh-rule-missing-1-s2",
+        "source": {
+          "timestamp": "2031-01-07T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-rule-null-1",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-null-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-08T00:00:00+00:00",
+          "lt": "2031-01-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-rule-null-1-s1",
+        "source": {
+          "timestamp": "2031-01-08T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      },
+      {
+        "id": "ssh-rule-null-1-s2",
+        "source": {
+          "timestamp": "2031-01-08T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-wrong-id-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-id-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-09T00:00:00+00:00",
+          "lt": "2031-01-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-wrong-id-2-s1",
+        "source": {
+          "timestamp": "2031-01-09T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-wrong-id-2-s2",
+        "source": {
+          "timestamp": "2031-01-09T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-different-agent-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "different-agent-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-10T00:00:00+00:00",
+          "lt": "2031-01-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-different-agent-2-s1",
+        "source": {
+          "timestamp": "2031-01-10T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-different-agent-2-s2",
+        "source": {
+          "timestamp": "2031-01-10T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-agent-missing-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-missing-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-11T00:00:00+00:00",
+          "lt": "2031-01-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-agent-missing-2-s1",
+        "source": {
+          "timestamp": "2031-01-11T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-agent-missing-2-s2",
+        "source": {
+          "timestamp": "2031-01-11T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-agent-null-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-null-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-12T00:00:00+00:00",
+          "lt": "2031-01-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-agent-null-2-s1",
+        "source": {
+          "timestamp": "2031-01-12T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-agent-null-2-s2",
+        "source": {
+          "timestamp": "2031-01-12T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-rule-missing-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-missing-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-13T00:00:00+00:00",
+          "lt": "2031-01-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-rule-missing-2-s1",
+        "source": {
+          "timestamp": "2031-01-13T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-rule-missing-2-s2",
+        "source": {
+          "timestamp": "2031-01-13T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-rule-null-2",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-null-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-14T00:00:00+00:00",
+          "lt": "2031-01-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-rule-null-2-s1",
+        "source": {
+          "timestamp": "2031-01-14T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-rule-null-2-s2",
+        "source": {
+          "timestamp": "2031-01-14T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-reversed",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "reversed",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-15T00:00:00+00:00",
+          "lt": "2031-01-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-reversed-s1",
+        "source": {
+          "timestamp": "2031-01-15T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-reversed-s2",
+        "source": {
+          "timestamp": "2031-01-15T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-inside",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-inside-s1",
+        "ssh-inside-s2"
+      ]
+    ],
+    "note": "inside",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-16T00:00:00+00:00",
+          "lt": "2031-01-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-inside-s1",
+        "source": {
+          "timestamp": "2031-01-16T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-inside-s2",
+        "source": {
+          "timestamp": "2031-01-16T00:14:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-boundary",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-boundary-s1",
+        "ssh-boundary-s2"
+      ]
+    ],
+    "note": "Predeclared inclusive maxspan expectation",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-17T00:00:00+00:00",
+          "lt": "2031-01-18T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-boundary-s1",
+        "source": {
+          "timestamp": "2031-01-17T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-boundary-s2",
+        "source": {
+          "timestamp": "2031-01-17T00:15:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-outside",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "outside",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-18T00:00:00+00:00",
+          "lt": "2031-01-19T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-outside-s1",
+        "source": {
+          "timestamp": "2031-01-18T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-outside-s2",
+        "source": {
+          "timestamp": "2031-01-18T00:15:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-equal-timestamps",
+    "rule": "ssh",
+    "classification": "semantic_investigation",
+    "expected": null,
+    "note": "No tiebreaker: observe without asserting deterministic ordering",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-19T00:00:00+00:00",
+          "lt": "2031-01-20T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-equal-timestamps-s1",
+        "source": {
+          "timestamp": "2031-01-19T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-equal-timestamps-s2",
+        "source": {
+          "timestamp": "2031-01-19T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-usermod",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-usermod-s1",
+        "ssh-command-usermod-s2"
+      ]
+    ],
+    "note": "command-usermod",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-20T00:00:00+00:00",
+          "lt": "2031-01-21T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-usermod-s1",
+        "source": {
+          "timestamp": "2031-01-20T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-usermod-s2",
+        "source": {
+          "timestamp": "2031-01-20T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/usermod lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-passwd",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-passwd-s1",
+        "ssh-command-passwd-s2"
+      ]
+    ],
+    "note": "command-passwd",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-21T00:00:00+00:00",
+          "lt": "2031-01-22T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-passwd-s1",
+        "source": {
+          "timestamp": "2031-01-21T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-passwd-s2",
+        "source": {
+          "timestamp": "2031-01-21T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/passwd lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-visudo",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-visudo-s1",
+        "ssh-command-visudo-s2"
+      ]
+    ],
+    "note": "command-visudo",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-22T00:00:00+00:00",
+          "lt": "2031-01-23T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-visudo-s1",
+        "source": {
+          "timestamp": "2031-01-22T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-visudo-s2",
+        "source": {
+          "timestamp": "2031-01-22T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/visudo lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-systemctl-disable",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-systemctl-disable-s1",
+        "ssh-command-systemctl-disable-s2"
+      ]
+    ],
+    "note": "command-systemctl-disable",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-23T00:00:00+00:00",
+          "lt": "2031-01-24T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-systemctl-disable-s1",
+        "source": {
+          "timestamp": "2031-01-23T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-systemctl-disable-s2",
+        "source": {
+          "timestamp": "2031-01-23T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/systemctl disable lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-systemctl-stop",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-systemctl-stop-s1",
+        "ssh-command-systemctl-stop-s2"
+      ]
+    ],
+    "note": "command-systemctl-stop",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-24T00:00:00+00:00",
+          "lt": "2031-01-25T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-systemctl-stop-s1",
+        "source": {
+          "timestamp": "2031-01-24T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-systemctl-stop-s2",
+        "source": {
+          "timestamp": "2031-01-24T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/systemctl stop lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-crontab",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-crontab-s1",
+        "ssh-command-crontab-s2"
+      ]
+    ],
+    "note": "command-crontab",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-25T00:00:00+00:00",
+          "lt": "2031-01-26T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-crontab-s1",
+        "source": {
+          "timestamp": "2031-01-25T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-crontab-s2",
+        "source": {
+          "timestamp": "2031-01-25T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/crontab lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-chmod",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-chmod-s1",
+        "ssh-command-chmod-s2"
+      ]
+    ],
+    "note": "command-chmod",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-26T00:00:00+00:00",
+          "lt": "2031-01-27T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-chmod-s1",
+        "source": {
+          "timestamp": "2031-01-26T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-chmod-s2",
+        "source": {
+          "timestamp": "2031-01-26T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/chmod lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-chown",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-command-chown-s1",
+        "ssh-command-chown-s2"
+      ]
+    ],
+    "note": "command-chown",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-27T00:00:00+00:00",
+          "lt": "2031-01-28T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-chown-s1",
+        "source": {
+          "timestamp": "2031-01-27T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-chown-s2",
+        "source": {
+          "timestamp": "2031-01-27T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/chown lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-dstuser-missing",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "dstuser-missing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-28T00:00:00+00:00",
+          "lt": "2031-01-29T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-dstuser-missing-s1",
+        "source": {
+          "timestamp": "2031-01-28T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-dstuser-missing-s2",
+        "source": {
+          "timestamp": "2031-01-28T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-dstuser-null",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "dstuser-null",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-29T00:00:00+00:00",
+          "lt": "2031-01-30T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-dstuser-null-s1",
+        "source": {
+          "timestamp": "2031-01-29T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-dstuser-null-s2",
+        "source": {
+          "timestamp": "2031-01-29T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": null,
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-missing",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "command-missing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-30T00:00:00+00:00",
+          "lt": "2031-01-31T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-missing-s1",
+        "source": {
+          "timestamp": "2031-01-30T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-missing-s2",
+        "source": {
+          "timestamp": "2031-01-30T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-null",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "command-null",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-31T00:00:00+00:00",
+          "lt": "2031-02-01T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-null-s1",
+        "source": {
+          "timestamp": "2031-01-31T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-null-s2",
+        "source": {
+          "timestamp": "2031-01-31T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-non-root",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "non-root",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-01T00:00:00+00:00",
+          "lt": "2031-02-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-non-root-s1",
+        "source": {
+          "timestamp": "2031-02-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-non-root-s2",
+        "source": {
+          "timestamp": "2031-02-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "admin",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-root-case",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "root-case",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-02T00:00:00+00:00",
+          "lt": "2031-02-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-root-case-s1",
+        "source": {
+          "timestamp": "2031-02-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-root-case-s2",
+        "source": {
+          "timestamp": "2031-02-02T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "Root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-invalid-command",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "invalid-command",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-03T00:00:00+00:00",
+          "lt": "2031-02-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-invalid-command-s1",
+        "source": {
+          "timestamp": "2031-02-03T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-invalid-command-s2",
+        "source": {
+          "timestamp": "2031-02-03T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-command-case",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "command-case",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-04T00:00:00+00:00",
+          "lt": "2031-02-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-command-case-s1",
+        "source": {
+          "timestamp": "2031-02-04T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-command-case-s2",
+        "source": {
+          "timestamp": "2031-02-04T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "USERADD lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-substring",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-substring-s1",
+        "ssh-substring-s2"
+      ]
+    ],
+    "note": "substring",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-05T00:00:00+00:00",
+          "lt": "2031-02-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-substring-s1",
+        "source": {
+          "timestamp": "2031-02-05T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-substring-s2",
+        "source": {
+          "timestamp": "2031-02-05T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "echo useradd"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-spacing",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [],
+    "note": "spacing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-06T00:00:00+00:00",
+          "lt": "2031-02-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-spacing-s1",
+        "source": {
+          "timestamp": "2031-02-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh-spacing-s2",
+        "source": {
+          "timestamp": "2031-02-06T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "systemctl  stop lab"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-unjoined-users",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-unjoined-users-s1",
+        "ssh-unjoined-users-s2"
+      ]
+    ],
+    "note": "Different login and sudo users still correlate; no user join",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-07T00:00:00+00:00",
+          "lt": "2031-02-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-unjoined-users-s1",
+        "source": {
+          "timestamp": "2031-02-07T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "alice",
+            "dstuser": "alice"
+          }
+        }
+      },
+      {
+        "id": "ssh-unjoined-users-s2",
+        "source": {
+          "timestamp": "2031-02-07T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account",
+            "srcuser": "bob"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ssh-login-user-null",
+    "rule": "ssh",
+    "classification": "assertion",
+    "expected": [
+      [
+        "ssh-login-user-null-s1",
+        "ssh-login-user-null-s2"
+      ]
+    ],
+    "note": "Login username is not required by the published query",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-08T00:00:00+00:00",
+          "lt": "2031-02-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh-login-user-null-s1",
+        "source": {
+          "timestamp": "2031-02-08T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "dstuser": null
+          }
+        }
+      },
+      {
+        "id": "ssh-login-user-null-s2",
+        "source": {
+          "timestamp": "2031-02-08T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "dstuser": "root",
+            "command": "/usr/sbin/useradd lab-account"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-positive",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-positive-s1",
+        "pers-positive-s2",
+        "pers-positive-s3"
+      ]
+    ],
+    "note": "positive",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-09T00:00:00+00:00",
+          "lt": "2031-02-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-positive-s1",
+        "source": {
+          "timestamp": "2031-02-09T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-positive-s2",
+        "source": {
+          "timestamp": "2031-02-09T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-positive-s3",
+        "source": {
+          "timestamp": "2031-02-09T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-alternate-id",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-alternate-id-s1",
+        "pers-alternate-id-s2",
+        "pers-alternate-id-s3"
+      ]
+    ],
+    "note": "alternate-id",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-10T00:00:00+00:00",
+          "lt": "2031-02-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-alternate-id-s1",
+        "source": {
+          "timestamp": "2031-02-10T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-alternate-id-s2",
+        "source": {
+          "timestamp": "2031-02-10T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-alternate-id-s3",
+        "source": {
+          "timestamp": "2031-02-10T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-wrong-id-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-id-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-11T00:00:00+00:00",
+          "lt": "2031-02-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-wrong-id-1-s1",
+        "source": {
+          "timestamp": "2031-02-11T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-1-s2",
+        "source": {
+          "timestamp": "2031-02-11T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-1-s3",
+        "source": {
+          "timestamp": "2031-02-11T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-different-agent-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "different-agent-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-12T00:00:00+00:00",
+          "lt": "2031-02-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-different-agent-1-s1",
+        "source": {
+          "timestamp": "2031-02-12T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-1-s2",
+        "source": {
+          "timestamp": "2031-02-12T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-1-s3",
+        "source": {
+          "timestamp": "2031-02-12T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-missing-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-missing-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-13T00:00:00+00:00",
+          "lt": "2031-02-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-missing-1-s1",
+        "source": {
+          "timestamp": "2031-02-13T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-1-s2",
+        "source": {
+          "timestamp": "2031-02-13T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-1-s3",
+        "source": {
+          "timestamp": "2031-02-13T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-null-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-null-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-14T00:00:00+00:00",
+          "lt": "2031-02-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-null-1-s1",
+        "source": {
+          "timestamp": "2031-02-14T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-1-s2",
+        "source": {
+          "timestamp": "2031-02-14T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-1-s3",
+        "source": {
+          "timestamp": "2031-02-14T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-missing-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-missing-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-15T00:00:00+00:00",
+          "lt": "2031-02-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-missing-1-s1",
+        "source": {
+          "timestamp": "2031-02-15T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "pers-rule-missing-1-s2",
+        "source": {
+          "timestamp": "2031-02-15T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-missing-1-s3",
+        "source": {
+          "timestamp": "2031-02-15T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-null-1",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-null-1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-16T00:00:00+00:00",
+          "lt": "2031-02-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-null-1-s1",
+        "source": {
+          "timestamp": "2031-02-16T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-1-s2",
+        "source": {
+          "timestamp": "2031-02-16T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-1-s3",
+        "source": {
+          "timestamp": "2031-02-16T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-wrong-id-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-id-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-17T00:00:00+00:00",
+          "lt": "2031-02-18T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-wrong-id-2-s1",
+        "source": {
+          "timestamp": "2031-02-17T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-2-s2",
+        "source": {
+          "timestamp": "2031-02-17T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-2-s3",
+        "source": {
+          "timestamp": "2031-02-17T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-different-agent-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "different-agent-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-18T00:00:00+00:00",
+          "lt": "2031-02-19T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-different-agent-2-s1",
+        "source": {
+          "timestamp": "2031-02-18T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-2-s2",
+        "source": {
+          "timestamp": "2031-02-18T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-2-s3",
+        "source": {
+          "timestamp": "2031-02-18T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-missing-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-missing-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-19T00:00:00+00:00",
+          "lt": "2031-02-20T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-missing-2-s1",
+        "source": {
+          "timestamp": "2031-02-19T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-2-s2",
+        "source": {
+          "timestamp": "2031-02-19T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-2-s3",
+        "source": {
+          "timestamp": "2031-02-19T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-null-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-null-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-20T00:00:00+00:00",
+          "lt": "2031-02-21T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-null-2-s1",
+        "source": {
+          "timestamp": "2031-02-20T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-2-s2",
+        "source": {
+          "timestamp": "2031-02-20T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-2-s3",
+        "source": {
+          "timestamp": "2031-02-20T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-missing-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-missing-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-21T00:00:00+00:00",
+          "lt": "2031-02-22T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-missing-2-s1",
+        "source": {
+          "timestamp": "2031-02-21T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-missing-2-s2",
+        "source": {
+          "timestamp": "2031-02-21T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-missing-2-s3",
+        "source": {
+          "timestamp": "2031-02-21T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-null-2",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-null-2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-22T00:00:00+00:00",
+          "lt": "2031-02-23T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-null-2-s1",
+        "source": {
+          "timestamp": "2031-02-22T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-2-s2",
+        "source": {
+          "timestamp": "2031-02-22T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-2-s3",
+        "source": {
+          "timestamp": "2031-02-22T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-wrong-id-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-id-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-23T00:00:00+00:00",
+          "lt": "2031-02-24T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-wrong-id-3-s1",
+        "source": {
+          "timestamp": "2031-02-23T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-3-s2",
+        "source": {
+          "timestamp": "2031-02-23T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-id-3-s3",
+        "source": {
+          "timestamp": "2031-02-23T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-different-agent-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "different-agent-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-24T00:00:00+00:00",
+          "lt": "2031-02-25T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-different-agent-3-s1",
+        "source": {
+          "timestamp": "2031-02-24T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-3-s2",
+        "source": {
+          "timestamp": "2031-02-24T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-3-s3",
+        "source": {
+          "timestamp": "2031-02-24T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-missing-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-missing-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-25T00:00:00+00:00",
+          "lt": "2031-02-26T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-missing-3-s1",
+        "source": {
+          "timestamp": "2031-02-25T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-3-s2",
+        "source": {
+          "timestamp": "2031-02-25T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-missing-3-s3",
+        "source": {
+          "timestamp": "2031-02-25T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-agent-null-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "agent-null-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-26T00:00:00+00:00",
+          "lt": "2031-02-27T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-agent-null-3-s1",
+        "source": {
+          "timestamp": "2031-02-26T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-3-s2",
+        "source": {
+          "timestamp": "2031-02-26T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-agent-null-3-s3",
+        "source": {
+          "timestamp": "2031-02-26T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-missing-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-missing-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-27T00:00:00+00:00",
+          "lt": "2031-02-28T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-missing-3-s1",
+        "source": {
+          "timestamp": "2031-02-27T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-missing-3-s2",
+        "source": {
+          "timestamp": "2031-02-27T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-missing-3-s3",
+        "source": {
+          "timestamp": "2031-02-27T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-rule-null-3",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "rule-null-3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-28T00:00:00+00:00",
+          "lt": "2031-03-01T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-rule-null-3-s1",
+        "source": {
+          "timestamp": "2031-02-28T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-3-s2",
+        "source": {
+          "timestamp": "2031-02-28T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-rule-null-3-s3",
+        "source": {
+          "timestamp": "2031-02-28T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-reversed",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "reversed",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-01T00:00:00+00:00",
+          "lt": "2031-03-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-reversed-s1",
+        "source": {
+          "timestamp": "2031-03-01T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-reversed-s2",
+        "source": {
+          "timestamp": "2031-03-01T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-reversed-s3",
+        "source": {
+          "timestamp": "2031-03-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-failure-before-fim",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "failure-before-fim",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-02T00:00:00+00:00",
+          "lt": "2031-03-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-failure-before-fim-s1",
+        "source": {
+          "timestamp": "2031-03-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-failure-before-fim-s2",
+        "source": {
+          "timestamp": "2031-03-02T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-failure-before-fim-s3",
+        "source": {
+          "timestamp": "2031-03-02T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-inside",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-inside-s1",
+        "pers-inside-s2",
+        "pers-inside-s3"
+      ]
+    ],
+    "note": "inside",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-03T00:00:00+00:00",
+          "lt": "2031-03-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-inside-s1",
+        "source": {
+          "timestamp": "2031-03-03T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-inside-s2",
+        "source": {
+          "timestamp": "2031-03-03T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-inside-s3",
+        "source": {
+          "timestamp": "2031-03-03T00:29:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-boundary",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-boundary-s1",
+        "pers-boundary-s2",
+        "pers-boundary-s3"
+      ]
+    ],
+    "note": "Predeclared inclusive maxspan expectation",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-04T00:00:00+00:00",
+          "lt": "2031-03-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-boundary-s1",
+        "source": {
+          "timestamp": "2031-03-04T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-boundary-s2",
+        "source": {
+          "timestamp": "2031-03-04T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-boundary-s3",
+        "source": {
+          "timestamp": "2031-03-04T00:30:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-outside",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "outside",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-05T00:00:00+00:00",
+          "lt": "2031-03-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-outside-s1",
+        "source": {
+          "timestamp": "2031-03-05T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-outside-s2",
+        "source": {
+          "timestamp": "2031-03-05T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-outside-s3",
+        "source": {
+          "timestamp": "2031-03-05T00:30:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-equal-timestamps",
+    "rule": "pers",
+    "classification": "semantic_investigation",
+    "expected": null,
+    "note": "No tiebreaker: observe without asserting deterministic ordering",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-06T00:00:00+00:00",
+          "lt": "2031-03-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-equal-timestamps-s1",
+        "source": {
+          "timestamp": "2031-03-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-equal-timestamps-s2",
+        "source": {
+          "timestamp": "2031-03-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-equal-timestamps-s3",
+        "source": {
+          "timestamp": "2031-03-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-usr-lib",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-usr-lib-s1",
+        "pers-usr-lib-s2",
+        "pers-usr-lib-s3"
+      ]
+    ],
+    "note": "usr-lib",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-07T00:00:00+00:00",
+          "lt": "2031-03-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-usr-lib-s1",
+        "source": {
+          "timestamp": "2031-03-07T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-usr-lib-s2",
+        "source": {
+          "timestamp": "2031-03-07T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/usr/lib/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-usr-lib-s3",
+        "source": {
+          "timestamp": "2031-03-07T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-lib",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-lib-s1",
+        "pers-lib-s2",
+        "pers-lib-s3"
+      ]
+    ],
+    "note": "lib",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-08T00:00:00+00:00",
+          "lt": "2031-03-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-lib-s1",
+        "source": {
+          "timestamp": "2031-03-08T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-lib-s2",
+        "source": {
+          "timestamp": "2031-03-08T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/lib/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-lib-s3",
+        "source": {
+          "timestamp": "2031-03-08T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-wrong-directory",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-directory",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-09T00:00:00+00:00",
+          "lt": "2031-03-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-wrong-directory-s1",
+        "source": {
+          "timestamp": "2031-03-09T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-directory-s2",
+        "source": {
+          "timestamp": "2031-03-09T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/tmp/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-directory-s3",
+        "source": {
+          "timestamp": "2031-03-09T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-wrong-suffix",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "wrong-suffix",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-10T00:00:00+00:00",
+          "lt": "2031-03-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-wrong-suffix-s1",
+        "source": {
+          "timestamp": "2031-03-10T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-suffix-s2",
+        "source": {
+          "timestamp": "2031-03-10T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.timer"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-suffix-s3",
+        "source": {
+          "timestamp": "2031-03-10T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-path-case",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "path-case",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-11T00:00:00+00:00",
+          "lt": "2031-03-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-path-case-s1",
+        "source": {
+          "timestamp": "2031-03-11T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-path-case-s2",
+        "source": {
+          "timestamp": "2031-03-11T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/ETC/systemd/system/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-path-case-s3",
+        "source": {
+          "timestamp": "2031-03-11T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-nested",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-nested-s1",
+        "pers-nested-s2",
+        "pers-nested-s3"
+      ]
+    ],
+    "note": "nested",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-12T00:00:00+00:00",
+          "lt": "2031-03-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-nested-s1",
+        "source": {
+          "timestamp": "2031-03-12T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-nested-s2",
+        "source": {
+          "timestamp": "2031-03-12T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/nested/lab.service"
+          }
+        }
+      },
+      {
+        "id": "pers-nested-s3",
+        "source": {
+          "timestamp": "2031-03-12T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-path-missing",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "path-missing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-13T00:00:00+00:00",
+          "lt": "2031-03-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-path-missing-s1",
+        "source": {
+          "timestamp": "2031-03-13T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-path-missing-s2",
+        "source": {
+          "timestamp": "2031-03-13T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {}
+        }
+      },
+      {
+        "id": "pers-path-missing-s3",
+        "source": {
+          "timestamp": "2031-03-13T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-path-null",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [],
+    "note": "path-null",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-14T00:00:00+00:00",
+          "lt": "2031-03-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-path-null-s1",
+        "source": {
+          "timestamp": "2031-03-14T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-path-null-s2",
+        "source": {
+          "timestamp": "2031-03-14T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": null
+          }
+        }
+      },
+      {
+        "id": "pers-path-null-s3",
+        "source": {
+          "timestamp": "2031-03-14T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-unrelated-service",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-unrelated-service-s1",
+        "pers-unrelated-service-s2",
+        "pers-unrelated-service-s3"
+      ]
+    ],
+    "note": "Service name is not a join key; causality is not enforced",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-15T00:00:00+00:00",
+          "lt": "2031-03-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-unrelated-service-s1",
+        "source": {
+          "timestamp": "2031-03-15T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-unrelated-service-s2",
+        "source": {
+          "timestamp": "2031-03-15T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/lab.service"
+          },
+          "service": {
+            "name": "alpha"
+          }
+        }
+      },
+      {
+        "id": "pers-unrelated-service-s3",
+        "source": {
+          "timestamp": "2031-03-15T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          },
+          "service": {
+            "name": "beta"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pers-empty-unit-basename",
+    "rule": "pers",
+    "classification": "assertion",
+    "expected": [
+      [
+        "pers-empty-unit-basename-s1",
+        "pers-empty-unit-basename-s2",
+        "pers-empty-unit-basename-s3"
+      ]
+    ],
+    "note": "Wildcard can match an empty basename",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-16T00:00:00+00:00",
+          "lt": "2031-03-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "pers-empty-unit-basename-s1",
+        "source": {
+          "timestamp": "2031-03-16T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-empty-unit-basename-s2",
+        "source": {
+          "timestamp": "2031-03-16T00:01:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/systemd/system/.service"
+          }
+        }
+      },
+      {
+        "id": "pers-empty-unit-basename-s3",
+        "source": {
+          "timestamp": "2031-03-16T00:02:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "40704"
+          }
+        }
+      }
+    ]
+  }
+]

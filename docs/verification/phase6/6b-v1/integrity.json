@@ -1,0 +1,854 @@
+{
+  "preexisting_unchanged": {
+    "README.md": {
+      "before": "f2bda65821fb305ffb13502eb4df1cc69697b74edfd809351f720e7c55cbd3b4",
+      "after": "f2bda65821fb305ffb13502eb4df1cc69697b74edfd809351f720e7c55cbd3b4"
+    },
+    "LICENSE": {
+      "before": "5c9817c129b98e7bb966bca028c43c19107102ef8e03fe799bffb4354f4ef015",
+      "after": "5c9817c129b98e7bb966bca028c43c19107102ef8e03fe799bffb4354f4ef015"
+    },
+    ".gitignore": {
+      "before": "494b3ea4744b4e6f77398388217774e18793fa60c98f0b456fc8947a88e1f397",
+      "after": "494b3ea4744b4e6f77398388217774e18793fa60c98f0b456fc8947a88e1f397"
+    },
+    "CONTRIBUTING.md": {
+      "before": "6d25f8b096f90adc6f479b0a4c923fe29146266fd6c6a2dd284a3a3ffae56418",
+      "after": "6d25f8b096f90adc6f479b0a4c923fe29146266fd6c6a2dd284a3a3ffae56418"
+    },
+    "docs/validation-results.md": {
+      "before": "2c7ddc71b0f6c4b3f3aa32f4897367697c89ae727722ddf3d6a881b31f49148d",
+      "after": "2c7ddc71b0f6c4b3f3aa32f4897367697c89ae727722ddf3d6a881b31f49148d"
+    },
+    "docs/ecs-normalisation-decision.md": {
+      "before": "30f6f2827deaca2ef590affdf66ecfb66eff4211da16f25f2d2db1ecedbd8ec3",
+      "after": "30f6f2827deaca2ef590affdf66ecfb66eff4211da16f25f2d2db1ecedbd8ec3"
+    },
+    "docs/architecture.md": {
+      "before": "6de9bb9107d7b49035ada1bc95f1f2f4d08e112d45e40294410e7d12ebba77b6",
+      "after": "6de9bb9107d7b49035ada1bc95f1f2f4d08e112d45e40294410e7d12ebba77b6"
+    },
+    "docs/security.md": {
+      "before": "7b037ad2cb918190c23b38e623600732c99baa47592c161dc0e46ecad68a6bd0",
+      "after": "7b037ad2cb918190c23b38e623600732c99baa47592c161dc0e46ecad68a6bd0"
+    },
+    "docs/installation.md": {
+      "before": "86b6c5c4f0c33cc9ba65e7569b29b702d7fe13308dea9805a329228c0dc05f26",
+      "after": "86b6c5c4f0c33cc9ba65e7569b29b702d7fe13308dea9805a329228c0dc05f26"
+    },
+    "docs/configuration.md": {
+      "before": "7f4e240351f20f76fc7af0d30b756e3b16b9e4a12ebb8c7e6c0d3df3d41a7b1f",
+      "after": "7f4e240351f20f76fc7af0d30b756e3b16b9e4a12ebb8c7e6c0d3df3d41a7b1f"
+    },
+    "docs/troubleshooting.md": {
+      "before": "98716efedd68fa72cb41ade16b47445ded706e5ebb10b6b6cd2fca4aba06a68a",
+      "after": "98716efedd68fa72cb41ade16b47445ded706e5ebb10b6b6cd2fca4aba06a68a"
+    },
+    "docs/correlation-rule-catalogue.md": {
+      "before": "fb63f5e5424c486205ee5666f917c1814ad16bbbad797ecc0e4e1e97c9905e30",
+      "after": "fb63f5e5424c486205ee5666f917c1814ad16bbbad797ecc0e4e1e97c9905e30"
+    },
+    "tests/validate_repository.py": {
+      "before": "c28f86a126a8bffba26583733889cb0b69113bae838d1ff9bbb7ddccc2dafc93",
+      "after": "c28f86a126a8bffba26583733889cb0b69113bae838d1ff9bbb7ddccc2dafc93"
+    },
+    "tests/rule-manifest.json": {
+      "before": "bfd6dd427a4de82127d594bf0951f03ade00e01a611b4b46ca177aa398e5379d",
+      "after": "bfd6dd427a4de82127d594bf0951f03ade00e01a611b4b46ca177aa398e5379d"
+    },
+    "tests/test_phase6_qualification.py": {
+      "before": "3569bb615d8864f07c3b76e4e4716db9e1e874f322323a8feacd6c1a15999dcc",
+      "after": "3569bb615d8864f07c3b76e4e4716db9e1e874f322323a8feacd6c1a15999dcc"
+    },
+    "tests/test_phase6_engine.py": {
+      "before": "fc02967164cb48665ff68d0d54df4c1c685893fc5af337cb01dd1c0e44b0120b",
+      "after": "fc02967164cb48665ff68d0d54df4c1c685893fc5af337cb01dd1c0e44b0120b"
+    },
+    "config/logstash/environment.example": {
+      "before": "1a4395ee468d86387570087ca0883d05c37d84c1eae0096d01d668f07fe848d0",
+      "after": "1a4395ee468d86387570087ca0883d05c37d84c1eae0096d01d668f07fe848d0"
+    },
+    "config/logstash/pipelines.yml": {
+      "before": "64b627ad00c8fb02987b4816351356aa899fd131f01cbf2b67d44fe7562cde9a",
+      "after": "64b627ad00c8fb02987b4816351356aa899fd131f01cbf2b67d44fe7562cde9a"
+    },
+    "config/logstash/logstash.conf": {
+      "before": "80f39c7859afe609f040b26c5c7988bc2f6492522b01a494c17974825c0cb545",
+      "after": "80f39c7859afe609f040b26c5c7988bc2f6492522b01a494c17974825c0cb545"
+    },
+    "docs/verification/PHASE1_REPORT.md": {
+      "before": "d8870257ef2efb04c10294167e3606166c0c2d2b8baee7c9724509abcbef4716",
+      "after": "d8870257ef2efb04c10294167e3606166c0c2d2b8baee7c9724509abcbef4716"
+    },
+    "docs/verification/PHASE4_RENAME_REPORT.md": {
+      "before": "eebf7c30e081a24952850617045f3f0504b7334e381ed45860b787a2d7ebe9fa",
+      "after": "eebf7c30e081a24952850617045f3f0504b7334e381ed45860b787a2d7ebe9fa"
+    },
+    "docs/verification/PHASE3_PUBLICATION_AUDIT.md": {
+      "before": "352329e2ad267d2365633b5aa8af241e0ea5de66a0def5d4c9ee4482fb3f0603",
+      "after": "352329e2ad267d2365633b5aa8af241e0ea5de66a0def5d4c9ee4482fb3f0603"
+    },
+    "docs/verification/PUBLICATION_MANIFEST.json": {
+      "before": "bb208468d0b08b913db523bfedf183f70ab4f3ae961a7884bc35f743d9b79ed9",
+      "after": "bb208468d0b08b913db523bfedf183f70ab4f3ae961a7884bc35f743d9b79ed9"
+    },
+    "docs/verification/PHASE2_REPORT.md": {
+      "before": "51f5fc508dcbab9ae6feb67d04c76804b583b5edfeebb582c6334e8df70a515c",
+      "after": "51f5fc508dcbab9ae6feb67d04c76804b583b5edfeebb582c6334e8df70a515c"
+    },
+    "docs/verification/phase6/REPORT.md": {
+      "before": "af92f5af2674f523bf7c52b7785ab0cb56384fe1887a3e22c2b3facf79841e61",
+      "after": "af92f5af2674f523bf7c52b7785ab0cb56384fe1887a3e22c2b3facf79841e61"
+    },
+    "docs/verification/phase6/README.md": {
+      "before": "b4eae1c343b904122f2b4dae63cf13a0fce9174f4787c823c5892116f719d17d",
+      "after": "b4eae1c343b904122f2b4dae63cf13a0fce9174f4787c823c5892116f719d17d"
+    },
+    "docs/verification/phase6/regression.json": {
+      "before": "c66f6f6a40244bf28c804c7f58b62994f31fc4ac5d0c7db27dca5f39dd33242c",
+      "after": "c66f6f6a40244bf28c804c7f58b62994f31fc4ac5d0c7db27dca5f39dd33242c"
+    },
+    "docs/verification/phase6/QUALIFICATION.md": {
+      "before": "6ca25c910af6171b50a0cda5227fe415ff8c0a4cba936f4205e95e8ff37e6b59",
+      "after": "6ca25c910af6171b50a0cda5227fe415ff8c0a4cba936f4205e95e8ff37e6b59"
+    },
+    "docs/verification/phase6/integrity.json": {
+      "before": "6fba4374bf84e5a7c5e57399f80e6acae0011bf5eb292ebbb40603a93741a732",
+      "after": "6fba4374bf84e5a7c5e57399f80e6acae0011bf5eb292ebbb40603a93741a732"
+    },
+    "docs/verification/phase6/6a-v1/results.json": {
+      "before": "a2c3ee0eacdd56518c96d75741c0cedb0cfe3a2b7c05a31d93f1a0b3e920f458",
+      "after": "a2c3ee0eacdd56518c96d75741c0cedb0cfe3a2b7c05a31d93f1a0b3e920f458"
+    },
+    "rules/persistence/WCORR-PERS-001.md": {
+      "before": "bb1c05f06eefb60acbddd066d3852fd52c17d8b6e78a2c4ace5b73e2dabb3acc",
+      "after": "bb1c05f06eefb60acbddd066d3852fd52c17d8b6e78a2c4ace5b73e2dabb3acc"
+    },
+    "rules/persistence/WCORR-PERS-002.md": {
+      "before": "b74646b7a201d267f6fbce556caa439d0c670af6d107943cc78e686acdc39d4e",
+      "after": "b74646b7a201d267f6fbce556caa439d0c670af6d107943cc78e686acdc39d4e"
+    },
+    "rules/persistence/WCORR-PERS-001.eql": {
+      "before": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "after": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9"
+    },
+    "rules/persistence/WCORR-PERS-002.eql": {
+      "before": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "after": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.eql": {
+      "before": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "after": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.md": {
+      "before": "446de8880dfed567e07b689f237f58daf3a1dfeb83467590f7cdfc99343019ea",
+      "after": "446de8880dfed567e07b689f237f58daf3a1dfeb83467590f7cdfc99343019ea"
+    },
+    "rules/malware/WCORR-MAL-001.md": {
+      "before": "e84f7b2a6e5445708825879549b166b147487b1790d04c41058084e54cc8b210",
+      "after": "e84f7b2a6e5445708825879549b166b147487b1790d04c41058084e54cc8b210"
+    },
+    "rules/malware/WCORR-MAL-001.eql": {
+      "before": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "after": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a"
+    },
+    "rules/web/WCORR-WEB-002.eql": {
+      "before": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "after": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff"
+    },
+    "rules/web/WCORR-WEB-003.md": {
+      "before": "7f222c753814d224662f68f41dfe52a9ca8e20f89885abc4b3311802114d95c8",
+      "after": "7f222c753814d224662f68f41dfe52a9ca8e20f89885abc4b3311802114d95c8"
+    },
+    "rules/web/WCORR-WEB-004.md": {
+      "before": "3cc92e1821baef5363de0c5dc9c280111a8a0a831bfba3626b71c29020d6af48",
+      "after": "3cc92e1821baef5363de0c5dc9c280111a8a0a831bfba3626b71c29020d6af48"
+    },
+    "rules/web/WCORR-WEB-003.eql": {
+      "before": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "after": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428"
+    },
+    "rules/web/WCORR-WEB-001.eql": {
+      "before": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "after": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f"
+    },
+    "rules/web/WCORR-WEB-004.eql": {
+      "before": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "after": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03"
+    },
+    "rules/web/WCORR-WEB-002.md": {
+      "before": "083685ee95d8fa5b76c2bd36592bdd8460484b0e4be6c6304ee8eac406f84dd1",
+      "after": "083685ee95d8fa5b76c2bd36592bdd8460484b0e4be6c6304ee8eac406f84dd1"
+    },
+    "rules/web/WCORR-WEB-001.md": {
+      "before": "ac419ee7df404f4024459a29f872d30c12e4091b4a5a1dc04cdf8f3e22f9884b",
+      "after": "ac419ee7df404f4024459a29f872d30c12e4091b4a5a1dc04cdf8f3e22f9884b"
+    },
+    "rules/ssh/WCORR-SSH-003.eql": {
+      "before": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "after": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776"
+    },
+    "rules/ssh/WCORR-SSH-002.md": {
+      "before": "c79664a214466d310ca671e90395e11fd12bb266d3a4906a6757ce8ac8336d2a",
+      "after": "c79664a214466d310ca671e90395e11fd12bb266d3a4906a6757ce8ac8336d2a"
+    },
+    "rules/ssh/WCORR-SSH-003.md": {
+      "before": "ba10ee1792f708a8dc7eca13477ed48d207ae7d792f0bf642cb25e685e023ef3",
+      "after": "ba10ee1792f708a8dc7eca13477ed48d207ae7d792f0bf642cb25e685e023ef3"
+    },
+    "rules/ssh/WCORR-SSH-002.eql": {
+      "before": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "after": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12"
+    },
+    "rules/ssh/WCORR-SSH-004.md": {
+      "before": "5e25f5b2e923baccb863c07b1ec7d3eef5b6d54c7706af6ce76e5c8450c5331e",
+      "after": "5e25f5b2e923baccb863c07b1ec7d3eef5b6d54c7706af6ce76e5c8450c5331e"
+    },
+    "rules/ssh/WCORR-SSH-004.eql": {
+      "before": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "after": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f"
+    },
+    "rules/ssh/WCORR-SSH-005.eql": {
+      "before": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "after": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c"
+    },
+    "rules/ssh/WCORR-SSH-001.md": {
+      "before": "0b3204f20447ea9a8c54523e2a3977c1f5ae9a58323e33fbf275b441c0cfc0b0",
+      "after": "0b3204f20447ea9a8c54523e2a3977c1f5ae9a58323e33fbf275b441c0cfc0b0"
+    },
+    "rules/ssh/WCORR-SSH-005.md": {
+      "before": "ce4782e929261c255b71b57f04e4087bc07466788274af6609130a108e7b78f2",
+      "after": "ce4782e929261c255b71b57f04e4087bc07466788274af6609130a108e7b78f2"
+    },
+    "rules/ssh/WCORR-SSH-001.eql": {
+      "before": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "after": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91"
+    },
+    "rules/defence-evasion/WCORR-EVAS-001.eql": {
+      "before": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "after": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f"
+    },
+    "rules/defence-evasion/WCORR-EVAS-001.md": {
+      "before": "fd0f5fe9947d96cf569046c5996f4369d68ef0662f753124dba7591050a08dc5",
+      "after": "fd0f5fe9947d96cf569046c5996f4369d68ef0662f753124dba7591050a08dc5"
+    },
+    "tests/fixtures/phase6/scenarios.json": {
+      "before": "1d8be1bb9e41f74ac36bd4309728602752c7b9f4762a938713532d26ffa9dd70",
+      "after": "1d8be1bb9e41f74ac36bd4309728602752c7b9f4762a938713532d26ffa9dd70"
+    },
+    "tests/fixtures/phase6/mappings.json": {
+      "before": "de69ba27b1690efd96b8e9f3e2d8d5289f4d751f83d2419b8e50b581065a7bce",
+      "after": "de69ba27b1690efd96b8e9f3e2d8d5289f4d751f83d2419b8e50b581065a7bce"
+    },
+    "tests/fixtures/phase6/qualification.json": {
+      "before": "e62a1abc123ea7b7f9ad38c1d361ef02c8c7cc4d6cbe5b83a1afabb861fb5eb8",
+      "after": "e62a1abc123ea7b7f9ad38c1d361ef02c8c7cc4d6cbe5b83a1afabb861fb5eb8"
+    }
+  },
+  "authorized_modified_preexisting": {
+    "tests/phase6_engine.py": {
+      "before": "57a2d89c3fa859e202343c53c9e9417e3868439be96d9b397101a4c067e3a716",
+      "after": "59792d0e22554544135e46083ebf24561414638a07c8b35fefa6d64b24f9e023"
+    },
+    "tests/validate_development.py": {
+      "before": "9fa28ec577e54465ad366c83035cbdec19c4a24987bad3f749e2a751777cb3f8",
+      "after": "2fe00371d8ae1a6a5a29cf6e418b716ec28b829189fbc046aa03106ebd0ecf94"
+    }
+  },
+  "rules": {
+    "rules/ssh/WCORR-SSH-001.eql": {
+      "expected": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "actual": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91"
+    },
+    "rules/ssh/WCORR-SSH-002.eql": {
+      "expected": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "actual": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12"
+    },
+    "rules/ssh/WCORR-SSH-003.eql": {
+      "expected": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "actual": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776"
+    },
+    "rules/ssh/WCORR-SSH-004.eql": {
+      "expected": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "actual": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f"
+    },
+    "rules/ssh/WCORR-SSH-005.eql": {
+      "expected": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "actual": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c"
+    },
+    "rules/web/WCORR-WEB-001.eql": {
+      "expected": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "actual": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f"
+    },
+    "rules/web/WCORR-WEB-002.eql": {
+      "expected": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "actual": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff"
+    },
+    "rules/web/WCORR-WEB-003.eql": {
+      "expected": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "actual": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428"
+    },
+    "rules/web/WCORR-WEB-004.eql": {
+      "expected": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "actual": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03"
+    },
+    "rules/privilege-escalation/WCORR-PRIV-001.eql": {
+      "expected": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "actual": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2"
+    },
+    "rules/persistence/WCORR-PERS-001.eql": {
+      "expected": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "actual": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9"
+    },
+    "rules/persistence/WCORR-PERS-002.eql": {
+      "expected": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "actual": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c"
+    },
+    "rules/defence-evasion/WCORR-EVAS-001.eql": {
+      "expected": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "actual": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f"
+    },
+    "rules/malware/WCORR-MAL-001.eql": {
+      "expected": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "actual": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a"
+    }
+  },
+  "publication_tag_byte_comparison": {
+    ".gitignore": true,
+    "CONTRIBUTING.md": true,
+    "LICENSE": true,
+    "README.md": true,
+    "config/logstash/environment.example": true,
+    "config/logstash/logstash.conf": true,
+    "config/logstash/pipelines.yml": true,
+    "docs/architecture.md": true,
+    "docs/configuration.md": true,
+    "docs/correlation-rule-catalogue.md": true,
+    "docs/ecs-normalisation-decision.md": true,
+    "docs/installation.md": true,
+    "docs/security.md": true,
+    "docs/troubleshooting.md": true,
+    "docs/validation-results.md": true,
+    "docs/verification/PHASE1_REPORT.md": true,
+    "docs/verification/PHASE2_REPORT.md": true,
+    "docs/verification/PHASE3_PUBLICATION_AUDIT.md": true,
+    "docs/verification/PHASE4_RENAME_REPORT.md": true,
+    "docs/verification/PUBLICATION_MANIFEST.json": true,
+    "rules/defence-evasion/WCORR-EVAS-001.eql": true,
+    "rules/defence-evasion/WCORR-EVAS-001.md": true,
+    "rules/malware/WCORR-MAL-001.eql": true,
+    "rules/malware/WCORR-MAL-001.md": true,
+    "rules/persistence/WCORR-PERS-001.eql": true,
+    "rules/persistence/WCORR-PERS-001.md": true,
+    "rules/persistence/WCORR-PERS-002.eql": true,
+    "rules/persistence/WCORR-PERS-002.md": true,
+    "rules/privilege-escalation/WCORR-PRIV-001.eql": true,
+    "rules/privilege-escalation/WCORR-PRIV-001.md": true,
+    "rules/ssh/WCORR-SSH-001.eql": true,
+    "rules/ssh/WCORR-SSH-001.md": true,
+    "rules/ssh/WCORR-SSH-002.eql": true,
+    "rules/ssh/WCORR-SSH-002.md": true,
+    "rules/ssh/WCORR-SSH-003.eql": true,
+    "rules/ssh/WCORR-SSH-003.md": true,
+    "rules/ssh/WCORR-SSH-004.eql": true,
+    "rules/ssh/WCORR-SSH-004.md": true,
+    "rules/ssh/WCORR-SSH-005.eql": true,
+    "rules/ssh/WCORR-SSH-005.md": true,
+    "rules/web/WCORR-WEB-001.eql": true,
+    "rules/web/WCORR-WEB-001.md": true,
+    "rules/web/WCORR-WEB-002.eql": true,
+    "rules/web/WCORR-WEB-002.md": true,
+    "rules/web/WCORR-WEB-003.eql": true,
+    "rules/web/WCORR-WEB-003.md": true,
+    "rules/web/WCORR-WEB-004.eql": true,
+    "rules/web/WCORR-WEB-004.md": true,
+    "tests/rule-manifest.json": true,
+    "tests/validate_repository.py": true
+  },
+  "historical_tag": "0236c0c7817e3900b5158001f85fb35e9ceac162",
+  "retained_index_checks": {
+    "phase6-wcorr-6b-v1-ssh": {
+      "_mapping": {
+        "phase6-wcorr-6b-v1-ssh": {
+          "mappings": {
+            "dynamic": "strict",
+            "_meta": {
+              "owner": "wcorr-phase6b-synthetic",
+              "schema": 1
+            },
+            "properties": {
+              "agent": {
+                "properties": {
+                  "id": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "data": {
+                "properties": {
+                  "dstuser": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "srcip": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "srcuser": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "rule": {
+                "properties": {
+                  "id": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "timestamp": {
+                "type": "date"
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "_settings": {
+        "phase6-wcorr-6b-v1-ssh": {
+          "settings": {
+            "index": {
+              "routing": {
+                "allocation": {
+                  "include": {
+                    "_tier_preference": "data_content"
+                  }
+                }
+              },
+              "number_of_shards": "1",
+              "provided_name": "phase6-wcorr-6b-v1-ssh",
+              "creation_date": "1793786369243",
+              "number_of_replicas": "0",
+              "uuid": "OVKAueN_TDmGVwnAQ8IW6Q",
+              "version": {
+                "created": "8537000"
+              }
+            }
+          }
+        }
+      },
+      "_count": {
+        "count": 54,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        }
+      }
+    },
+    "phase6-wcorr-6b-v1-pers": {
+      "_mapping": {
+        "phase6-wcorr-6b-v1-pers": {
+          "mappings": {
+            "dynamic": "strict",
+            "_meta": {
+              "owner": "wcorr-phase6b-synthetic",
+              "schema": 1
+            },
+            "properties": {
+              "agent": {
+                "properties": {
+                  "id": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "rule": {
+                "properties": {
+                  "id": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "syscheck": {
+                "properties": {
+                  "mode": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "path": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword"
+                      }
+                    }
+                  }
+                }
+              },
+              "timestamp": {
+                "type": "date"
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "_settings": {
+        "phase6-wcorr-6b-v1-pers": {
+          "settings": {
+            "index": {
+              "routing": {
+                "allocation": {
+                  "include": {
+                    "_tier_preference": "data_content"
+                  }
+                }
+              },
+              "number_of_shards": "1",
+              "provided_name": "phase6-wcorr-6b-v1-pers",
+              "creation_date": "1793786423971",
+              "number_of_replicas": "0",
+              "uuid": "hxRzlOI7TO6lKhram5vXEg",
+              "version": {
+                "created": "8537000"
+              }
+            }
+          }
+        }
+      },
+      "_count": {
+        "count": 102,
+        "_shards": {
+          "total": 1,
+          "successful": 1,
+          "skipped": 0,
+          "failed": 0
+        }
+      }
+    }
+  },
+  "results_sha256": "0a73c380ad806007059413f3374320f6a98533acd452d7859255107038773fd6",
+  "final_audit": {
+    "resources": {
+      "MemTotal": 4055916544,
+      "MemAvailable": 1740591104,
+      "SwapTotal": 4055887872,
+      "SwapFree": 4055351296,
+      "container": {
+        "Status": "running",
+        "OOMKilled": false,
+        "Restarting": false
+      },
+      "container_stats": {
+        "BlockIO": "123MB / 27.7MB",
+        "CPUPerc": "0.40%",
+        "Container": "wcorr-phase6-elasticsearch",
+        "ID": "23a801c61d6a",
+        "MemPerc": "73.39%",
+        "MemUsage": "1.468GiB / 2GiB",
+        "Name": "wcorr-phase6-elasticsearch",
+        "NetIO": "619kB / 981kB",
+        "PIDs": "95"
+      }
+    },
+    "health": {
+      "cluster_name": "docker-cluster",
+      "status": "green",
+      "timed_out": false,
+      "number_of_nodes": 1,
+      "number_of_data_nodes": 1,
+      "active_primary_shards": 37,
+      "active_shards": 37,
+      "relocating_shards": 0,
+      "initializing_shards": 0,
+      "unassigned_shards": 0,
+      "unassigned_primary_shards": 0,
+      "delayed_unassigned_shards": 0,
+      "number_of_pending_tasks": 0,
+      "number_of_in_flight_fetch": 0,
+      "task_max_waiting_in_queue_millis": 0,
+      "active_shards_percent_as_number": 100.0
+    },
+    "pending_tasks": {
+      "tasks": []
+    },
+    "indices": [
+      {
+        "index": "phase6-wcorr-6a-v1-mal-missing-mode",
+        "uuid": "Q4hUkxJzR3eghoZcxzD42g",
+        "docs.count": "2",
+        "store.size": "8.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-missing-path",
+        "uuid": "xaWujbztQKu7udsWKpADIg",
+        "docs.count": "2",
+        "store.size": "8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-missing-srcuser",
+        "uuid": "w9s736LESemX_fVGFbnHBQ",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-scheduled",
+        "uuid": "0OoKYN8fSGW74FC3oNlzlA",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-null",
+        "uuid": "Ktx9ohnlSJW0P3z-hfGEQA",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-missing-dstuser",
+        "uuid": "2WXNkir_SiOoF39yb92smQ",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-directory-sbin",
+        "uuid": "k09qMJ38SyCBVzF_2up30w",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-missing-agent",
+        "uuid": "JY9t68hQTY24O6DNdvAe_g",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-exact-window",
+        "uuid": "JeYBekFqSFiMUhjvFpJtEw",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-reversed-order",
+        "uuid": "Fbn1162fQ4Ktc0Hl2GaDSw",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-inside-window",
+        "uuid": "szLw9ajbSEmE699ql_U8Aw",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage3-user",
+        "uuid": "obzJts35RzGxs2XGy77o8w",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-different-agent",
+        "uuid": "7lbT3LkFQG-kon-bjuOl9g",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-different-agent",
+        "uuid": "9FRdiPn8Te2g0daPLiVfvA",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-exact-window",
+        "uuid": "TQcnEupkSC-lcxpkDOFNJg",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-positive",
+        "uuid": "rvsdtXX1QZCKQb_sQLB0Fg",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-positive",
+        "uuid": "o1kbj6j_SQWrWH8oyrZpVw",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-absent",
+        "uuid": "Zn80C7wLQ--qS-JvakNm4w",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage2-user",
+        "uuid": "kPsEGHstSS2g6zjoZT9u9Q",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-missing-command",
+        "uuid": "fKju4g6jTCWR7S4Sjsbs1w",
+        "docs.count": "3",
+        "store.size": "8.2kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-alternate-rules",
+        "uuid": "BgaFtgLsTUKpF4QPgmz0eA",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-unsupported-path",
+        "uuid": "pINLxUzSRgW_BLrK5nYK9w",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-alternate-rule-command",
+        "uuid": "vUM8qjiJRzSkS4a-UQy6tA",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-non-root-target",
+        "uuid": "uhnaxxjMSqCLDFkexWtwLg",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-outside-window",
+        "uuid": "hInt0-ldQr60J_6zj_ZXnQ",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-missing-file",
+        "uuid": "xdK6KwUTTMqgyy7fZYqnSA",
+        "docs.count": "2",
+        "store.size": "8kb"
+      },
+      {
+        "index": "phase6-wcorr-6b-v1-ssh",
+        "uuid": "OVKAueN_TDmGVwnAQ8IW6Q",
+        "docs.count": "54",
+        "store.size": "74.4kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-directory-bin",
+        "uuid": "rZ6ZpXhxSqmuljSDDR-F_w",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6b-v1-pers",
+        "uuid": "hxRzlOI7TO6lKhram5vXEg",
+        "docs.count": "102",
+        "store.size": "85.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2",
+        "uuid": "o8CY1tl-R_upr4YemEVjyA",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-directory-usr-sbin",
+        "uuid": "aQHtc6x2Q22qH5k2L7ET0Q",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-both",
+        "uuid": "zdPgWBpJQvyRZUhf4JlVVg",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-outside-window",
+        "uuid": "N-t1mYmbTX-qtENNaoILDg",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-invalid-command",
+        "uuid": "JoPWAflLRpWG_YEXVw2iKA",
+        "docs.count": "3",
+        "store.size": "9kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-different-path",
+        "uuid": "F_QsAN2mQnOnp2u6laPv5g",
+        "docs.count": "2",
+        "store.size": "8.8kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-mal-inside-window",
+        "uuid": "lrNA6IYLT_yvRebiqpSb9Q",
+        "docs.count": "2",
+        "store.size": "8.7kb"
+      },
+      {
+        "index": "phase6-wcorr-6a-v1-priv-reversed-order",
+        "uuid": "WWWG8CmLSHSP9kBbxs1Kdg",
+        "docs.count": "3",
+        "store.size": "9.1kb"
+      }
+    ],
+    "untracked_development_whitespace_errors": []
+  }
+}

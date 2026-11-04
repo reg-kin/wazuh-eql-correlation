@@ -1,0 +1,577 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "tests/validate_development.py",
+        "--historical"
+      ],
+      "returncode": 0,
+      "stderr": "test_configuration_variable_consistency (__main__.RepositoryChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.RepositoryChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.RepositoryChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.RepositoryChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.RepositoryChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.RepositoryChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.RepositoryChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.RepositoryChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.RepositoryChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.RepositoryChecks.test_publication_manifest) ... ok\ntest_report_exact_inventory (__main__.RepositoryChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.RepositoryChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.RepositoryChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.RepositoryChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.RepositoryChecks.test_structure) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.092s\n\nOK (skipped=1)\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/validate_development.py"
+      ],
+      "returncode": 0,
+      "stderr": "test_configuration_variable_consistency (__main__.DevelopmentChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.DevelopmentChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.DevelopmentChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.DevelopmentChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.DevelopmentChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.DevelopmentChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.DevelopmentChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.DevelopmentChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.DevelopmentChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.DevelopmentChecks.test_publication_manifest) ... ok\ntest_report_exact_inventory (__main__.DevelopmentChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.DevelopmentChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.DevelopmentChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.DevelopmentChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.DevelopmentChecks.test_structure) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 2.044s\n\nOK (skipped=1)\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_phase6*.py"
+      ],
+      "returncode": 0,
+      "stderr": ".........................................\n----------------------------------------------------------------------\nRan 41 tests in 1.112s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "health_after_regression": {
+    "active_primary_shards": 48,
+    "active_shards": 48,
+    "active_shards_percent_as_number": 100.0,
+    "cluster_name": "docker-cluster",
+    "delayed_unassigned_shards": 0,
+    "initializing_shards": 0,
+    "number_of_data_nodes": 1,
+    "number_of_in_flight_fetch": 0,
+    "number_of_nodes": 1,
+    "number_of_pending_tasks": 0,
+    "relocating_shards": 0,
+    "status": "green",
+    "task_max_waiting_in_queue_millis": 0,
+    "timed_out": false,
+    "unassigned_primary_shards": 0,
+    "unassigned_shards": 0
+  },
+  "historical_classifications_unchanged": true,
+  "pending_tasks_after_regression": {
+    "tasks": []
+  },
+  "preserved_file_count": 116,
+  "prior_indices_after_regression": {
+    "phase6-wcorr-6a-v1-mal-alternate-rules": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-alternate-rules",
+        "store.size": "8.8kb",
+        "uuid": "BgaFtgLsTUKpF4QPgmz0eA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-dev-null-cr-both": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-both",
+        "store.size": "8.7kb",
+        "uuid": "zdPgWBpJQvyRZUhf4JlVVg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-dev-null-cr-stage2",
+        "store.size": "8.7kb",
+        "uuid": "o8CY1tl-R_upr4YemEVjyA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-different-agent": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-different-agent",
+        "store.size": "8.8kb",
+        "uuid": "9FRdiPn8Te2g0daPLiVfvA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-different-path": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-different-path",
+        "store.size": "8.8kb",
+        "uuid": "F_QsAN2mQnOnp2u6laPv5g"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-directory-bin": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-bin",
+        "store.size": "8.7kb",
+        "uuid": "rZ6ZpXhxSqmuljSDDR-F_w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-directory-sbin": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-sbin",
+        "store.size": "8.7kb",
+        "uuid": "k09qMJ38SyCBVzF_2up30w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-directory-usr-sbin": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-directory-usr-sbin",
+        "store.size": "8.8kb",
+        "uuid": "aQHtc6x2Q22qH5k2L7ET0Q"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-exact-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-exact-window",
+        "store.size": "8.8kb",
+        "uuid": "TQcnEupkSC-lcxpkDOFNJg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-inside-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-inside-window",
+        "store.size": "8.7kb",
+        "uuid": "lrNA6IYLT_yvRebiqpSb9Q"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-missing-file": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-file",
+        "store.size": "8kb",
+        "uuid": "xdK6KwUTTMqgyy7fZYqnSA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-missing-mode": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-mode",
+        "store.size": "8.1kb",
+        "uuid": "Q4hUkxJzR3eghoZcxzD42g"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-missing-path": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-missing-path",
+        "store.size": "8kb",
+        "uuid": "xaWujbztQKu7udsWKpADIg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-outside-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-outside-window",
+        "store.size": "8.8kb",
+        "uuid": "N-t1mYmbTX-qtENNaoILDg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-positive": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-positive",
+        "store.size": "8.7kb",
+        "uuid": "rvsdtXX1QZCKQb_sQLB0Fg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-reversed-order": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-reversed-order",
+        "store.size": "8.8kb",
+        "uuid": "Fbn1162fQ4Ktc0Hl2GaDSw"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-scheduled": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-scheduled",
+        "store.size": "8.7kb",
+        "uuid": "0OoKYN8fSGW74FC3oNlzlA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-mal-unsupported-path": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "2",
+        "index": "phase6-wcorr-6a-v1-mal-unsupported-path",
+        "store.size": "8.7kb",
+        "uuid": "pINLxUzSRgW_BLrK5nYK9w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-alternate-rule-command": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-alternate-rule-command",
+        "store.size": "9.1kb",
+        "uuid": "vUM8qjiJRzSkS4a-UQy6tA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-different-agent": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-different-agent",
+        "store.size": "9.1kb",
+        "uuid": "7lbT3LkFQG-kon-bjuOl9g"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-exact-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-exact-window",
+        "store.size": "9kb",
+        "uuid": "JeYBekFqSFiMUhjvFpJtEw"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-inside-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-inside-window",
+        "store.size": "9.1kb",
+        "uuid": "szLw9ajbSEmE699ql_U8Aw"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-invalid-command": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-invalid-command",
+        "store.size": "9kb",
+        "uuid": "JoPWAflLRpWG_YEXVw2iKA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-mismatched-stage2-user": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage2-user",
+        "store.size": "9.1kb",
+        "uuid": "kPsEGHstSS2g6zjoZT9u9Q"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-mismatched-stage3-user": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-mismatched-stage3-user",
+        "store.size": "9.1kb",
+        "uuid": "obzJts35RzGxs2XGy77o8w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-missing-agent": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-agent",
+        "store.size": "9kb",
+        "uuid": "JY9t68hQTY24O6DNdvAe_g"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-missing-command": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-command",
+        "store.size": "8.2kb",
+        "uuid": "fKju4g6jTCWR7S4Sjsbs1w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-missing-dstuser": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-dstuser",
+        "store.size": "9kb",
+        "uuid": "2WXNkir_SiOoF39yb92smQ"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-missing-srcuser": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-missing-srcuser",
+        "store.size": "9kb",
+        "uuid": "w9s736LESemX_fVGFbnHBQ"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-non-root-target": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-non-root-target",
+        "store.size": "9.1kb",
+        "uuid": "uhnaxxjMSqCLDFkexWtwLg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-optional-user-absent": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-absent",
+        "store.size": "9kb",
+        "uuid": "Zn80C7wLQ--qS-JvakNm4w"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-optional-user-null": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-optional-user-null",
+        "store.size": "9.1kb",
+        "uuid": "Ktx9ohnlSJW0P3z-hfGEQA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-outside-window": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-outside-window",
+        "store.size": "9.1kb",
+        "uuid": "hInt0-ldQr60J_6zj_ZXnQ"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-positive": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-positive",
+        "store.size": "9kb",
+        "uuid": "o1kbj6j_SQWrWH8oyrZpVw"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6a-v1-priv-reversed-order": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "3",
+        "index": "phase6-wcorr-6a-v1-priv-reversed-order",
+        "store.size": "9.1kb",
+        "uuid": "WWWG8CmLSHSP9kBbxs1Kdg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6b-v1-pers": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "102",
+        "index": "phase6-wcorr-6b-v1-pers",
+        "store.size": "37.2kb",
+        "uuid": "hxRzlOI7TO6lKhram5vXEg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6b-v1-ssh": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "54",
+        "index": "phase6-wcorr-6b-v1-ssh",
+        "store.size": "74.4kb",
+        "uuid": "OVKAueN_TDmGVwnAQ8IW6Q"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6c-v1-pers": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "108",
+        "index": "phase6-wcorr-6c-v1-pers",
+        "store.size": "44.3kb",
+        "uuid": "F4TbEIjmQq2vDdUbUHTEPg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6c-v1-ssh": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "78",
+        "index": "phase6-wcorr-6c-v1-ssh",
+        "store.size": "50.2kb",
+        "uuid": "obEzIPLYQfWUAghMZo-_iw"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6d-v1-ssh003": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "86",
+        "index": "phase6-wcorr-6d-v1-ssh003",
+        "store.size": "101.3kb",
+        "uuid": "-q2fftW4S5y_wgjNLsQJzQ"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6d-v1-ssh004": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "183",
+        "index": "phase6-wcorr-6d-v1-ssh004",
+        "store.size": "93.1kb",
+        "uuid": "YSFatdQvR7-EseYNeGJSfQ"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6e-v1-evas001": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "123",
+        "index": "phase6-wcorr-6e-v1-evas001",
+        "store.size": "75.4kb",
+        "uuid": "qvjH8PZuSVmO_PLc47uLbA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6e-v1-ssh005": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "123",
+        "index": "phase6-wcorr-6e-v1-ssh005",
+        "store.size": "75kb",
+        "uuid": "Sb4skhJ1Trmgfkbl6cA4BA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6f-v1-web001": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "74",
+        "index": "phase6-wcorr-6f-v1-web001",
+        "store.size": "38.8kb",
+        "uuid": "jQTQDh2USUmxmujhXHXvaA"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6f-v1-web002": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "86",
+        "index": "phase6-wcorr-6f-v1-web002",
+        "store.size": "103.5kb",
+        "uuid": "XbwtcA_sSIK9Ib7YiMWfRg"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6g-v1-web003": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "86",
+        "index": "phase6-wcorr-6g-v1-web003",
+        "store.size": "112.5kb",
+        "uuid": "mLd8to9rTMiNjDRgedqI5Q"
+      },
+      "identity_count_equal": true
+    },
+    "phase6-wcorr-6g-v1-web004": {
+      "all_ids_and_sources_equal": true,
+      "identity": {
+        "docs.count": "102",
+        "index": "phase6-wcorr-6g-v1-web004",
+        "store.size": "107.6kb",
+        "uuid": "pIszrS0RSFyEVFDkjtrb7Q"
+      },
+      "identity_count_equal": true
+    }
+  },
+  "resources_after_regression": {
+    "MemAvailable": 1688031232,
+    "MemTotal": 4055916544,
+    "SwapFree": 4055351296,
+    "SwapTotal": 4055887872,
+    "container": {
+      "OOMKilled": false,
+      "Restarting": false,
+      "Status": "running"
+    },
+    "container_stats": {
+      "BlockIO": "124MB / 76MB",
+      "CPUPerc": "1.65%",
+      "Container": "wcorr-phase6-elasticsearch",
+      "ID": "23a801c61d6a",
+      "MemPerc": "74.91%",
+      "MemUsage": "1.498GiB / 2GiB",
+      "Name": "wcorr-phase6-elasticsearch",
+      "NetIO": "4.16MB / 11.2MB",
+      "PIDs": "95"
+    }
+  },
+  "status": "PASS",
+  "tests": {
+    "failures": 0,
+    "previous": 35,
+    "recovery": 6,
+    "total": 41
+  },
+  "whitespace_scan": {
+    "errors": [],
+    "files": 125,
+    "scope": "git cached and untracked nonignored files"
+  }
+}

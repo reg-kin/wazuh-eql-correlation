@@ -1,0 +1,3384 @@
+[
+  {
+    "id": "ssh-positive",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-positive-s1",
+        "source": {
+          "timestamp": "2026-01-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-positive-s2",
+        "source": {
+          "timestamp": "2026-01-01T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-positive-s1",
+        "ssh-positive-s2"
+      ]
+    ],
+    "note": "One aggregated brute-force alert suffices; no raw failure count predicate.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-01T00:00:00+00:00",
+          "lt": "2026-01-02T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-alternate-5763",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-alternate-5763-s1",
+        "source": {
+          "timestamp": "2026-01-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5763"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-alternate-5763-s2",
+        "source": {
+          "timestamp": "2026-01-02T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-alternate-5763-s1",
+        "ssh-alternate-5763-s2"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-02T00:00:00+00:00",
+          "lt": "2026-01-03T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-different-ip",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-different-ip-s1",
+        "source": {
+          "timestamp": "2026-01-03T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-different-ip-s2",
+        "source": {
+          "timestamp": "2026-01-03T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.11"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-03T00:00:00+00:00",
+          "lt": "2026-01-04T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-different-agent",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-different-agent-s1",
+        "source": {
+          "timestamp": "2026-01-04T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-different-agent-s2",
+        "source": {
+          "timestamp": "2026-01-04T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-04T00:00:00+00:00",
+          "lt": "2026-01-05T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-reversed-order",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-reversed-order-s1",
+        "source": {
+          "timestamp": "2026-01-05T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-reversed-order-s2",
+        "source": {
+          "timestamp": "2026-01-05T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-05T00:00:00+00:00",
+          "lt": "2026-01-06T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-wrong-first-id",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-wrong-first-id-s1",
+        "source": {
+          "timestamp": "2026-01-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5710"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-wrong-first-id-s2",
+        "source": {
+          "timestamp": "2026-01-06T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-06T00:00:00+00:00",
+          "lt": "2026-01-07T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-wrong-success-id",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-wrong-success-id-s1",
+        "source": {
+          "timestamp": "2026-01-07T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-wrong-success-id-s2",
+        "source": {
+          "timestamp": "2026-01-07T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5716"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-07T00:00:00+00:00",
+          "lt": "2026-01-08T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-data-srcip-s1",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-data-srcip-s1-s1",
+        "source": {
+          "timestamp": "2026-01-08T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {}
+        }
+      },
+      {
+        "id": "ssh-missing-data-srcip-s1-s2",
+        "source": {
+          "timestamp": "2026-01-08T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-08T00:00:00+00:00",
+          "lt": "2026-01-09T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-agent-id-s1",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-agent-id-s1-s1",
+        "source": {
+          "timestamp": "2026-01-09T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-missing-agent-id-s1-s2",
+        "source": {
+          "timestamp": "2026-01-09T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-09T00:00:00+00:00",
+          "lt": "2026-01-10T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-rule-id-s1",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-rule-id-s1-s1",
+        "source": {
+          "timestamp": "2026-01-10T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {},
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-missing-rule-id-s1-s2",
+        "source": {
+          "timestamp": "2026-01-10T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-10T00:00:00+00:00",
+          "lt": "2026-01-11T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-null-data-srcip-s1",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-null-data-srcip-s1-s1",
+        "source": {
+          "timestamp": "2026-01-11T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": null
+          }
+        }
+      },
+      {
+        "id": "ssh-null-data-srcip-s1-s2",
+        "source": {
+          "timestamp": "2026-01-11T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-11T00:00:00+00:00",
+          "lt": "2026-01-12T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-null-agent-id-s1",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-null-agent-id-s1-s1",
+        "source": {
+          "timestamp": "2026-01-12T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-null-agent-id-s1-s2",
+        "source": {
+          "timestamp": "2026-01-12T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-12T00:00:00+00:00",
+          "lt": "2026-01-13T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-data-srcip-s2",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-data-srcip-s2-s1",
+        "source": {
+          "timestamp": "2026-01-13T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-missing-data-srcip-s2-s2",
+        "source": {
+          "timestamp": "2026-01-13T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {}
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-13T00:00:00+00:00",
+          "lt": "2026-01-14T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-agent-id-s2",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-agent-id-s2-s1",
+        "source": {
+          "timestamp": "2026-01-14T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-missing-agent-id-s2-s2",
+        "source": {
+          "timestamp": "2026-01-14T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-14T00:00:00+00:00",
+          "lt": "2026-01-15T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-missing-rule-id-s2",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-missing-rule-id-s2-s1",
+        "source": {
+          "timestamp": "2026-01-15T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-missing-rule-id-s2-s2",
+        "source": {
+          "timestamp": "2026-01-15T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {},
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-15T00:00:00+00:00",
+          "lt": "2026-01-16T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-null-data-srcip-s2",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-null-data-srcip-s2-s1",
+        "source": {
+          "timestamp": "2026-01-16T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-null-data-srcip-s2-s2",
+        "source": {
+          "timestamp": "2026-01-16T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": null
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-16T00:00:00+00:00",
+          "lt": "2026-01-17T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-null-agent-id-s2",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-null-agent-id-s2-s1",
+        "source": {
+          "timestamp": "2026-01-17T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-null-agent-id-s2-s2",
+        "source": {
+          "timestamp": "2026-01-17T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-17T00:00:00+00:00",
+          "lt": "2026-01-18T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-both-ip-missing",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-both-ip-missing-s1",
+        "source": {
+          "timestamp": "2026-01-18T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {}
+        }
+      },
+      {
+        "id": "ssh-both-ip-missing-s2",
+        "source": {
+          "timestamp": "2026-01-18T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {}
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-18T00:00:00+00:00",
+          "lt": "2026-01-19T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-both-ip-null",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-both-ip-null-s1",
+        "source": {
+          "timestamp": "2026-01-19T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": null
+          }
+        }
+      },
+      {
+        "id": "ssh-both-ip-null-s2",
+        "source": {
+          "timestamp": "2026-01-19T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": null
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-19T00:00:00+00:00",
+          "lt": "2026-01-20T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-both-agent-missing",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-both-agent-missing-s1",
+        "source": {
+          "timestamp": "2026-01-20T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-both-agent-missing-s2",
+        "source": {
+          "timestamp": "2026-01-20T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-20T00:00:00+00:00",
+          "lt": "2026-01-21T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-both-agent-null",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-both-agent-null-s1",
+        "source": {
+          "timestamp": "2026-01-21T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-both-agent-null-s2",
+        "source": {
+          "timestamp": "2026-01-21T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-21T00:00:00+00:00",
+          "lt": "2026-01-22T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-inside-window",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-inside-window-s1",
+        "source": {
+          "timestamp": "2026-01-22T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-inside-window-s2",
+        "source": {
+          "timestamp": "2026-01-22T00:14:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-inside-window-s1",
+        "ssh-inside-window-s2"
+      ]
+    ],
+    "note": "Inclusive boundary expectation informed by Phase 6A; independently asserted for this query.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-22T00:00:00+00:00",
+          "lt": "2026-01-23T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-outside-window",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-outside-window-s1",
+        "source": {
+          "timestamp": "2026-01-23T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-outside-window-s2",
+        "source": {
+          "timestamp": "2026-01-23T00:15:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "Inclusive boundary expectation informed by Phase 6A; independently asserted for this query.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-23T00:00:00+00:00",
+          "lt": "2026-01-24T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-exact-window",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-exact-window-s1",
+        "source": {
+          "timestamp": "2026-01-24T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-exact-window-s2",
+        "source": {
+          "timestamp": "2026-01-24T00:15:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-exact-window-s1",
+        "ssh-exact-window-s2"
+      ]
+    ],
+    "note": "Inclusive boundary expectation informed by Phase 6A; independently asserted for this query.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-24T00:00:00+00:00",
+          "lt": "2026-01-25T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-different-usernames",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-different-usernames-s1",
+        "source": {
+          "timestamp": "2026-01-25T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10",
+            "srcuser": "alice"
+          }
+        }
+      },
+      {
+        "id": "ssh-different-usernames-s2",
+        "source": {
+          "timestamp": "2026-01-25T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10",
+            "dstuser": "bob"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-different-usernames-s1",
+        "ssh-different-usernames-s2"
+      ]
+    ],
+    "note": "No username join exists.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-25T00:00:00+00:00",
+          "lt": "2026-01-26T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-empty-ip",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-empty-ip-s1",
+        "source": {
+          "timestamp": "2026-01-26T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": ""
+          }
+        }
+      },
+      {
+        "id": "ssh-empty-ip-s2",
+        "source": {
+          "timestamp": "2026-01-26T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": ""
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh-empty-ip-s1",
+        "ssh-empty-ip-s2"
+      ]
+    ],
+    "note": "Non-null predicate does not require a valid or nonempty IP string.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-26T00:00:00+00:00",
+          "lt": "2026-01-27T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "ssh-equal-timestamps",
+    "rule": "ssh",
+    "events": [
+      {
+        "id": "ssh-equal-timestamps-s1",
+        "source": {
+          "timestamp": "2026-01-27T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5712"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      },
+      {
+        "id": "ssh-equal-timestamps-s2",
+        "source": {
+          "timestamp": "2026-01-27T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcip": "192.0.2.10"
+          }
+        }
+      }
+    ],
+    "expected": null,
+    "note": "No tiebreaker configured; observed order is not a portable guarantee.",
+    "classification": "semantic_investigation",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-27T00:00:00+00:00",
+          "lt": "2026-01-28T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-positive",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-positive-s1",
+        "source": {
+          "timestamp": "2026-01-28T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-positive-s2",
+        "source": {
+          "timestamp": "2026-01-28T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-positive-s3",
+        "source": {
+          "timestamp": "2026-01-28T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-positive-s1",
+        "pers-positive-s2",
+        "pers-positive-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-28T00:00:00+00:00",
+          "lt": "2026-01-29T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-alternate-554",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-alternate-554-s1",
+        "source": {
+          "timestamp": "2026-01-29T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-alternate-554-s2",
+        "source": {
+          "timestamp": "2026-01-29T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-alternate-554-s3",
+        "source": {
+          "timestamp": "2026-01-29T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-alternate-554-s1",
+        "pers-alternate-554-s2",
+        "pers-alternate-554-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-29T00:00:00+00:00",
+          "lt": "2026-01-30T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-crontabs",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-crontabs-s1",
+        "source": {
+          "timestamp": "2026-01-30T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-crontabs-s2",
+        "source": {
+          "timestamp": "2026-01-30T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-crontabs-s3",
+        "source": {
+          "timestamp": "2026-01-30T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/crontabs/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-crontabs-s1",
+        "pers-crontabs-s2",
+        "pers-crontabs-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-30T00:00:00+00:00",
+          "lt": "2026-01-31T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-cron-d",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-cron-d-s1",
+        "source": {
+          "timestamp": "2026-01-31T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-cron-d-s2",
+        "source": {
+          "timestamp": "2026-01-31T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-cron-d-s3",
+        "source": {
+          "timestamp": "2026-01-31T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/cron.d/labjob"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-cron-d-s1",
+        "pers-cron-d-s2",
+        "pers-cron-d-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-01-31T00:00:00+00:00",
+          "lt": "2026-02-01T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-crontab",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-crontab-s1",
+        "source": {
+          "timestamp": "2026-02-01T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-crontab-s2",
+        "source": {
+          "timestamp": "2026-02-01T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-crontab-s3",
+        "source": {
+          "timestamp": "2026-02-01T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/crontab"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-crontab-s1",
+        "pers-crontab-s2",
+        "pers-crontab-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-01T00:00:00+00:00",
+          "lt": "2026-02-02T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-nested-path",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-nested-path-s1",
+        "source": {
+          "timestamp": "2026-02-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-nested-path-s2",
+        "source": {
+          "timestamp": "2026-02-02T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-nested-path-s3",
+        "source": {
+          "timestamp": "2026-02-02T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/cron.d/nested/job"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-nested-path-s1",
+        "pers-nested-path-s2",
+        "pers-nested-path-s3"
+      ]
+    ],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-02T00:00:00+00:00",
+          "lt": "2026-02-03T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-different-agent-s1",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-different-agent-s1-s1",
+        "source": {
+          "timestamp": "2026-02-03T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s1-s2",
+        "source": {
+          "timestamp": "2026-02-03T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s1-s3",
+        "source": {
+          "timestamp": "2026-02-03T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-03T00:00:00+00:00",
+          "lt": "2026-02-04T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-agent-s1",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-agent-s1-s1",
+        "source": {
+          "timestamp": "2026-02-04T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s1-s2",
+        "source": {
+          "timestamp": "2026-02-04T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s1-s3",
+        "source": {
+          "timestamp": "2026-02-04T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-04T00:00:00+00:00",
+          "lt": "2026-02-05T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-rule-s1",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-rule-s1-s1",
+        "source": {
+          "timestamp": "2026-02-05T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "pers-missing-rule-s1-s2",
+        "source": {
+          "timestamp": "2026-02-05T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-rule-s1-s3",
+        "source": {
+          "timestamp": "2026-02-05T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-05T00:00:00+00:00",
+          "lt": "2026-02-06T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-wrong-rule-s1",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-wrong-rule-s1-s1",
+        "source": {
+          "timestamp": "2026-02-06T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s1-s2",
+        "source": {
+          "timestamp": "2026-02-06T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s1-s3",
+        "source": {
+          "timestamp": "2026-02-06T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-06T00:00:00+00:00",
+          "lt": "2026-02-07T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-different-agent-s2",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-different-agent-s2-s1",
+        "source": {
+          "timestamp": "2026-02-07T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s2-s2",
+        "source": {
+          "timestamp": "2026-02-07T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s2-s3",
+        "source": {
+          "timestamp": "2026-02-07T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-07T00:00:00+00:00",
+          "lt": "2026-02-08T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-agent-s2",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-agent-s2-s1",
+        "source": {
+          "timestamp": "2026-02-08T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s2-s2",
+        "source": {
+          "timestamp": "2026-02-08T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s2-s3",
+        "source": {
+          "timestamp": "2026-02-08T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-08T00:00:00+00:00",
+          "lt": "2026-02-09T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-rule-s2",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-rule-s2-s1",
+        "source": {
+          "timestamp": "2026-02-09T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-rule-s2-s2",
+        "source": {
+          "timestamp": "2026-02-09T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "pers-missing-rule-s2-s3",
+        "source": {
+          "timestamp": "2026-02-09T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-09T00:00:00+00:00",
+          "lt": "2026-02-10T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-wrong-rule-s2",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-wrong-rule-s2-s1",
+        "source": {
+          "timestamp": "2026-02-10T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s2-s2",
+        "source": {
+          "timestamp": "2026-02-10T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s2-s3",
+        "source": {
+          "timestamp": "2026-02-10T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-10T00:00:00+00:00",
+          "lt": "2026-02-11T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-different-agent-s3",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-different-agent-s3-s1",
+        "source": {
+          "timestamp": "2026-02-11T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s3-s2",
+        "source": {
+          "timestamp": "2026-02-11T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-different-agent-s3-s3",
+        "source": {
+          "timestamp": "2026-02-11T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-11T00:00:00+00:00",
+          "lt": "2026-02-12T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-agent-s3",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-agent-s3-s1",
+        "source": {
+          "timestamp": "2026-02-12T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s3-s2",
+        "source": {
+          "timestamp": "2026-02-12T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-agent-s3-s3",
+        "source": {
+          "timestamp": "2026-02-12T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-12T00:00:00+00:00",
+          "lt": "2026-02-13T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-rule-s3",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-rule-s3-s1",
+        "source": {
+          "timestamp": "2026-02-13T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-rule-s3-s2",
+        "source": {
+          "timestamp": "2026-02-13T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-rule-s3-s3",
+        "source": {
+          "timestamp": "2026-02-13T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {},
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-13T00:00:00+00:00",
+          "lt": "2026-02-14T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-wrong-rule-s3",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-wrong-rule-s3-s1",
+        "source": {
+          "timestamp": "2026-02-14T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s3-s2",
+        "source": {
+          "timestamp": "2026-02-14T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-wrong-rule-s3-s3",
+        "source": {
+          "timestamp": "2026-02-14T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-14T00:00:00+00:00",
+          "lt": "2026-02-15T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-both-agent-null",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-both-agent-null-s1",
+        "source": {
+          "timestamp": "2026-02-15T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-both-agent-null-s2",
+        "source": {
+          "timestamp": "2026-02-15T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-both-agent-null-s3",
+        "source": {
+          "timestamp": "2026-02-15T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-15T00:00:00+00:00",
+          "lt": "2026-02-16T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-all-agent-missing",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-all-agent-missing-s1",
+        "source": {
+          "timestamp": "2026-02-16T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-all-agent-missing-s2",
+        "source": {
+          "timestamp": "2026-02-16T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-all-agent-missing-s3",
+        "source": {
+          "timestamp": "2026-02-16T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-16T00:00:00+00:00",
+          "lt": "2026-02-17T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-editor-before-login",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-editor-before-login-s1",
+        "source": {
+          "timestamp": "2026-02-17T00:00:15+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-editor-before-login-s2",
+        "source": {
+          "timestamp": "2026-02-17T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-editor-before-login-s3",
+        "source": {
+          "timestamp": "2026-02-17T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-17T00:00:00+00:00",
+          "lt": "2026-02-18T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-fim-before-editor",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-fim-before-editor-s1",
+        "source": {
+          "timestamp": "2026-02-18T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-fim-before-editor-s2",
+        "source": {
+          "timestamp": "2026-02-18T00:00:25+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-fim-before-editor-s3",
+        "source": {
+          "timestamp": "2026-02-18T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-18T00:00:00+00:00",
+          "lt": "2026-02-19T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-missing-path",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-missing-path-s1",
+        "source": {
+          "timestamp": "2026-02-19T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-path-s2",
+        "source": {
+          "timestamp": "2026-02-19T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-missing-path-s3",
+        "source": {
+          "timestamp": "2026-02-19T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {}
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-19T00:00:00+00:00",
+          "lt": "2026-02-20T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-null-path",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-null-path-s1",
+        "source": {
+          "timestamp": "2026-02-20T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-null-path-s2",
+        "source": {
+          "timestamp": "2026-02-20T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-null-path-s3",
+        "source": {
+          "timestamp": "2026-02-20T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": null
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-20T00:00:00+00:00",
+          "lt": "2026-02-21T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-unsupported-path",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-unsupported-path-s1",
+        "source": {
+          "timestamp": "2026-02-21T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-unsupported-path-s2",
+        "source": {
+          "timestamp": "2026-02-21T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-unsupported-path-s3",
+        "source": {
+          "timestamp": "2026-02-21T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/tmp/labjob"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-21T00:00:00+00:00",
+          "lt": "2026-02-22T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-prefix-lookalike",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-prefix-lookalike-s1",
+        "source": {
+          "timestamp": "2026-02-22T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-prefix-lookalike-s2",
+        "source": {
+          "timestamp": "2026-02-22T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-prefix-lookalike-s3",
+        "source": {
+          "timestamp": "2026-02-22T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/cron.daily/labjob"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-22T00:00:00+00:00",
+          "lt": "2026-02-23T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-crontab-suffix",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-crontab-suffix-s1",
+        "source": {
+          "timestamp": "2026-02-23T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-crontab-suffix-s2",
+        "source": {
+          "timestamp": "2026-02-23T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-crontab-suffix-s3",
+        "source": {
+          "timestamp": "2026-02-23T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/crontab.bak"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-23T00:00:00+00:00",
+          "lt": "2026-02-24T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-case-mismatch",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-case-mismatch-s1",
+        "source": {
+          "timestamp": "2026-02-24T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-case-mismatch-s2",
+        "source": {
+          "timestamp": "2026-02-24T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-case-mismatch-s3",
+        "source": {
+          "timestamp": "2026-02-24T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/ETC/CRONTAB"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-24T00:00:00+00:00",
+          "lt": "2026-02-25T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-inside-window",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-inside-window-s1",
+        "source": {
+          "timestamp": "2026-02-25T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-inside-window-s2",
+        "source": {
+          "timestamp": "2026-02-25T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-inside-window-s3",
+        "source": {
+          "timestamp": "2026-02-25T00:29:59+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-inside-window-s1",
+        "pers-inside-window-s2",
+        "pers-inside-window-s3"
+      ]
+    ],
+    "note": "maxspan covers first to final stage, not adjacent gaps.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-25T00:00:00+00:00",
+          "lt": "2026-02-26T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-outside-window",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-outside-window-s1",
+        "source": {
+          "timestamp": "2026-02-26T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-outside-window-s2",
+        "source": {
+          "timestamp": "2026-02-26T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-outside-window-s3",
+        "source": {
+          "timestamp": "2026-02-26T00:30:01+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [],
+    "note": "maxspan covers first to final stage, not adjacent gaps.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-26T00:00:00+00:00",
+          "lt": "2026-02-27T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-exact-window",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-exact-window-s1",
+        "source": {
+          "timestamp": "2026-02-27T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-exact-window-s2",
+        "source": {
+          "timestamp": "2026-02-27T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-exact-window-s3",
+        "source": {
+          "timestamp": "2026-02-27T00:30:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-exact-window-s1",
+        "pers-exact-window-s2",
+        "pers-exact-window-s3"
+      ]
+    ],
+    "note": "maxspan covers first to final stage, not adjacent gaps.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-27T00:00:00+00:00",
+          "lt": "2026-02-28T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-scheduled-mode",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-scheduled-mode-s1",
+        "source": {
+          "timestamp": "2026-02-28T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-scheduled-mode-s2",
+        "source": {
+          "timestamp": "2026-02-28T00:00:10+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-scheduled-mode-s3",
+        "source": {
+          "timestamp": "2026-02-28T00:00:20+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser",
+            "mode": "scheduled"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-scheduled-mode-s1",
+        "pers-scheduled-mode-s2",
+        "pers-scheduled-mode-s3"
+      ]
+    ],
+    "note": "Published query has no realtime predicate.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-02-28T00:00:00+00:00",
+          "lt": "2026-03-01T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-different-event-categories",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-different-event-categories-s1",
+        "source": {
+          "timestamp": "2026-03-01T00:00:00+00:00",
+          "type": "category-0",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-different-event-categories-s2",
+        "source": {
+          "timestamp": "2026-03-01T00:00:10+00:00",
+          "type": "category-1",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-different-event-categories-s3",
+        "source": {
+          "timestamp": "2026-03-01T00:00:20+00:00",
+          "type": "category-2",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": [
+      [
+        "pers-different-event-categories-s1",
+        "pers-different-event-categories-s2",
+        "pers-different-event-categories-s3"
+      ]
+    ],
+    "note": "All stages use any; no stage-specific joins exist to mismatch.",
+    "classification": "predeclared_assertion",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-03-01T00:00:00+00:00",
+          "lt": "2026-03-02T00:00:00+00:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "pers-all-equal-timestamps",
+    "rule": "pers",
+    "events": [
+      {
+        "id": "pers-all-equal-timestamps-s1",
+        "source": {
+          "timestamp": "2026-03-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "pers-all-equal-timestamps-s2",
+        "source": {
+          "timestamp": "2026-03-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "2834"
+          }
+        }
+      },
+      {
+        "id": "pers-all-equal-timestamps-s3",
+        "source": {
+          "timestamp": "2026-03-02T00:00:00+00:00",
+          "type": "wazuh",
+          "agent": {
+            "id": "synthetic-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/var/spool/cron/labuser"
+          }
+        }
+      }
+    ],
+    "expected": null,
+    "note": "Equal-time ordering investigated without tiebreaker.",
+    "classification": "semantic_investigation",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2026-03-02T00:00:00+00:00",
+          "lt": "2026-03-03T00:00:00+00:00"
+        }
+      }
+    }
+  }
+]

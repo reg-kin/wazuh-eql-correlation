@@ -1,0 +1,226 @@
+{
+  "ssh005": {
+    "dynamic": "strict",
+    "_meta": {
+      "owner": "wcorr-phase6d-synthetic",
+      "schema": 1
+    },
+    "properties": {
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "agent": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "path": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "mode": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "srcuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "dstuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "command": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "audit": {
+            "properties": {
+              "command": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "evas001": {
+    "dynamic": "strict",
+    "_meta": {
+      "owner": "wcorr-phase6d-synthetic",
+      "schema": 1
+    },
+    "properties": {
+      "timestamp": {
+        "type": "date"
+      },
+      "type": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "agent": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "rule": {
+        "properties": {
+          "id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "syscheck": {
+        "properties": {
+          "path": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "mode": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      "data": {
+        "properties": {
+          "srcuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "dstuser": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "command": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "audit": {
+            "properties": {
+              "command": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

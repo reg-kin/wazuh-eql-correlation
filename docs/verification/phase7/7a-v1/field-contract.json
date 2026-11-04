@@ -1,0 +1,2707 @@
+{
+  "schema_version": 1,
+  "phase": "7A",
+  "status": "DEVELOPMENT ONLY; native compatibility and production readiness NOT ASSESSED",
+  "production_access": false,
+  "rules": [
+    {
+      "id": "WCORR-EVAS-001",
+      "query_path": "rules/defence-evasion/WCORR-EVAS-001.eql",
+      "metadata_path": "rules/defence-evasion/WCORR-EVAS-001.md",
+      "query_sha256": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=20m\n  [any where rule.id.keyword in (\"5402\", \"5407\")]\n  [any where rule.id.keyword == \"80705\"\n    and data.audit.type.keyword == \"CONFIG_CHANGE\"]\n  [any where rule.id.keyword == \"80703\"]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "20m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.audit.type.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.audit.type.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.audit.type.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"5402\", \"5407\")",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5402",
+            "5407"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Sudo/privilege"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"80705\"\n    and data.audit.type.keyword == \"CONFIG_CHANGE\"",
+          "predicate_fields": [
+            "data.audit.type.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "80705"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Audit"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "80705"
+            },
+            {
+              "field": "data.audit.type.keyword",
+              "operator": "==",
+              "value": "CONFIG_CHANGE"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.audit.type",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"80703\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "80703"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Audit"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "80703"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Legitimate audit-service maintenance can match this potentially significant defence-evasion sequence.",
+        "production_dependencies": "Collect sudo plus audit CONFIG_CHANGE and daemon-stop alerts; ensure audit telemetry is available.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "evas001-all-equal",
+            "phase": "6e"
+          },
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "evas001-first-pair-tied",
+            "phase": "6e"
+          },
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "evas001-last-pair-tied",
+            "phase": "6e"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 3,
+          "PASS": 38,
+          "executions": 41
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-MAL-001",
+      "query_path": "rules/malware/WCORR-MAL-001.eql",
+      "metadata_path": "rules/malware/WCORR-MAL-001.md",
+      "query_sha256": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=60m\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword like \"/usr/bin/*\" or\n      syscheck.path.keyword like \"/usr/sbin/*\" or\n      syscheck.path.keyword like \"/bin/*\" or\n      syscheck.path.keyword like \"/sbin/*\"\n    )\n  ] by syscheck.path.keyword\n  [any where\n    rule.id.keyword in (\"510\", \"521\") and\n    data.file.keyword != null and\n    data.file.keyword != \"/dev/null\\r\"\n  ] by data.file.keyword\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "60m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.file.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.file.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.file.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword like \"/usr/bin/*\" or\n      syscheck.path.keyword like \"/usr/sbin/*\" or\n      syscheck.path.keyword like \"/bin/*\" or\n      syscheck.path.keyword like \"/sbin/*\"\n    )",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.mode.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [
+            "syscheck.path.keyword"
+          ],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "syscheck.mode.keyword",
+              "operator": "==",
+              "value": "realtime"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/usr/bin/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/usr/sbin/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/bin/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/sbin/*"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.mode",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"510\", \"521\") and\n    data.file.keyword != null and\n    data.file.keyword != \"/dev/null\\r\"",
+          "predicate_fields": [
+            "data.file.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "510",
+            "521"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Rootcheck"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [
+            "data.file.keyword"
+          ],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "data.file.keyword",
+              "operator": "!=",
+              "value": "/dev/null\r"
+            }
+          ],
+          "null_guards": [
+            "data.file.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.file",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Requires rootcheck to expose the same executable path in data.file.keyword; population outside the recurring anomaly is unestablished. Realtime-only FIM excludes scheduled observations and reduces coverage. Matching paths and timing do not establish malware execution.",
+        "production_dependencies": "Enable realtime FIM for executable paths and establish rootcheck data.file.keyword population and exact path formatting, including carriage-return handling.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6a-v1/results.json",
+            "id": "mal-exact-window",
+            "phase": "6a"
+          }
+        ],
+        "exact_query_evidence": "6A has response + rule byte hashes + parameters and preserved harness; no per-scenario serialized request. Compatibility supported by provenance, with this capture limitation.",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 17,
+          "executions": 18
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-PERS-001",
+      "query_path": "rules/persistence/WCORR-PERS-001.eql",
+      "metadata_path": "rules/persistence/WCORR-PERS-001.md",
+      "query_sha256": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword == \"2834\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/var/spool/cron/*\" or\n    syscheck.path.keyword like \"/var/spool/cron/crontabs/*\" or\n    syscheck.path.keyword like \"/etc/cron.d/*\" or\n    syscheck.path.keyword == \"/etc/crontab\"\n  )]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"2834\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "2834"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Cron editor"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "2834"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/var/spool/cron/*\" or\n    syscheck.path.keyword like \"/var/spool/cron/crontabs/*\" or\n    syscheck.path.keyword like \"/etc/cron.d/*\" or\n    syscheck.path.keyword == \"/etc/crontab\"\n  )",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/var/spool/cron/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/var/spool/cron/crontabs/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/etc/cron.d/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "==",
+              "value": "/etc/crontab"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Legitimate cron administration can produce the same sequence; agent and time do not establish actor continuity.",
+        "production_dependencies": "Collect SSH, 2834 crontab-editor alerts and FIM for all specified cron paths.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6b-v1/results.json",
+            "id": "pers-all-equal-timestamps",
+            "phase": "6b"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 33,
+          "executions": 34
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-PERS-002",
+      "query_path": "rules/persistence/WCORR-PERS-002.eql",
+      "metadata_path": "rules/persistence/WCORR-PERS-002.md",
+      "query_sha256": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/etc/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/usr/lib/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/lib/systemd/system/*.service\"\n  )]\n  [any where rule.id.keyword == \"40704\"]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/etc/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/usr/lib/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/lib/systemd/system/*.service\"\n  )",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/etc/systemd/system/*.service"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/usr/lib/systemd/system/*.service"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/lib/systemd/system/*.service"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"40704\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "40704"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Systemd/service"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "40704"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "A service failure after a unit-file change does not establish causality. Legitimate service installation and maintenance can match.",
+        "production_dependencies": "Collect SSH, systemd unit-file FIM and 40704 service-failure alerts.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6c-v1/results.json",
+            "id": "pers-equal-timestamps",
+            "phase": "6c"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 35,
+          "executions": 36
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-PRIV-001",
+      "query_path": "rules/privilege-escalation/WCORR-PRIV-001.eql",
+      "metadata_path": "rules/privilege-escalation/WCORR-PRIV-001.md",
+      "query_sha256": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.dstuser.keyword != null\n  ] by data.dstuser.keyword\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    data.srcuser.keyword != null and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*adduser*\"\n    )\n  ] by data.srcuser.keyword\n  [any where\n    rule.id.keyword == \"5902\"\n  ] by ?data.srcuser.keyword\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "data.srcuser.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "data.srcuser.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "data.srcuser.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\" and\n    data.dstuser.keyword != null",
+          "predicate_fields": [
+            "data.dstuser.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [
+            "data.dstuser.keyword"
+          ],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [
+            "data.dstuser.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.dstuser",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    data.srcuser.keyword != null and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*adduser*\"\n    )",
+          "predicate_fields": [
+            "data.command.keyword",
+            "data.dstuser.keyword",
+            "data.srcuser.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5402",
+            "5407"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Sudo/privilege"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [
+            "data.srcuser.keyword"
+          ],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "data.dstuser.keyword",
+              "operator": "==",
+              "value": "root"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*useradd*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*adduser*"
+            }
+          ],
+          "null_guards": [
+            "data.srcuser.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.command",
+            "data.dstuser",
+            "data.srcuser",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5902\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5902"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Sudo/privilege"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [
+            "data.srcuser.keyword"
+          ],
+          "optional_syntax_fields": [
+            "data.srcuser.keyword"
+          ],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5902"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.srcuser",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event.",
+        "Final ?data.srcuser.keyword is optional field syntax, not an optional stage or wildcard join. Historical source accommodation claim is not established."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "The source says the optional third-stage key accommodates missing data.srcuser and that account creation remains associated by agent and time. Optional-field syntax does not itself guarantee wildcard joining: missing values can become null and fail to join a non-null username. Verify this claim in the target engine; do not silently change the query. SSH-to-sudo attribution is stronger, but account creation causality remains unproven. sudo su followed by useradd in a root shell is intentionally excluded.",
+        "production_dependencies": "Collect SSH destination usernames, sudo source usernames and commands, and 5902 new-user events. Validate stage-specific joins and missing third-stage usernames explicitly.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6a-v1/results.json",
+            "id": "priv-exact-window",
+            "phase": "6a"
+          },
+          {
+            "evidence": "docs/verification/phase6/6a-v1/results.json",
+            "id": "priv-optional-user-absent",
+            "phase": "6a"
+          },
+          {
+            "evidence": "docs/verification/phase6/6a-v1/results.json",
+            "id": "priv-optional-user-null",
+            "phase": "6a"
+          }
+        ],
+        "exact_query_evidence": "6A has response + rule byte hashes + parameters and preserved harness; no per-scenario serialized request. Compatibility supported by provenance, with this capture limitation.",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 3,
+          "PASS": 14,
+          "executions": 17
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-SSH-001",
+      "query_path": "rules/ssh/WCORR-SSH-001.eql",
+      "metadata_path": "rules/ssh/WCORR-SSH-001.md",
+      "query_sha256": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "exact_eql": "sequence by agent.id.keyword, data.srcip.keyword with maxspan=15m\n  [any where\n    rule.id.keyword in (\"5712\", \"5763\") and\n    data.srcip.keyword != null\n  ]\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.srcip.keyword != null\n  ]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "15m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"5712\", \"5763\") and\n    data.srcip.keyword != null",
+          "predicate_fields": [
+            "data.srcip.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5712",
+            "5763"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword",
+            "data.srcip.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [
+            "data.srcip.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.srcip",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\" and\n    data.srcip.keyword != null",
+          "predicate_fields": [
+            "data.srcip.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword",
+            "data.srcip.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [
+            "data.srcip.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.srcip",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Same agent and source IP do not prove account compromise or matching usernames: failures use data.srcuser and successes data.dstuser. An unrelated success from another IP cannot complete the sequence.",
+        "production_dependencies": "Collect SSH brute-force and successful authentication alerts with populated native source IP and agent join fields.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6b-v1/results.json",
+            "id": "ssh-equal-timestamps",
+            "phase": "6b"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 26,
+          "executions": 27
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-SSH-002",
+      "query_path": "rules/ssh/WCORR-SSH-002.eql",
+      "metadata_path": "rules/ssh/WCORR-SSH-002.md",
+      "query_sha256": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=15m\n  [any where\n    rule.id.keyword == \"5715\"\n  ]\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*usermod*\" or\n      data.command.keyword like \"*passwd*\" or\n      data.command.keyword like \"*visudo*\" or\n      data.command.keyword like \"*systemctl disable*\" or\n      data.command.keyword like \"*systemctl stop*\" or\n      data.command.keyword like \"*crontab*\" or\n      data.command.keyword like \"*chmod*\" or\n      data.command.keyword like \"*chown*\"\n    )\n  ]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "15m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*usermod*\" or\n      data.command.keyword like \"*passwd*\" or\n      data.command.keyword like \"*visudo*\" or\n      data.command.keyword like \"*systemctl disable*\" or\n      data.command.keyword like \"*systemctl stop*\" or\n      data.command.keyword like \"*crontab*\" or\n      data.command.keyword like \"*chmod*\" or\n      data.command.keyword like \"*chown*\"\n    )",
+          "predicate_fields": [
+            "data.command.keyword",
+            "data.dstuser.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5402",
+            "5407"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Sudo/privilege"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "data.dstuser.keyword",
+              "operator": "==",
+              "value": "root"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*useradd*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*usermod*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*passwd*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*visudo*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*systemctl disable*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*systemctl stop*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*crontab*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*chmod*"
+            },
+            {
+              "field": "data.command.keyword",
+              "operator": "like",
+              "value": "*chown*"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.command",
+            "data.dstuser",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event.",
+        "Markdown standalone alternative adds stage-1 dstuser != null and stage-2 command != null; published .eql has neither explicit guard. No username join in either form."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "SSH and sudo users are not equated. Substring matching can miss shells and alternative commands. This contextual rule overlaps PRIV-001 and PERS-001; prefer their additional evidence. Routine administration can match.",
+        "production_dependencies": "Collect SSH and sudo alerts with native command and target-user fields; review sensitive-command coverage.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6c-v1/results.json",
+            "id": "ssh-equal-timestamps",
+            "phase": "6c"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 38,
+          "executions": 39
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-SSH-003",
+      "query_path": "rules/ssh/WCORR-SSH-003.eql",
+      "metadata_path": "rules/ssh/WCORR-SSH-003.md",
+      "query_sha256": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.mode.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "syscheck.mode.keyword",
+              "operator": "==",
+              "value": "realtime"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/etc/sudoers.d/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/home/*/.ssh/authorized_keys"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "==",
+              "value": "/root/.ssh/authorized_keys"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.mode",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Realtime FIM reduces timing ambiguity but does not identify a process or SSH session. Scheduled-only monitoring is excluded and must remain covered by separate FIM alerts.",
+        "production_dependencies": "Enable realtime FIM for the specified authentication, sudoers and authorised-key paths.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6d-v1/results.json",
+            "id": "ssh003-equal-timestamps",
+            "phase": "6d"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 42,
+          "executions": 43
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-SSH-004",
+      "query_path": "rules/ssh/WCORR-SSH-004.eql",
+      "metadata_path": "rules/ssh/WCORR-SSH-004.md",
+      "query_sha256": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"5402\", \"5407\")]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"5402\", \"5407\")",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5402",
+            "5407"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Sudo/privilege"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\") and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/etc/sudoers.d/*"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/home/*/.ssh/authorized_keys"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "==",
+              "value": "/root/.ssh/authorized_keys"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Agent and time correlation does not prove actor or session continuity. Unlike SSH-003 this source has no realtime FIM predicate; scheduled observation timing can misattribute changes. Legitimate administration can match.",
+        "production_dependencies": "Collect SSH, sudo and sensitive-path FIM alerts; assess scheduled FIM observation delays.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6d-v1/results.json",
+            "id": "ssh004-equal-timestamps",
+            "phase": "6d"
+          },
+          {
+            "evidence": "docs/verification/phase6/6d-v1/results.json",
+            "id": "ssh004-equal-login-sudo",
+            "phase": "6d"
+          },
+          {
+            "evidence": "docs/verification/phase6/6d-v1/results.json",
+            "id": "ssh004-equal-sudo-fim",
+            "phase": "6d"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 3,
+          "PASS": 58,
+          "executions": 61
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-SSH-005",
+      "query_path": "rules/ssh/WCORR-SSH-005.eql",
+      "metadata_path": "rules/ssh/WCORR-SSH-005.md",
+      "query_sha256": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword == \"92603\" and\n    data.audit.command.keyword == \"scp\"\n  ]\n  [any where rule.id.keyword in (\"550\", \"554\")]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.audit.command.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.audit.command.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.audit.command.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"5715\"",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "5715"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "SSH authentication"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "5715"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"92603\" and\n    data.audit.command.keyword == \"scp\"",
+          "predicate_fields": [
+            "data.audit.command.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "92603"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Audit"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "92603"
+            },
+            {
+              "field": "data.audit.command.keyword",
+              "operator": "==",
+              "value": "scp"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.audit.command",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 3,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in (\"550\", \"554\")",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "550",
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "SCP command telemetry and FIM are joined only by agent and time; no transferred-file, user or session equality is enforced. Scheduled FIM and legitimate transfers can match.",
+        "production_dependencies": "Collect rule 92603 audit command telemetry identifying scp, SSH authentication and file FIM alerts.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "ssh005-all-equal",
+            "phase": "6e"
+          },
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "ssh005-first-pair-tied",
+            "phase": "6e"
+          },
+          {
+            "evidence": "docs/verification/phase6/6e-v1/results.json",
+            "id": "ssh005-last-pair-tied",
+            "phase": "6e"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 3,
+          "PASS": 38,
+          "executions": 41
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements."
+      ]
+    },
+    {
+      "id": "WCORR-WEB-001",
+      "query_path": "rules/web/WCORR-WEB-001.eql",
+      "metadata_path": "rules/web/WCORR-WEB-001.md",
+      "query_sha256": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "exact_eql": "sequence by agent.id.keyword, data.srcip.keyword\nwith maxspan=10m\n  [any where rule.id.keyword in\n    (\"31151\", \"31515\", \"31516\")\n    and data.srcip.keyword != null]\n  [any where rule.id.keyword in\n    (\"31103\", \"31104\", \"31105\", \"31110\",\n     \"31164\", \"31166\", \"31168\")\n    and data.srcip.keyword != null]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "10m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in\n    (\"31151\", \"31515\", \"31516\")\n    and data.srcip.keyword != null",
+          "predicate_fields": [
+            "data.srcip.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "31151",
+            "31515",
+            "31516"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Web-server/application"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword",
+            "data.srcip.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [
+            "data.srcip.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.srcip",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in\n    (\"31103\", \"31104\", \"31105\", \"31110\",\n     \"31164\", \"31166\", \"31168\")\n    and data.srcip.keyword != null",
+          "predicate_fields": [
+            "data.srcip.keyword",
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "31103",
+            "31104",
+            "31105",
+            "31110",
+            "31164",
+            "31166",
+            "31168"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Web-server/application"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword",
+            "data.srcip.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [
+            "data.srcip.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.srcip",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Same recorded client IP does not confirm exploitation. Historical attribution is uncertain because the recorded client address also represented the server public address; reverse proxies can link unrelated activity.",
+        "production_dependencies": "Collect HTTP reconnaissance and exploitation alerts; validate recorded client IP attribution through proxies.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6f-v1/results.json",
+            "id": "web001-equal-timestamps",
+            "phase": "6f"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 36,
+          "executions": 37
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements.",
+        "data.method, data.status, data.request, data.dstip; source IP except WEB-001. HTTP 200 is not a predicate."
+      ]
+    },
+    {
+      "id": "WCORR-WEB-002",
+      "query_path": "rules/web/WCORR-WEB-002.eql",
+      "metadata_path": "rules/web/WCORR-WEB-002.md",
+      "query_sha256": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31151\", \"31103\", \"31104\", \"31105\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "10m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in\n    (\"31151\", \"31103\", \"31104\", \"31105\")",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "31151",
+            "31103",
+            "31104",
+            "31105"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Web-server/application"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.event.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "554"
+            },
+            {
+              "field": "syscheck.event.keyword",
+              "operator": "==",
+              "value": "added"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.event",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "PHP creation is joined by endpoint and time, not HTTP client identity; causality is unproven. Legitimate deployments can create PHP files.",
+        "production_dependencies": "Collect web alerts and added-file FIM in the exact WordPress Docker volume path; verify that path locally.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6f-v1/results.json",
+            "id": "web002-equal-timestamps",
+            "phase": "6f"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 42,
+          "executions": 43
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements.",
+        "data.method, data.status, data.request, data.dstip; source IP except WEB-001. HTTP 200 is not a predicate."
+      ]
+    },
+    {
+      "id": "WCORR-WEB-003",
+      "query_path": "rules/web/WCORR-WEB-003.eql",
+      "metadata_path": "rules/web/WCORR-WEB-003.md",
+      "query_sha256": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31106\", \"31110\", \"31166\", \"31168\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "10m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword in\n    (\"31106\", \"31110\", \"31166\", \"31168\")",
+          "predicate_fields": [
+            "rule.id.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "31106",
+            "31110",
+            "31166",
+            "31168"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "Web-server/application"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.event.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "554"
+            },
+            {
+              "field": "syscheck.event.keyword",
+              "operator": "==",
+              "value": "added"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.event",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "Investigative correlation only: HTTP 200 does not prove exploitation. FIM detection time may differ from creation time, and legitimate deployments may match.",
+        "production_dependencies": "Collect the narrower exploitation rule IDs and added-file FIM at the exact WordPress Docker volume path.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6g-v1/results.json",
+            "id": "web003-equal-timestamps",
+            "phase": "6g"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 42,
+          "executions": 43
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements.",
+        "data.method, data.status, data.request, data.dstip; source IP except WEB-001. HTTP 200 is not a predicate."
+      ]
+    },
+    {
+      "id": "WCORR-WEB-004",
+      "query_path": "rules/web/WCORR-WEB-004.eql",
+      "metadata_path": "rules/web/WCORR-WEB-004.md",
+      "query_sha256": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "exact_eql": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n  [any where data.url.keyword != null\n    and data.url.keyword like\n      \"/wp-content/uploads/*.php*\"]\n",
+      "index_pattern": "wazuh-alerts-4.x-*",
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "category_value_predicate": null,
+      "category_note": "Every stage is any; no required category literal. Missing/null category semantics untested; metadata config is retained.",
+      "maxspan": "30m",
+      "ordering": "Stage order as numbered; first-to-last maxspan. Equal or partial timestamp ties unresolved; no published tiebreaker.",
+      "global_join_fields": [
+        "agent.id.keyword"
+      ],
+      "eql_field_references": [
+        "agent.id.keyword",
+        "data.url.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.url.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "metadata_only_fields": [
+        "timestamp",
+        "type.keyword"
+      ],
+      "query_fields_absent_from_metadata": [],
+      "all_contract_fields": [
+        "agent.id.keyword",
+        "data.url.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword",
+        "timestamp",
+        "type.keyword"
+      ],
+      "stages": [
+        {
+          "stage": 1,
+          "event_category": "any",
+          "mandatory_predicate_eql": "rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"",
+          "predicate_fields": [
+            "rule.id.keyword",
+            "syscheck.event.keyword",
+            "syscheck.path.keyword"
+          ],
+          "wazuh_rule_ids": [
+            "554"
+          ],
+          "rule_id_unrestricted": false,
+          "telemetry_families": [
+            "File integrity monitoring"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "rule.id.keyword",
+              "operator": "==",
+              "value": "554"
+            },
+            {
+              "field": "syscheck.event.keyword",
+              "operator": "==",
+              "value": "added"
+            },
+            {
+              "field": "syscheck.path.keyword",
+              "operator": "like",
+              "value": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php"
+            }
+          ],
+          "null_guards": [],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "rule.id",
+            "syscheck.event",
+            "syscheck.path",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        },
+        {
+          "stage": 2,
+          "event_category": "any",
+          "mandatory_predicate_eql": "data.url.keyword != null\n    and data.url.keyword like\n      \"/wp-content/uploads/*.php*\"",
+          "predicate_fields": [
+            "data.url.keyword"
+          ],
+          "wazuh_rule_ids": [],
+          "rule_id_unrestricted": true,
+          "telemetry_families": [
+            "Native URL-bearing alert; no required Wazuh rule ID"
+          ],
+          "global_join_fields": [
+            "agent.id.keyword"
+          ],
+          "stage_join_fields": [],
+          "optional_syntax_fields": [],
+          "metadata_category_source_field": "type",
+          "production_availability": "UNVERIFIED",
+          "literal_predicates": [
+            {
+              "field": "data.url.keyword",
+              "operator": "like",
+              "value": "/wp-content/uploads/*.php*"
+            }
+          ],
+          "null_guards": [
+            "data.url.keyword"
+          ],
+          "referenced_event_source_fields": [
+            "agent.id",
+            "data.url",
+            "timestamp"
+          ],
+          "population_note": "Predicate/global joins require applicable indexed values. Optional-syntax final username is not guaranteed to match when absent/null; timestamp required for chronology; category population behavior untested."
+        }
+      ],
+      "production_availability": "UNVERIFIED",
+      "metadata_query_differences": [
+        "timestamp and type.keyword are request metadata, absent from EQL text; any adds no category literal.",
+        "Metadata field lists apply per stage, not to every event.",
+        "rule.id.keyword is required only in stage 1; stage 2 has no rule-ID, HTTP method/status, source-IP or filename-equality restriction."
+      ],
+      "phase6h": {
+        "confirmed_detection_limitations": "The requested PHP URL is not verified against the exact created file. Nested upload paths are included; the request stage deliberately has no rule-ID restriction, allowing other classifications including 31101.",
+        "production_dependencies": "Collect added-file FIM at the exact WordPress Docker volume path and native URL telemetry for uploads requests.",
+        "semantic_investigations": [
+          {
+            "evidence": "docs/verification/phase6/6g-v1/results.json",
+            "id": "web004-equal-timestamps",
+            "phase": "6g"
+          },
+          {
+            "evidence": "docs/verification/phase6/6gr-v1/results.json",
+            "id": "web004-equal-timestamps",
+            "phase": "6gr"
+          }
+        ],
+        "exact_query_evidence": "Captured request/query in every execution",
+        "corrected_unique_counts": {
+          "FAIL": 0,
+          "INCONCLUSIVE": 1,
+          "PASS": 50,
+          "executions": 51
+        }
+      },
+      "investigative_context_only": [
+        "Session/process identity and actor attribution are not query requirements.",
+        "data.method, data.status, data.request, data.dstip; source IP except WEB-001. HTTP 200 is not a predicate."
+      ]
+    }
+  ],
+  "field_inventory": [
+    "agent.id.keyword",
+    "data.audit.command.keyword",
+    "data.audit.type.keyword",
+    "data.command.keyword",
+    "data.dstuser.keyword",
+    "data.file.keyword",
+    "data.srcip.keyword",
+    "data.srcuser.keyword",
+    "data.url.keyword",
+    "rule.id.keyword",
+    "syscheck.event.keyword",
+    "syscheck.mode.keyword",
+    "syscheck.path.keyword",
+    "timestamp",
+    "type.keyword"
+  ],
+  "phase6h_limitations": [
+    {
+      "id": "L01",
+      "classification": "CONFIRMED",
+      "subject": "Agent-only joins and attribution",
+      "finding": "Agent/time association does not establish actor identity or causal activity. SSH-001 and WEB-001 also join source IP; PRIV and MAL have stage joins.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L02",
+      "classification": "CONFIRMED",
+      "subject": "User/session/process continuity",
+      "finding": "Published queries omit session/process joins; PRIV correlates selected usernames, not session/process identity.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L03",
+      "classification": "CONFIRMED",
+      "subject": "Source IP and shared proxies",
+      "finding": "SSH-001/WEB-001 enforce equal source strings; strings do not establish individual actors behind a shared address. Proxy efficacy itself remains untested.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L04",
+      "classification": "CONFIRMED",
+      "subject": "Command/path/service relationships",
+      "finding": "Missing interstage relationships permit unrelated activity. MAL joins paths and PRIV selected users; other omitted links remain omitted.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L05",
+      "classification": "CONFIRMED",
+      "subject": "Scheduled versus realtime FIM",
+      "finding": "SSH-003 and MAL require exact realtime; several other FIM rules have no mode restriction.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L06",
+      "classification": "CONFIRMED",
+      "subject": "Case-sensitive exact predicates",
+      "finding": "Case-sensitive IDs, literals, joins and wildcard paths constrain observed coverage.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L07",
+      "classification": "CONFIRMED",
+      "subject": "Broad wildcard and substring matches",
+      "finding": "Wildcards span nested paths and empty components; command substrings do not prove executed binaries.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L08",
+      "classification": "CONFIRMED",
+      "subject": "Empty-string joins and wildcard matches",
+      "finding": "Non-null checks do not establish nonempty or well-formed values; empty matching source strings and wildcard components can match.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L09",
+      "classification": "CONFIRMED",
+      "subject": "Missing/null predicate and join fields",
+      "finding": "Required fields/joins reject tested missing/null values. This does not cover missing timestamps or categories.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L10",
+      "classification": "INCONCLUSIVE",
+      "subject": "Equal-timestamp ordering",
+      "finding": "18 unique equal/partial timestamp investigations remain INCONCLUSIVE. Two Phase 6A boundary and two optional-username investigations also remain historically INCONCLUSIVE, totaling 22. Recovery repeats one tie identity without resolving it.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L11",
+      "classification": "CONFIRMED",
+      "subject": "PRIV optional username",
+      "finding": "Absent/null final username does not wildcard-match preceding populated username; no intended detection coverage claimed.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L12",
+      "classification": "INCONCLUSIVE",
+      "subject": "MAL exclusion isolation",
+      "finding": "No-sequence observations confound exclusion with path join or first-stage directory predicate. Isolated scalar exclusion effectiveness unproven.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L13",
+      "classification": "UNTESTED",
+      "subject": "Missing/null timestamps and categories",
+      "finding": "Different category values tested for some rules; missing/null ordering/category fields not covered.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L14",
+      "classification": "UNTESTED",
+      "subject": "Multivalued fields",
+      "finding": "Scalar fixture evidence does not establish multivalued predicate/join behaviour.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L15",
+      "classification": "UNTESTED",
+      "subject": "Competing sequences",
+      "finding": "One candidate chain per partition; selection under competing events not established.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L16",
+      "classification": "UNTESTED",
+      "subject": "Ingestion delay and arrival ordering",
+      "finding": "Event timestamp reversals tested; delayed ingestion and scheduling interactions not established.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L17",
+      "classification": "UNTESTED",
+      "subject": "Scheduling and deduplication",
+      "finding": "No scheduler/overlap/state/deduplication evidence.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L18",
+      "classification": "UNTESTED",
+      "subject": "Native Wazuh mappings and field population",
+      "finding": "Synthetic strict mappings cannot establish native alert field types, keyword multifields, normalization or population.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L19",
+      "classification": "UNTESTED",
+      "subject": "Production scale and detection efficacy",
+      "finding": "No representative load, benign baseline, precision/recall or operational efficacy evidence.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    },
+    {
+      "id": "L20",
+      "classification": "NOT APPLICABLE",
+      "subject": "Stage-specific join mismatch for rules without stage joins",
+      "finding": "Only PRIV and MAL have stage-specific joins; other rules use their stated global joins.",
+      "source": "docs/verification/phase6/6h-v1/limitations.json",
+      "inspection_class": "Mapping can check structure only; representative events and/or later laboratory tests required."
+    }
+  ],
+  "validation_evidence": {
+    "rules": 14,
+    "stages": 34,
+    "eql_fields": 13,
+    "total_contract_fields": 15,
+    "wazuh_rule_ids": 26,
+    "phase6h_limitations": 20,
+    "preexisting_file_count": 150,
+    "preexisting_modified_files": [
+      "tests/validate_development.py"
+    ],
+    "validator_change": "six explicit inventory additions only",
+    "phase6h_artifact_digest_checks": 5,
+    "historical_pin_checks_current_equal": 1044,
+    "historical_pins_authorized_superseded_or_validator_exception": 3,
+    "publication_tag_comparisons": 50,
+    "all_production_availability": "UNVERIFIED",
+    "eql_executions": 0,
+    "production_requests": 0
+  }
+}

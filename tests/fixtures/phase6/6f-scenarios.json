@@ -1,0 +1,4418 @@
+[
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-positive-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-01T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-positive-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-01T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-positive-s1",
+        "web001-positive-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-01T00:00:00+00:00",
+          "lt": "2031-01-02T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-positive",
+    "note": "positive",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-1-31515-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31515"
+          },
+          "timestamp": "2031-01-02T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-1-31515-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-02T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-1-31515-s1",
+        "web001-alternate-1-31515-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-02T00:00:00+00:00",
+          "lt": "2031-01-03T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-1-31515",
+    "note": "alternate-1-31515",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-1-31516-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31516"
+          },
+          "timestamp": "2031-01-03T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-1-31516-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-03T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-1-31516-s1",
+        "web001-alternate-1-31516-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-03T00:00:00+00:00",
+          "lt": "2031-01-04T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-1-31516",
+    "note": "alternate-1-31516",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31104-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-04T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31104-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31104"
+          },
+          "timestamp": "2031-01-04T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31104-s1",
+        "web001-alternate-2-31104-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-04T00:00:00+00:00",
+          "lt": "2031-01-05T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31104",
+    "note": "alternate-2-31104",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31105-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-05T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31105-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31105"
+          },
+          "timestamp": "2031-01-05T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31105-s1",
+        "web001-alternate-2-31105-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-05T00:00:00+00:00",
+          "lt": "2031-01-06T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31105",
+    "note": "alternate-2-31105",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31110-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-06T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31110-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31110"
+          },
+          "timestamp": "2031-01-06T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31110-s1",
+        "web001-alternate-2-31110-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-06T00:00:00+00:00",
+          "lt": "2031-01-07T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31110",
+    "note": "alternate-2-31110",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31164-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-07T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31164-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31164"
+          },
+          "timestamp": "2031-01-07T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31164-s1",
+        "web001-alternate-2-31164-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-07T00:00:00+00:00",
+          "lt": "2031-01-08T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31164",
+    "note": "alternate-2-31164",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31166-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-08T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31166-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31166"
+          },
+          "timestamp": "2031-01-08T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31166-s1",
+        "web001-alternate-2-31166-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-08T00:00:00+00:00",
+          "lt": "2031-01-09T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31166",
+    "note": "alternate-2-31166",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-alternate-2-31168-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-09T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-alternate-2-31168-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31168"
+          },
+          "timestamp": "2031-01-09T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-alternate-2-31168-s1",
+        "web001-alternate-2-31168-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-09T00:00:00+00:00",
+          "lt": "2031-01-10T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-alternate-2-31168",
+    "note": "alternate-2-31168",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-agent-id-missing-1-s1",
+        "source": {
+          "agent": {},
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-10T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-agent-id-missing-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-10T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-10T00:00:00+00:00",
+          "lt": "2031-01-11T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-agent-id-missing-1",
+    "note": "agent-id-missing-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-agent-id-null-1-s1",
+        "source": {
+          "agent": {
+            "id": null
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-11T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-agent-id-null-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-11T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-11T00:00:00+00:00",
+          "lt": "2031-01-12T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-agent-id-null-1",
+    "note": "agent-id-null-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-rule-id-missing-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {},
+          "timestamp": "2031-01-12T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-rule-id-missing-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-12T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-12T00:00:00+00:00",
+          "lt": "2031-01-13T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-rule-id-missing-1",
+    "note": "rule-id-missing-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-rule-id-null-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": null
+          },
+          "timestamp": "2031-01-13T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-rule-id-null-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-13T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-13T00:00:00+00:00",
+          "lt": "2031-01-14T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-rule-id-null-1",
+    "note": "rule-id-null-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-data-srcip-missing-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-14T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-data-srcip-missing-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-14T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-14T00:00:00+00:00",
+          "lt": "2031-01-15T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-data-srcip-missing-1",
+    "note": "data-srcip-missing-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-data-srcip-null-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": null
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-15T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-data-srcip-null-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-15T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-15T00:00:00+00:00",
+          "lt": "2031-01-16T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-data-srcip-null-1",
+    "note": "data-srcip-null-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-wrong-id-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "timestamp": "2031-01-16T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-wrong-id-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-16T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-16T00:00:00+00:00",
+          "lt": "2031-01-17T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-wrong-id-1",
+    "note": "wrong-id-1",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-agent-id-missing-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-17T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-agent-id-missing-2-s2",
+        "source": {
+          "agent": {},
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-17T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-17T00:00:00+00:00",
+          "lt": "2031-01-18T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-agent-id-missing-2",
+    "note": "agent-id-missing-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-agent-id-null-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-18T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-agent-id-null-2-s2",
+        "source": {
+          "agent": {
+            "id": null
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-18T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-18T00:00:00+00:00",
+          "lt": "2031-01-19T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-agent-id-null-2",
+    "note": "agent-id-null-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-rule-id-missing-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-19T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-rule-id-missing-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {},
+          "timestamp": "2031-01-19T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-19T00:00:00+00:00",
+          "lt": "2031-01-20T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-rule-id-missing-2",
+    "note": "rule-id-missing-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-rule-id-null-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-20T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-rule-id-null-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": null
+          },
+          "timestamp": "2031-01-20T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-20T00:00:00+00:00",
+          "lt": "2031-01-21T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-rule-id-null-2",
+    "note": "rule-id-null-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-data-srcip-missing-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-21T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-data-srcip-missing-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-21T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-21T00:00:00+00:00",
+          "lt": "2031-01-22T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-data-srcip-missing-2",
+    "note": "data-srcip-missing-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-data-srcip-null-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-22T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-data-srcip-null-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": null
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-22T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-22T00:00:00+00:00",
+          "lt": "2031-01-23T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-data-srcip-null-2",
+    "note": "data-srcip-null-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-wrong-id-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-23T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-wrong-id-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "timestamp": "2031-01-23T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-23T00:00:00+00:00",
+          "lt": "2031-01-24T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-wrong-id-2",
+    "note": "wrong-id-2",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-different-agent-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-24T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-different-agent-s2",
+        "source": {
+          "agent": {
+            "id": "other-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-24T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-24T00:00:00+00:00",
+          "lt": "2031-01-25T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-different-agent",
+    "note": "different-agent",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-different-source-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-25T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-different-source-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.11"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-25T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-25T00:00:00+00:00",
+          "lt": "2031-01-26T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-different-source",
+    "note": "different-source",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-different-destination-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-26T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-different-destination-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.21",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-26T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-different-destination-s1",
+        "web001-different-destination-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-26T00:00:00+00:00",
+          "lt": "2031-01-27T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-different-destination",
+    "note": "different-destination",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-inside-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-27T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-inside-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-27T01:09:59.999000+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-inside-s1",
+        "web001-inside-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-27T00:00:00+00:00",
+          "lt": "2031-01-28T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-inside",
+    "note": "inside",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-boundary-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-28T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-boundary-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-28T01:10:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-boundary-s1",
+        "web001-boundary-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-28T00:00:00+00:00",
+          "lt": "2031-01-29T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-boundary",
+    "note": "boundary",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-outside-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-29T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-outside-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-29T01:10:00.001000+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-29T00:00:00+00:00",
+          "lt": "2031-01-30T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-outside",
+    "note": "outside",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-reversed-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-30T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-reversed-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-30T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-30T00:00:00+00:00",
+          "lt": "2031-01-31T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-reversed",
+    "note": "reversed",
+    "rule": "web001"
+  },
+  {
+    "classification": "semantic_investigation",
+    "events": [
+      {
+        "id": "web001-equal-timestamps-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-01-31T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-equal-timestamps-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-01-31T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": null,
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-01-31T00:00:00+00:00",
+          "lt": "2031-02-01T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-equal-timestamps",
+    "note": "No tiebreaker configured; retain INCONCLUSIVE regardless of observation. Two stages have no partial tie distinct from all equal.",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-http-valid-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "POST",
+            "request": "POST /login.php",
+            "srcip": "127.0.0.10",
+            "status": "200",
+            "url": "/login.php"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-01T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-http-valid-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "POST",
+            "request": "POST /login.php",
+            "srcip": "127.0.0.10",
+            "status": "200",
+            "url": "/login.php"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-01T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-http-valid-s1",
+        "web001-http-valid-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-01T00:00:00+00:00",
+          "lt": "2031-02-02T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-http-valid",
+    "note": "http-valid",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-http-invalid-case-path-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "INVALID",
+            "request": "benign maintenance",
+            "srcip": "127.0.0.10",
+            "status": "nonsense",
+            "url": "/UNRELATED"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-02T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-http-invalid-case-path-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "INVALID",
+            "request": "benign maintenance",
+            "srcip": "127.0.0.10",
+            "status": "nonsense",
+            "url": "/UNRELATED"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-02T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-http-invalid-case-path-s1",
+        "web001-http-invalid-case-path-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-02T00:00:00+00:00",
+          "lt": "2031-02-03T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-http-invalid-case-path",
+    "note": "No HTTP field predicates; unrelated activity can correlate.",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-category-different-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-03T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-category-different-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-03T01:01:00+00:00",
+          "type": "other-category"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-category-different-s1",
+        "web001-category-different-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-03T00:00:00+00:00",
+          "lt": "2031-02-04T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-category-different",
+    "note": "category-different",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-proxy-shared-source-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-04T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-proxy-shared-source-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-04T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-proxy-shared-source-s1",
+        "web001-proxy-shared-source-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-04T00:00:00+00:00",
+          "lt": "2031-02-05T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-proxy-shared-source",
+    "note": "Unrelated synthetic requests sharing a recorded source and agent still correlate; attribution is not causal.",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-source-text-case-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "CLIENT"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-05T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-source-text-case-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "client"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-05T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-05T00:00:00+00:00",
+          "lt": "2031-02-06T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-source-text-case",
+    "note": "source-text-case",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web001-empty-source-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": ""
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-06T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web001-empty-source-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": ""
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-06T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web001-empty-source-s1",
+        "web001-empty-source-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-06T00:00:00+00:00",
+          "lt": "2031-02-07T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web001-empty-source",
+    "note": "Empty strings satisfy non-null and equal joins.",
+    "rule": "web001"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-positive-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-07T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-positive-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-07T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-positive-s1",
+        "web002-positive-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-07T00:00:00+00:00",
+          "lt": "2031-02-08T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-positive",
+    "note": "positive",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-alternate-1-31103-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31103"
+          },
+          "timestamp": "2031-02-08T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-alternate-1-31103-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-08T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-alternate-1-31103-s1",
+        "web002-alternate-1-31103-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-08T00:00:00+00:00",
+          "lt": "2031-02-09T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-alternate-1-31103",
+    "note": "alternate-1-31103",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-alternate-1-31104-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31104"
+          },
+          "timestamp": "2031-02-09T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-alternate-1-31104-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-09T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-alternate-1-31104-s1",
+        "web002-alternate-1-31104-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-09T00:00:00+00:00",
+          "lt": "2031-02-10T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-alternate-1-31104",
+    "note": "alternate-1-31104",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-alternate-1-31105-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31105"
+          },
+          "timestamp": "2031-02-10T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-alternate-1-31105-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-10T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-alternate-1-31105-s1",
+        "web002-alternate-1-31105-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-10T00:00:00+00:00",
+          "lt": "2031-02-11T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-alternate-1-31105",
+    "note": "alternate-1-31105",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-agent-id-missing-1-s1",
+        "source": {
+          "agent": {},
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-11T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-agent-id-missing-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-11T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-11T00:00:00+00:00",
+          "lt": "2031-02-12T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-agent-id-missing-1",
+    "note": "agent-id-missing-1",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-agent-id-null-1-s1",
+        "source": {
+          "agent": {
+            "id": null
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-12T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-agent-id-null-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-12T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-12T00:00:00+00:00",
+          "lt": "2031-02-13T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-agent-id-null-1",
+    "note": "agent-id-null-1",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-rule-id-missing-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {},
+          "timestamp": "2031-02-13T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-rule-id-missing-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-13T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-13T00:00:00+00:00",
+          "lt": "2031-02-14T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-rule-id-missing-1",
+    "note": "rule-id-missing-1",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-rule-id-null-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": null
+          },
+          "timestamp": "2031-02-14T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-rule-id-null-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-14T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-14T00:00:00+00:00",
+          "lt": "2031-02-15T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-rule-id-null-1",
+    "note": "rule-id-null-1",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-wrong-id-1-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "timestamp": "2031-02-15T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-wrong-id-1-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-15T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-15T00:00:00+00:00",
+          "lt": "2031-02-16T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-wrong-id-1",
+    "note": "wrong-id-1",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-agent-id-missing-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-16T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-agent-id-missing-2-s2",
+        "source": {
+          "agent": {},
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-16T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-16T00:00:00+00:00",
+          "lt": "2031-02-17T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-agent-id-missing-2",
+    "note": "agent-id-missing-2",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-agent-id-null-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-17T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-agent-id-null-2-s2",
+        "source": {
+          "agent": {
+            "id": null
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-17T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-17T00:00:00+00:00",
+          "lt": "2031-02-18T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-agent-id-null-2",
+    "note": "agent-id-null-2",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-rule-id-missing-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-18T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-rule-id-missing-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {},
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-18T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-18T00:00:00+00:00",
+          "lt": "2031-02-19T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-rule-id-missing-2",
+    "note": "rule-id-missing-2",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-rule-id-null-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-19T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-rule-id-null-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": null
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-19T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-19T00:00:00+00:00",
+          "lt": "2031-02-20T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-rule-id-null-2",
+    "note": "rule-id-null-2",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-wrong-id-2-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-20T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-wrong-id-2-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-20T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-20T00:00:00+00:00",
+          "lt": "2031-02-21T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-wrong-id-2",
+    "note": "wrong-id-2",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-different-agent-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-21T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-different-agent-s2",
+        "source": {
+          "agent": {
+            "id": "other-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-21T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-21T00:00:00+00:00",
+          "lt": "2031-02-22T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-different-agent",
+    "note": "different-agent",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-different-source-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-22T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-different-source-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.11"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-22T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-different-source-s1",
+        "web002-different-source-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-22T00:00:00+00:00",
+          "lt": "2031-02-23T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-different-source",
+    "note": "different-source",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-different-destination-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-23T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-different-destination-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.21",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-23T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-different-destination-s1",
+        "web002-different-destination-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-23T00:00:00+00:00",
+          "lt": "2031-02-24T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-different-destination",
+    "note": "different-destination",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-inside-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-24T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-inside-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-24T01:09:59.999000+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-inside-s1",
+        "web002-inside-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-24T00:00:00+00:00",
+          "lt": "2031-02-25T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-inside",
+    "note": "inside",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-boundary-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-25T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-boundary-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-25T01:10:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-boundary-s1",
+        "web002-boundary-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-25T00:00:00+00:00",
+          "lt": "2031-02-26T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-boundary",
+    "note": "boundary",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-outside-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-26T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-outside-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-26T01:10:00.001000+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-26T00:00:00+00:00",
+          "lt": "2031-02-27T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-outside",
+    "note": "outside",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-reversed-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-27T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-reversed-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-27T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-27T00:00:00+00:00",
+          "lt": "2031-02-28T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-reversed",
+    "note": "reversed",
+    "rule": "web002"
+  },
+  {
+    "classification": "semantic_investigation",
+    "events": [
+      {
+        "id": "web002-equal-timestamps-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-02-28T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-equal-timestamps-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-02-28T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": null,
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-02-28T00:00:00+00:00",
+          "lt": "2031-03-01T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-equal-timestamps",
+    "note": "No tiebreaker configured; retain INCONCLUSIVE regardless of observation. Two stages have no partial tie distinct from all equal.",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-http-valid-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "POST",
+            "request": "POST /login.php",
+            "srcip": "127.0.0.10",
+            "status": "200",
+            "url": "/login.php"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-01T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-http-valid-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "POST",
+            "request": "POST /login.php",
+            "srcip": "127.0.0.10",
+            "status": "200",
+            "url": "/login.php"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-01T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-http-valid-s1",
+        "web002-http-valid-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-01T00:00:00+00:00",
+          "lt": "2031-03-02T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-http-valid",
+    "note": "http-valid",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-http-invalid-case-path-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "INVALID",
+            "request": "benign maintenance",
+            "srcip": "127.0.0.10",
+            "status": "nonsense",
+            "url": "/UNRELATED"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-02T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-http-invalid-case-path-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "method": "INVALID",
+            "request": "benign maintenance",
+            "srcip": "127.0.0.10",
+            "status": "nonsense",
+            "url": "/UNRELATED"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-02T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-http-invalid-case-path-s1",
+        "web002-http-invalid-case-path-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-02T00:00:00+00:00",
+          "lt": "2031-03-03T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-http-invalid-case-path",
+    "note": "No HTTP field predicates; unrelated activity can correlate.",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-category-different-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-03T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-category-different-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-03T01:01:00+00:00",
+          "type": "other-category"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-category-different-s1",
+        "web002-category-different-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-03T00:00:00+00:00",
+          "lt": "2031-03-04T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-category-different",
+    "note": "category-different",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-missing-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-04T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-missing-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-04T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-04T00:00:00+00:00",
+          "lt": "2031-03-05T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-missing",
+    "note": "event-missing",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-null-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-05T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-null-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": null,
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-05T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-05T00:00:00+00:00",
+          "lt": "2031-03-06T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-null",
+    "note": "event-null",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-path-missing-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-06T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-path-missing-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added"
+          },
+          "timestamp": "2031-03-06T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-06T00:00:00+00:00",
+          "lt": "2031-03-07T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-path-missing",
+    "note": "path-missing",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-path-null-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-07T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-path-null-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": null
+          },
+          "timestamp": "2031-03-07T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-07T00:00:00+00:00",
+          "lt": "2031-03-08T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-path-null",
+    "note": "path-null",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-uppercase-extension-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-08T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-uppercase-extension-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.PHP"
+          },
+          "timestamp": "2031-03-08T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-08T00:00:00+00:00",
+          "lt": "2031-03-09T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-uppercase-extension",
+    "note": "uppercase-extension",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-nested-path-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-09T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-nested-path-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/nested/shell.php"
+          },
+          "timestamp": "2031-03-09T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-nested-path-s1",
+        "web002-nested-path-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-09T00:00:00+00:00",
+          "lt": "2031-03-10T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-nested-path",
+    "note": "nested-path",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-empty-stem-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-10T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-empty-stem-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/.php"
+          },
+          "timestamp": "2031-03-10T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-empty-stem-s1",
+        "web002-empty-stem-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-10T00:00:00+00:00",
+          "lt": "2031-03-11T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-empty-stem",
+    "note": "empty-stem",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-alternate-root-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-11T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-alternate-root-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/www/uploads/shell.php"
+          },
+          "timestamp": "2031-03-11T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-11T00:00:00+00:00",
+          "lt": "2031-03-12T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-alternate-root",
+    "note": "alternate-root",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-suffix-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-12T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-suffix-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php.txt"
+          },
+          "timestamp": "2031-03-12T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-12T00:00:00+00:00",
+          "lt": "2031-03-13T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-suffix",
+    "note": "suffix",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-uppercase-path-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-13T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-uppercase-path-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/UPLOADS/shell.php"
+          },
+          "timestamp": "2031-03-13T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-13T00:00:00+00:00",
+          "lt": "2031-03-14T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-uppercase-path",
+    "note": "uppercase-path",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-query-suffix-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-14T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-query-suffix-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php?x=1"
+          },
+          "timestamp": "2031-03-14T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-14T00:00:00+00:00",
+          "lt": "2031-03-15T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-query-suffix",
+    "note": "query-suffix",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-non-php-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-15T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-non-php-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.txt"
+          },
+          "timestamp": "2031-03-15T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-15T00:00:00+00:00",
+          "lt": "2031-03-16T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-non-php",
+    "note": "non-php",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-added-case-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-16T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-added-case-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "ADDED",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-16T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-16T00:00:00+00:00",
+          "lt": "2031-03-17T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-added-case",
+    "note": "event-added-case",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-modified-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-17T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-modified-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "modified",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-17T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-17T00:00:00+00:00",
+          "lt": "2031-03-18T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-modified",
+    "note": "event-modified",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-deleted-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-18T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-deleted-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "deleted",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-18T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-18T00:00:00+00:00",
+          "lt": "2031-03-19T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-deleted",
+    "note": "event-deleted",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-event-empty-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-19T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-event-empty-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-19T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-19T00:00:00+00:00",
+          "lt": "2031-03-20T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-event-empty",
+    "note": "event-empty",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-legitimate-deployment-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-20T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-legitimate-deployment-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "data": {
+            "dstip": "127.0.0.20",
+            "srcip": "127.0.0.10"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-20T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-legitimate-deployment-s1",
+        "web002-legitimate-deployment-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-20T00:00:00+00:00",
+          "lt": "2031-03-21T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-legitimate-deployment",
+    "note": "Legitimate PHP deployment after unrelated web alert satisfies published predicates; causality unproven.",
+    "rule": "web002"
+  },
+  {
+    "classification": "detection_test",
+    "events": [
+      {
+        "id": "web002-source-absent-s1",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "31151"
+          },
+          "timestamp": "2031-03-21T01:00:00+00:00",
+          "type": "synthetic"
+        }
+      },
+      {
+        "id": "web002-source-absent-s2",
+        "source": {
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "event": "added",
+            "path": "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/shell.php"
+          },
+          "timestamp": "2031-03-21T01:01:00+00:00",
+          "type": "synthetic"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "web002-source-absent-s1",
+        "web002-source-absent-s2"
+      ]
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2031-03-21T00:00:00+00:00",
+          "lt": "2031-03-22T00:00:00+00:00"
+        }
+      }
+    },
+    "id": "web002-source-absent",
+    "note": "source-absent",
+    "rule": "web002"
+  }
+]

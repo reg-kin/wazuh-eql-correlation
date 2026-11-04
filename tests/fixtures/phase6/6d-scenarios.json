@@ -1,0 +1,6514 @@
+[
+  {
+    "id": "ssh003-positive",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "positive",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-01T00:00:00+00:00",
+          "lt": "2030-01-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-positive-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-01T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-positive-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-01T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-positive-s1",
+        "ssh003-positive-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-alternate-fim-id",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "alternate fim id",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-02T00:00:00+00:00",
+          "lt": "2030-01-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-alternate-fim-id-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-02T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-alternate-fim-id-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-02T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-alternate-fim-id-s1",
+        "ssh003-alternate-fim-id-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-wrong-id-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "wrong id 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-03T00:00:00+00:00",
+          "lt": "2030-01-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-wrong-id-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "999"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-03T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-wrong-id-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-03T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-different-agent-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "different agent 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-04T00:00:00+00:00",
+          "lt": "2030-01-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-different-agent-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-04T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-different-agent-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-04T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-agent-id-missing-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "agent id missing 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-05T00:00:00+00:00",
+          "lt": "2030-01-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-agent-id-missing-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-05T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-agent-id-missing-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-05T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-agent-id-null-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "agent id null 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-06T00:00:00+00:00",
+          "lt": "2030-01-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-agent-id-null-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-06T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-agent-id-null-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-06T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-rule-id-missing-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "rule id missing 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-07T00:00:00+00:00",
+          "lt": "2030-01-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-rule-id-missing-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-07T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-rule-id-missing-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-07T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-rule-id-null-1",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "rule id null 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-08T00:00:00+00:00",
+          "lt": "2030-01-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-rule-id-null-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-08T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-rule-id-null-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-08T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-wrong-id-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "wrong id 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-09T00:00:00+00:00",
+          "lt": "2030-01-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-wrong-id-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-09T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-wrong-id-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "999"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-09T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-different-agent-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "different agent 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-10T00:00:00+00:00",
+          "lt": "2030-01-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-different-agent-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-10T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-different-agent-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-10T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-agent-id-missing-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "agent id missing 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-11T00:00:00+00:00",
+          "lt": "2030-01-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-agent-id-missing-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-11T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-agent-id-missing-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-11T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-agent-id-null-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "agent id null 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-12T00:00:00+00:00",
+          "lt": "2030-01-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-agent-id-null-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-12T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-agent-id-null-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-12T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-rule-id-missing-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "rule id missing 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-13T00:00:00+00:00",
+          "lt": "2030-01-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-rule-id-missing-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-13T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-rule-id-missing-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-13T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-rule-id-null-2",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "rule id null 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-14T00:00:00+00:00",
+          "lt": "2030-01-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-rule-id-null-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-14T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-rule-id-null-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-14T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-reversed",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "reversed",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-15T00:00:00+00:00",
+          "lt": "2030-01-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-reversed-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-15T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-reversed-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-15T00:00:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-inside",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "First-to-last 1799 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-16T00:00:00+00:00",
+          "lt": "2030-01-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-inside-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-16T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-inside-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-16T00:29:59+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-inside-s1",
+        "ssh003-inside-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-boundary",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "First-to-last 1800 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-17T00:00:00+00:00",
+          "lt": "2030-01-18T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-boundary-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-17T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-boundary-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-17T00:30:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-boundary-s1",
+        "ssh003-boundary-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-outside",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "First-to-last 1801 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-18T00:00:00+00:00",
+          "lt": "2030-01-19T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-outside-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-18T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-outside-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-18T00:30:01+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-equal-timestamps",
+    "rule": "ssh003",
+    "classification": "semantic_investigation",
+    "note": "No tiebreaker: observation cannot establish deterministic order",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-19T00:00:00+00:00",
+          "lt": "2030-01-20T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-equal-timestamps-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-19T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-equal-timestamps-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-19T00:00:00+00:00"
+        }
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "ssh003-path-etc-shadow",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path etc shadow",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-20T00:00:00+00:00",
+          "lt": "2030-01-21T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-etc-shadow-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-20T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-etc-shadow-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/shadow",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-20T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-etc-shadow-s1",
+        "ssh003-path-etc-shadow-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-etc-group",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path etc group",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-21T00:00:00+00:00",
+          "lt": "2030-01-22T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-etc-group-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-21T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-etc-group-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/group",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-21T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-etc-group-s1",
+        "ssh003-path-etc-group-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-etc-gshadow",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path etc gshadow",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-22T00:00:00+00:00",
+          "lt": "2030-01-23T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-etc-gshadow-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-22T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-etc-gshadow-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/gshadow",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-22T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-etc-gshadow-s1",
+        "ssh003-path-etc-gshadow-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-etc-sudoers",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path etc sudoers",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-23T00:00:00+00:00",
+          "lt": "2030-01-24T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-etc-sudoers-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-23T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-etc-sudoers-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-23T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-etc-sudoers-s1",
+        "ssh003-path-etc-sudoers-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-etc-sudoersd-lab",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path etc sudoersd lab",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-24T00:00:00+00:00",
+          "lt": "2030-01-25T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-etc-sudoersd-lab-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-24T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-etc-sudoersd-lab-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/lab",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-24T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-etc-sudoersd-lab-s1",
+        "ssh003-path-etc-sudoersd-lab-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-home-lab-ssh-authorized-keys",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path home lab ssh authorized_keys",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-25T00:00:00+00:00",
+          "lt": "2030-01-26T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-home-lab-ssh-authorized-keys-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-25T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-home-lab-ssh-authorized-keys-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home/lab/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-25T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-home-lab-ssh-authorized-keys-s1",
+        "ssh003-path-home-lab-ssh-authorized-keys-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-root-ssh-authorized-keys",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path root ssh authorized_keys",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-26T00:00:00+00:00",
+          "lt": "2030-01-27T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-root-ssh-authorized-keys-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-26T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-root-ssh-authorized-keys-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/root/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-26T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-root-ssh-authorized-keys-s1",
+        "ssh003-path-root-ssh-authorized-keys-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-unrelated",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path unrelated",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-27T00:00:00+00:00",
+          "lt": "2030-01-28T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-unrelated-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-27T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-unrelated-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/tmp/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-27T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-suffix",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path suffix",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-28T00:00:00+00:00",
+          "lt": "2030-01-29T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-suffix-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-28T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-suffix-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd.bak",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-28T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-case",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path case",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-29T00:00:00+00:00",
+          "lt": "2030-01-30T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-case-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-29T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-case-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/ETC/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-29T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-sudoers-no-slash",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path sudoers no slash",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-30T00:00:00+00:00",
+          "lt": "2030-01-31T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-sudoers-no-slash-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-30T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-sudoers-no-slash-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-30T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-sudoers-empty",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path sudoers empty",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-31T00:00:00+00:00",
+          "lt": "2030-02-01T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-sudoers-empty-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-01-31T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-sudoers-empty-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-01-31T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-sudoers-empty-s1",
+        "ssh003-path-sudoers-empty-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-sudoers-nested",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path sudoers nested",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-01T00:00:00+00:00",
+          "lt": "2030-02-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-sudoers-nested-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-01T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-sudoers-nested-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/nested/lab",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-01T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-sudoers-nested-s1",
+        "ssh003-path-sudoers-nested-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-home-nested",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path home nested",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-02T00:00:00+00:00",
+          "lt": "2030-02-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-home-nested-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-02T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-home-nested-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home/lab/nested/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-02T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-home-nested-s1",
+        "ssh003-path-home-nested-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-home-empty",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "path home empty",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-03T00:00:00+00:00",
+          "lt": "2030-02-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-home-empty-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-03T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-home-empty-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home//.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-03T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-path-home-empty-s1",
+        "ssh003-path-home-empty-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh003-path-keys-suffix",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path keys suffix",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-04T00:00:00+00:00",
+          "lt": "2030-02-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-keys-suffix-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-04T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-keys-suffix-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/root/.ssh/authorized_keys.bak",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-04T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-other-home",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path other home",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-05T00:00:00+00:00",
+          "lt": "2030-02-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-other-home-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-05T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-other-home-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/srv/lab/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-05T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-missing",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path missing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-06T00:00:00+00:00",
+          "lt": "2030-02-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-06T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-06T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-path-null",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "path null",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-07T00:00:00+00:00",
+          "lt": "2030-02-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-path-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-07T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-path-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": null,
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-07T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-mode-scheduled",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-08T00:00:00+00:00",
+          "lt": "2030-02-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-mode-scheduled-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-08T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-mode-scheduled-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "scheduled"
+          },
+          "timestamp": "2030-02-08T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-mode-case",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-09T00:00:00+00:00",
+          "lt": "2030-02-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-mode-case-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-09T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-mode-case-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "Realtime"
+          },
+          "timestamp": "2030-02-09T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-mode-missing",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-10T00:00:00+00:00",
+          "lt": "2030-02-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-mode-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-10T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-mode-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd"
+          },
+          "timestamp": "2030-02-10T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-mode-null",
+    "rule": "ssh003",
+    "classification": "negative",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-11T00:00:00+00:00",
+          "lt": "2030-02-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-mode-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-11T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-mode-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": null
+          },
+          "timestamp": "2030-02-11T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh003-login-user-missing",
+    "rule": "ssh003",
+    "classification": "positive",
+    "note": "No username/session attribution join",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-12T00:00:00+00:00",
+          "lt": "2030-02-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh003-login-user-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {},
+          "timestamp": "2030-02-12T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh003-login-user-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-12T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh003-login-user-missing-s1",
+        "ssh003-login-user-missing-s2"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-positive",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "positive",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-13T00:00:00+00:00",
+          "lt": "2030-02-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-positive-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-13T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-positive-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-13T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-positive-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-13T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-positive-s1",
+        "ssh004-positive-s2",
+        "ssh004-positive-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-alternate-fim-id",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "alternate fim id",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-14T00:00:00+00:00",
+          "lt": "2030-02-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-alternate-fim-id-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-14T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-alternate-fim-id-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-14T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-alternate-fim-id-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "554"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-14T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-alternate-fim-id-s1",
+        "ssh004-alternate-fim-id-s2",
+        "ssh004-alternate-fim-id-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-alternate-sudo-id",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "alternate sudo id",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-15T00:00:00+00:00",
+          "lt": "2030-02-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-alternate-sudo-id-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-15T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-alternate-sudo-id-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5407"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-15T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-alternate-sudo-id-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-15T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-alternate-sudo-id-s1",
+        "ssh004-alternate-sudo-id-s2",
+        "ssh004-alternate-sudo-id-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-wrong-id-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "wrong id 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-16T00:00:00+00:00",
+          "lt": "2030-02-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-wrong-id-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "999"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-16T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-16T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-16T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-different-agent-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "different agent 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-17T00:00:00+00:00",
+          "lt": "2030-02-18T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-different-agent-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-17T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-17T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-17T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-missing-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id missing 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-18T00:00:00+00:00",
+          "lt": "2030-02-19T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-missing-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-18T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-18T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-18T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-null-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id null 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-19T00:00:00+00:00",
+          "lt": "2030-02-20T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-null-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-19T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-19T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-19T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-missing-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id missing 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-20T00:00:00+00:00",
+          "lt": "2030-02-21T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-missing-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-20T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-20T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-20T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-null-1",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id null 1",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-21T00:00:00+00:00",
+          "lt": "2030-02-22T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-null-1-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-21T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-1-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-21T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-1-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-21T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-wrong-id-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "wrong id 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-22T00:00:00+00:00",
+          "lt": "2030-02-23T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-wrong-id-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-22T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "999"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-22T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-22T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-different-agent-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "different agent 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-23T00:00:00+00:00",
+          "lt": "2030-02-24T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-different-agent-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-23T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-23T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-23T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-missing-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id missing 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-24T00:00:00+00:00",
+          "lt": "2030-02-25T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-missing-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-24T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-24T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-24T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-null-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id null 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-25T00:00:00+00:00",
+          "lt": "2030-02-26T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-null-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-25T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-25T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-25T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-missing-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id missing 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-26T00:00:00+00:00",
+          "lt": "2030-02-27T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-missing-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-26T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-26T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-26T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-null-2",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id null 2",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-27T00:00:00+00:00",
+          "lt": "2030-02-28T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-null-2-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-27T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-2-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-27T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-2-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-27T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-wrong-id-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "wrong id 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-28T00:00:00+00:00",
+          "lt": "2030-03-01T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-wrong-id-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-02-28T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-02-28T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-wrong-id-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "999"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-02-28T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-different-agent-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "different agent 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-01T00:00:00+00:00",
+          "lt": "2030-03-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-different-agent-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-01T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-01T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-different-agent-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-01T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-missing-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id missing 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-02T00:00:00+00:00",
+          "lt": "2030-03-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-missing-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-02T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-02T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-missing-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-02T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-agent-id-null-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "agent id null 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-03T00:00:00+00:00",
+          "lt": "2030-03-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-agent-id-null-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-03T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-03T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-agent-id-null-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-03T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-missing-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id missing 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-04T00:00:00+00:00",
+          "lt": "2030-03-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-missing-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-04T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-04T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-missing-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-04T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-rule-id-null-3",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "rule id null 3",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-05T00:00:00+00:00",
+          "lt": "2030-03-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-rule-id-null-3-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-05T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-3-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-05T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-rule-id-null-3-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-05T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-reversed",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "reversed",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-06T00:00:00+00:00",
+          "lt": "2030-03-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-reversed-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-06T00:02:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-reversed-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-06T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-reversed-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-06T00:00:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-fim-before-sudo",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "fim before sudo",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-07T00:00:00+00:00",
+          "lt": "2030-03-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-fim-before-sudo-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-07T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-fim-before-sudo-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-07T00:02:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-fim-before-sudo-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-07T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-sudo-before-login",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "sudo before login",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-08T00:00:00+00:00",
+          "lt": "2030-03-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-sudo-before-login-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-08T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-sudo-before-login-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-08T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-sudo-before-login-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-08T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-inside",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "First-to-last 1799 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-09T00:00:00+00:00",
+          "lt": "2030-03-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-inside-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-09T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-inside-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-09T00:15:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-inside-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-09T00:29:59+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-inside-s1",
+        "ssh004-inside-s2",
+        "ssh004-inside-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-boundary",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "First-to-last 1800 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-10T00:00:00+00:00",
+          "lt": "2030-03-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-boundary-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-10T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-boundary-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-10T00:15:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-boundary-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-10T00:30:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-boundary-s1",
+        "ssh004-boundary-s2",
+        "ssh004-boundary-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-outside",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "First-to-last 1801 seconds; full ordered IDs required",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-11T00:00:00+00:00",
+          "lt": "2030-03-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-outside-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-11T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-outside-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-11T00:15:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-outside-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-11T00:30:01+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-adjacent-within-total-outside",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "Both adjacent gaps under 30m; first-to-last 2000s exceeds maxspan",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-12T00:00:00+00:00",
+          "lt": "2030-03-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-adjacent-within-total-outside-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-12T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-adjacent-within-total-outside-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-12T00:16:40+00:00"
+        }
+      },
+      {
+        "id": "ssh004-adjacent-within-total-outside-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-12T00:33:20+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-equal-timestamps",
+    "rule": "ssh004",
+    "classification": "semantic_investigation",
+    "note": "No tiebreaker: observation cannot establish deterministic order",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-13T00:00:00+00:00",
+          "lt": "2030-03-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-equal-timestamps-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-13T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-timestamps-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-13T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-timestamps-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-13T00:00:00+00:00"
+        }
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "ssh004-equal-login-sudo",
+    "rule": "ssh004",
+    "classification": "semantic_investigation",
+    "note": "equal login sudo",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-14T00:00:00+00:00",
+          "lt": "2030-03-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-equal-login-sudo-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-14T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-login-sudo-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-14T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-login-sudo-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-14T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "ssh004-equal-sudo-fim",
+    "rule": "ssh004",
+    "classification": "semantic_investigation",
+    "note": "equal sudo fim",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-15T00:00:00+00:00",
+          "lt": "2030-03-16T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-equal-sudo-fim-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-15T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-sudo-fim-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-15T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-equal-sudo-fim-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-15T00:01:00+00:00"
+        }
+      }
+    ],
+    "expected": null
+  },
+  {
+    "id": "ssh004-path-etc-shadow",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path etc shadow",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-16T00:00:00+00:00",
+          "lt": "2030-03-17T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-etc-shadow-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-16T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-shadow-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-16T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-shadow-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/shadow",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-16T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-etc-shadow-s1",
+        "ssh004-path-etc-shadow-s2",
+        "ssh004-path-etc-shadow-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-etc-group",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path etc group",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-17T00:00:00+00:00",
+          "lt": "2030-03-18T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-etc-group-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-17T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-group-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-17T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-group-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/group",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-17T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-etc-group-s1",
+        "ssh004-path-etc-group-s2",
+        "ssh004-path-etc-group-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-etc-gshadow",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path etc gshadow",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-18T00:00:00+00:00",
+          "lt": "2030-03-19T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-etc-gshadow-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-18T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-gshadow-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-18T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-gshadow-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/gshadow",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-18T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-etc-gshadow-s1",
+        "ssh004-path-etc-gshadow-s2",
+        "ssh004-path-etc-gshadow-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-etc-sudoers",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path etc sudoers",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-19T00:00:00+00:00",
+          "lt": "2030-03-20T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-etc-sudoers-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-19T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-sudoers-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-19T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-sudoers-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-19T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-etc-sudoers-s1",
+        "ssh004-path-etc-sudoers-s2",
+        "ssh004-path-etc-sudoers-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-etc-sudoersd-lab",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path etc sudoersd lab",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-20T00:00:00+00:00",
+          "lt": "2030-03-21T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-etc-sudoersd-lab-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-20T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-sudoersd-lab-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-20T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-etc-sudoersd-lab-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/lab",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-20T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-etc-sudoersd-lab-s1",
+        "ssh004-path-etc-sudoersd-lab-s2",
+        "ssh004-path-etc-sudoersd-lab-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-home-lab-ssh-authorized-keys",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path home lab ssh authorized_keys",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-21T00:00:00+00:00",
+          "lt": "2030-03-22T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-home-lab-ssh-authorized-keys-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-21T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-lab-ssh-authorized-keys-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-21T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-lab-ssh-authorized-keys-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home/lab/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-21T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-home-lab-ssh-authorized-keys-s1",
+        "ssh004-path-home-lab-ssh-authorized-keys-s2",
+        "ssh004-path-home-lab-ssh-authorized-keys-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-root-ssh-authorized-keys",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path root ssh authorized_keys",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-22T00:00:00+00:00",
+          "lt": "2030-03-23T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-root-ssh-authorized-keys-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-22T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-root-ssh-authorized-keys-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-22T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-root-ssh-authorized-keys-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/root/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-22T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-root-ssh-authorized-keys-s1",
+        "ssh004-path-root-ssh-authorized-keys-s2",
+        "ssh004-path-root-ssh-authorized-keys-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-unrelated",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path unrelated",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-23T00:00:00+00:00",
+          "lt": "2030-03-24T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-unrelated-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-23T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-unrelated-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-23T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-unrelated-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/tmp/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-23T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-suffix",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path suffix",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-24T00:00:00+00:00",
+          "lt": "2030-03-25T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-suffix-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-24T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-suffix-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-24T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-suffix-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd.bak",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-24T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-case",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path case",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-25T00:00:00+00:00",
+          "lt": "2030-03-26T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-case-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-25T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-case-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-25T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-case-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/ETC/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-25T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-sudoers-no-slash",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path sudoers no slash",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-26T00:00:00+00:00",
+          "lt": "2030-03-27T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-sudoers-no-slash-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-26T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-no-slash-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-26T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-no-slash-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-26T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-sudoers-empty",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path sudoers empty",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-27T00:00:00+00:00",
+          "lt": "2030-03-28T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-sudoers-empty-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-27T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-empty-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-27T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-empty-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-27T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-sudoers-empty-s1",
+        "ssh004-path-sudoers-empty-s2",
+        "ssh004-path-sudoers-empty-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-sudoers-nested",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path sudoers nested",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-28T00:00:00+00:00",
+          "lt": "2030-03-29T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-sudoers-nested-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-28T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-nested-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-28T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-sudoers-nested-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/sudoers.d/nested/lab",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-28T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-sudoers-nested-s1",
+        "ssh004-path-sudoers-nested-s2",
+        "ssh004-path-sudoers-nested-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-home-nested",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path home nested",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-29T00:00:00+00:00",
+          "lt": "2030-03-30T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-home-nested-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-29T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-nested-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-29T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-nested-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home/lab/nested/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-29T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-home-nested-s1",
+        "ssh004-path-home-nested-s2",
+        "ssh004-path-home-nested-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-home-empty",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "path home empty",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-30T00:00:00+00:00",
+          "lt": "2030-03-31T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-home-empty-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-30T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-empty-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-30T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-home-empty-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/home//.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-30T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-path-home-empty-s1",
+        "ssh004-path-home-empty-s2",
+        "ssh004-path-home-empty-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-path-keys-suffix",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path keys suffix",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-31T00:00:00+00:00",
+          "lt": "2030-04-01T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-keys-suffix-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-03-31T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-keys-suffix-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-03-31T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-keys-suffix-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/root/.ssh/authorized_keys.bak",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-03-31T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-other-home",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path other home",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-01T00:00:00+00:00",
+          "lt": "2030-04-02T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-other-home-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-01T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-other-home-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-01T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-other-home-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/srv/lab/.ssh/authorized_keys",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-01T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-missing",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path missing",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-02T00:00:00+00:00",
+          "lt": "2030-04-03T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-02T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-02T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-missing-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-02T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-path-null",
+    "rule": "ssh004",
+    "classification": "negative",
+    "note": "path null",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-03T00:00:00+00:00",
+          "lt": "2030-04-04T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-path-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-03T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-03T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-path-null-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": null,
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-03T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": []
+  },
+  {
+    "id": "ssh004-mode-scheduled",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-04T00:00:00+00:00",
+          "lt": "2030-04-05T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-mode-scheduled-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-04T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-scheduled-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-04T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-scheduled-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "scheduled"
+          },
+          "timestamp": "2030-04-04T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-mode-scheduled-s1",
+        "ssh004-mode-scheduled-s2",
+        "ssh004-mode-scheduled-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-mode-case",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-05T00:00:00+00:00",
+          "lt": "2030-04-06T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-mode-case-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-05T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-case-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-05T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-case-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "Realtime"
+          },
+          "timestamp": "2030-04-05T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-mode-case-s1",
+        "ssh004-mode-case-s2",
+        "ssh004-mode-case-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-mode-missing",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-06T00:00:00+00:00",
+          "lt": "2030-04-07T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-mode-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-06T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-06T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-missing-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd"
+          },
+          "timestamp": "2030-04-06T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-mode-missing-s1",
+        "ssh004-mode-missing-s2",
+        "ssh004-mode-missing-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-mode-null",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "Realtime restriction only in SSH-003",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-07T00:00:00+00:00",
+          "lt": "2030-04-08T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-mode-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-07T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-07T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-mode-null-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": null
+          },
+          "timestamp": "2030-04-07T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-mode-null-s1",
+        "ssh004-mode-null-s2",
+        "ssh004-mode-null-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-arbitrary-command",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-08T00:00:00+00:00",
+          "lt": "2030-04-09T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-arbitrary-command-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-08T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-arbitrary-command-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": "/usr/bin/echo routine"
+          },
+          "timestamp": "2030-04-08T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-arbitrary-command-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-08T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-arbitrary-command-s1",
+        "ssh004-arbitrary-command-s2",
+        "ssh004-arbitrary-command-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-command-missing",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-09T00:00:00+00:00",
+          "lt": "2030-04-10T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-command-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-09T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-command-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root"
+          },
+          "timestamp": "2030-04-09T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-command-missing-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-09T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-command-missing-s1",
+        "ssh004-command-missing-s2",
+        "ssh004-command-missing-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-command-null",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-10T00:00:00+00:00",
+          "lt": "2030-04-11T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-command-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-10T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-command-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "root",
+            "command": null
+          },
+          "timestamp": "2030-04-10T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-command-null-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-10T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-command-null-s1",
+        "ssh004-command-null-s2",
+        "ssh004-command-null-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-non-root",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-11T00:00:00+00:00",
+          "lt": "2030-04-12T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-non-root-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-11T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-non-root-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": "lab-other",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-11T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-non-root-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-11T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-non-root-s1",
+        "ssh004-non-root-s2",
+        "ssh004-non-root-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-dstuser-missing",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-12T00:00:00+00:00",
+          "lt": "2030-04-13T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-dstuser-missing-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-12T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-dstuser-missing-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-12T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-dstuser-missing-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-12T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-dstuser-missing-s1",
+        "ssh004-dstuser-missing-s2",
+        "ssh004-dstuser-missing-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-dstuser-null",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-13T00:00:00+00:00",
+          "lt": "2030-04-14T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-dstuser-null-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-13T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-dstuser-null-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-user",
+            "dstuser": null,
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-13T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-dstuser-null-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-13T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-dstuser-null-s1",
+        "ssh004-dstuser-null-s2",
+        "ssh004-dstuser-null-s3"
+      ]
+    ]
+  },
+  {
+    "id": "ssh004-unrelated-users",
+    "rule": "ssh004",
+    "classification": "positive",
+    "note": "No command, target-user, actor or session predicate in published SSH-004",
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-04-14T00:00:00+00:00",
+          "lt": "2030-04-15T00:00:00+00:00"
+        }
+      }
+    },
+    "events": [
+      {
+        "id": "ssh004-unrelated-users-s1",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "lab-user"
+          },
+          "timestamp": "2030-04-14T00:00:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-unrelated-users-s2",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "lab-other",
+            "dstuser": "root",
+            "command": "/usr/bin/id"
+          },
+          "timestamp": "2030-04-14T00:01:00+00:00"
+        }
+      },
+      {
+        "id": "ssh004-unrelated-users-s3",
+        "source": {
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "syscheck": {
+            "path": "/etc/passwd",
+            "mode": "realtime"
+          },
+          "timestamp": "2030-04-14T00:02:00+00:00"
+        }
+      }
+    ],
+    "expected": [
+      [
+        "ssh004-unrelated-users-s1",
+        "ssh004-unrelated-users-s2",
+        "ssh004-unrelated-users-s3"
+      ]
+    ]
+  }
+]

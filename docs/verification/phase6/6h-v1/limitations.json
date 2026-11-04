@@ -1,0 +1,2765 @@
+{
+  "limitations": [
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Agent/time association does not establish actor identity or causal activity. SSH-001 and WEB-001 also join source IP; PRIV and MAL have stage joins.",
+      "id": "L01",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-different-usernames",
+          "phase": "6b",
+          "pointer": "/scenarios/24"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-unrelated-service",
+          "phase": "6c",
+          "pointer": "/scenarios/73"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/81"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-unrelated-users",
+          "phase": "6d",
+          "pointer": "/scenarios/103"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/80"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-different-srcip",
+          "phase": "6g",
+          "pointer": "/scenarios/57"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-different-srcip",
+          "phase": "6gr",
+          "pointer": "/scenarios/14"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Agent-only joins and attribution"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Published queries omit session/process joins; PRIV correlates selected usernames, not session/process identity.",
+      "id": "L02",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-mismatched-stage2-user",
+          "phase": "6a",
+          "pointer": "/scenarios/3"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-mismatched-stage3-user",
+          "phase": "6a",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-different-usernames",
+          "phase": "6b",
+          "pointer": "/scenarios/24"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-case-mismatch",
+          "phase": "6b",
+          "pointer": "/scenarios/54"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-unrelated-service",
+          "phase": "6c",
+          "pointer": "/scenarios/73"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/81"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-unrelated-users",
+          "phase": "6d",
+          "pointer": "/scenarios/103"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-mismatch-1",
+          "phase": "6e",
+          "pointer": "/scenarios/3"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-mismatch-2",
+          "phase": "6e",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-mismatch-3",
+          "phase": "6e",
+          "pointer": "/scenarios/15"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-mismatch-1",
+          "phase": "6e",
+          "pointer": "/scenarios/44"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-mismatch-2",
+          "phase": "6e",
+          "pointer": "/scenarios/50"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-mismatch-3",
+          "phase": "6e",
+          "pointer": "/scenarios/56"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/80"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "User/session/process continuity"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "SSH-001/WEB-001 enforce equal source strings; strings do not establish individual actors behind a shared address. Proxy efficacy itself remains untested.",
+      "id": "L03",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/web/WCORR-WEB-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-different-ip",
+          "phase": "6b",
+          "pointer": "/scenarios/2"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-empty-ip",
+          "phase": "6b",
+          "pointer": "/scenarios/25"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-empty-source",
+          "phase": "6f",
+          "pointer": "/scenarios/36"
+        }
+      ],
+      "scope": [
+        "WCORR-SSH-001",
+        "WCORR-WEB-001"
+      ],
+      "subject": "Source IP and shared proxies"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Missing interstage relationships permit unrelated activity. MAL joins paths and PRIV selected users; other omitted links remain omitted.",
+      "id": "L04",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-alternate-rule-command",
+          "phase": "6a",
+          "pointer": "/scenarios/1"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-invalid-command",
+          "phase": "6a",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-missing-command",
+          "phase": "6a",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-usermod",
+          "phase": "6c",
+          "pointer": "/scenarios/19"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-passwd",
+          "phase": "6c",
+          "pointer": "/scenarios/20"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-visudo",
+          "phase": "6c",
+          "pointer": "/scenarios/21"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-systemctl-disable",
+          "phase": "6c",
+          "pointer": "/scenarios/22"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-systemctl-stop",
+          "phase": "6c",
+          "pointer": "/scenarios/23"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-crontab",
+          "phase": "6c",
+          "pointer": "/scenarios/24"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-chmod",
+          "phase": "6c",
+          "pointer": "/scenarios/25"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-chown",
+          "phase": "6c",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-missing",
+          "phase": "6c",
+          "pointer": "/scenarios/29"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-null",
+          "phase": "6c",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-invalid-command",
+          "phase": "6c",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-case",
+          "phase": "6c",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-unrelated-service",
+          "phase": "6c",
+          "pointer": "/scenarios/73"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-unrelated",
+          "phase": "6d",
+          "pointer": "/scenarios/81"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-arbitrary-command",
+          "phase": "6d",
+          "pointer": "/scenarios/97"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-command-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/98"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-command-null",
+          "phase": "6d",
+          "pointer": "/scenarios/99"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-unrelated-users",
+          "phase": "6d",
+          "pointer": "/scenarios/103"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/80"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-source-absent",
+          "phase": "6f",
+          "pointer": "/scenarios/79"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-source-absent",
+          "phase": "6g",
+          "pointer": "/scenarios/42"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-different-file",
+          "phase": "6g",
+          "pointer": "/scenarios/86"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-source-absent",
+          "phase": "6g",
+          "pointer": "/scenarios/93"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-different-file",
+          "phase": "6gr",
+          "pointer": "/scenarios/43"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-source-absent",
+          "phase": "6gr",
+          "pointer": "/scenarios/50"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Command/path/service relationships"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "SSH-003 and MAL require exact realtime; several other FIM rules have no mode restriction.",
+      "id": "L05",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-scheduled",
+          "phase": "6a",
+          "pointer": "/scenarios/24"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-missing-mode",
+          "phase": "6a",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-scheduled-mode",
+          "phase": "6b",
+          "pointer": "/scenarios/58"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-scheduled",
+          "phase": "6d",
+          "pointer": "/scenarios/38"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-case",
+          "phase": "6d",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/40"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-null",
+          "phase": "6d",
+          "pointer": "/scenarios/41"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-scheduled",
+          "phase": "6d",
+          "pointer": "/scenarios/93"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-case",
+          "phase": "6d",
+          "pointer": "/scenarios/94"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/95"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-null",
+          "phase": "6d",
+          "pointer": "/scenarios/96"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-unrelated-users-path-mode",
+          "phase": "6e",
+          "pointer": "/scenarios/80"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Scheduled versus realtime FIM"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Case-sensitive IDs, literals, joins and wildcard paths constrain observed coverage.",
+      "id": "L06",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-case-mismatch",
+          "phase": "6b",
+          "pointer": "/scenarios/54"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-root-case",
+          "phase": "6c",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-case",
+          "phase": "6c",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-path-case",
+          "phase": "6c",
+          "pointer": "/scenarios/69"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-case",
+          "phase": "6d",
+          "pointer": "/scenarios/28"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-case",
+          "phase": "6d",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-case",
+          "phase": "6d",
+          "pointer": "/scenarios/83"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-case",
+          "phase": "6d",
+          "pointer": "/scenarios/94"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-predicate-case",
+          "phase": "6e",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-predicate-case",
+          "phase": "6e",
+          "pointer": "/scenarios/71"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-http-invalid-case-path",
+          "phase": "6f",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-source-text-case",
+          "phase": "6f",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-http-invalid-case-path",
+          "phase": "6f",
+          "pointer": "/scenarios/60"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-uppercase-extension",
+          "phase": "6f",
+          "pointer": "/scenarios/66"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-uppercase-path",
+          "phase": "6f",
+          "pointer": "/scenarios/71"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-event-added-case",
+          "phase": "6f",
+          "pointer": "/scenarios/74"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-http-invalid-case-path",
+          "phase": "6g",
+          "pointer": "/scenarios/23"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-uppercase-extension",
+          "phase": "6g",
+          "pointer": "/scenarios/29"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-uppercase-path",
+          "phase": "6g",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-event-added-case",
+          "phase": "6g",
+          "pointer": "/scenarios/37"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-uppercase-extension",
+          "phase": "6g",
+          "pointer": "/scenarios/64"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-uppercase-path",
+          "phase": "6g",
+          "pointer": "/scenarios/69"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-event-added-case",
+          "phase": "6g",
+          "pointer": "/scenarios/72"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-uppercase-extension",
+          "phase": "6g",
+          "pointer": "/scenarios/80"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-uppercase-path",
+          "phase": "6g",
+          "pointer": "/scenarios/81"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-uppercase-extension",
+          "phase": "6gr",
+          "pointer": "/scenarios/21"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-uppercase-path",
+          "phase": "6gr",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-event-added-case",
+          "phase": "6gr",
+          "pointer": "/scenarios/29"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-uppercase-extension",
+          "phase": "6gr",
+          "pointer": "/scenarios/37"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-uppercase-path",
+          "phase": "6gr",
+          "pointer": "/scenarios/38"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Case-sensitive exact predicates"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Wildcards span nested paths and empty components; command substrings do not prove executed binaries.",
+      "id": "L07",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-nested-path",
+          "phase": "6b",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-crontab-suffix",
+          "phase": "6b",
+          "pointer": "/scenarios/53"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-substring",
+          "phase": "6c",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-wrong-suffix",
+          "phase": "6c",
+          "pointer": "/scenarios/68"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-nested",
+          "phase": "6c",
+          "pointer": "/scenarios/70"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-empty-unit-basename",
+          "phase": "6c",
+          "pointer": "/scenarios/74"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-suffix",
+          "phase": "6d",
+          "pointer": "/scenarios/27"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-sudoers-nested",
+          "phase": "6d",
+          "pointer": "/scenarios/31"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-home-nested",
+          "phase": "6d",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-keys-suffix",
+          "phase": "6d",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-suffix",
+          "phase": "6d",
+          "pointer": "/scenarios/82"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-sudoers-nested",
+          "phase": "6d",
+          "pointer": "/scenarios/86"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-home-nested",
+          "phase": "6d",
+          "pointer": "/scenarios/87"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-keys-suffix",
+          "phase": "6d",
+          "pointer": "/scenarios/89"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-predicate-suffix",
+          "phase": "6e",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-predicate-suffix",
+          "phase": "6e",
+          "pointer": "/scenarios/73"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-nested-path",
+          "phase": "6f",
+          "pointer": "/scenarios/67"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-empty-stem",
+          "phase": "6f",
+          "pointer": "/scenarios/68"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-suffix",
+          "phase": "6f",
+          "pointer": "/scenarios/70"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-query-suffix",
+          "phase": "6f",
+          "pointer": "/scenarios/72"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-nested-path",
+          "phase": "6g",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/31"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-suffix",
+          "phase": "6g",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-query-suffix",
+          "phase": "6g",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-nested-path",
+          "phase": "6g",
+          "pointer": "/scenarios/65"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/66"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-suffix",
+          "phase": "6g",
+          "pointer": "/scenarios/68"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-query-suffix",
+          "phase": "6g",
+          "pointer": "/scenarios/70"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-nested",
+          "phase": "6g",
+          "pointer": "/scenarios/76"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-query",
+          "phase": "6g",
+          "pointer": "/scenarios/77"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-suffix",
+          "phase": "6g",
+          "pointer": "/scenarios/78"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/79"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-nested-path",
+          "phase": "6gr",
+          "pointer": "/scenarios/22"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-empty-stem",
+          "phase": "6gr",
+          "pointer": "/scenarios/23"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-suffix",
+          "phase": "6gr",
+          "pointer": "/scenarios/25"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-query-suffix",
+          "phase": "6gr",
+          "pointer": "/scenarios/27"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-nested",
+          "phase": "6gr",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-query",
+          "phase": "6gr",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-suffix",
+          "phase": "6gr",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-empty-stem",
+          "phase": "6gr",
+          "pointer": "/scenarios/36"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Broad wildcard and substring matches"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Non-null checks do not establish nonempty or well-formed values; empty matching source strings and wildcard components can match.",
+      "id": "L08",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-empty-ip",
+          "phase": "6b",
+          "pointer": "/scenarios/25"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-empty-unit-basename",
+          "phase": "6c",
+          "pointer": "/scenarios/74"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-sudoers-empty",
+          "phase": "6d",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-home-empty",
+          "phase": "6d",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-sudoers-empty",
+          "phase": "6d",
+          "pointer": "/scenarios/85"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-home-empty",
+          "phase": "6d",
+          "pointer": "/scenarios/88"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-predicate-empty",
+          "phase": "6e",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-predicate-empty",
+          "phase": "6e",
+          "pointer": "/scenarios/76"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-empty-source",
+          "phase": "6f",
+          "pointer": "/scenarios/36"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-empty-stem",
+          "phase": "6f",
+          "pointer": "/scenarios/68"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-event-empty",
+          "phase": "6f",
+          "pointer": "/scenarios/77"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/31"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-event-empty",
+          "phase": "6g",
+          "pointer": "/scenarios/40"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/66"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-fim-event-empty",
+          "phase": "6g",
+          "pointer": "/scenarios/75"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-empty-stem",
+          "phase": "6g",
+          "pointer": "/scenarios/79"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-url-empty",
+          "phase": "6g",
+          "pointer": "/scenarios/85"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-empty-stem",
+          "phase": "6gr",
+          "pointer": "/scenarios/23"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-fim-event-empty",
+          "phase": "6gr",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-empty-stem",
+          "phase": "6gr",
+          "pointer": "/scenarios/36"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-url-empty",
+          "phase": "6gr",
+          "pointer": "/scenarios/42"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Empty-string joins and wildcard matches"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Required fields/joins reject tested missing/null values. This does not cover missing timestamps or categories.",
+      "id": "L09",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-missing-dstuser",
+          "phase": "6a",
+          "pointer": "/scenarios/8"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-missing-srcuser",
+          "phase": "6a",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-missing-command",
+          "phase": "6a",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-missing-agent",
+          "phase": "6a",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-optional-user-absent",
+          "phase": "6a",
+          "pointer": "/scenarios/15"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-optional-user-null",
+          "phase": "6a",
+          "pointer": "/scenarios/16"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-missing-path",
+          "phase": "6a",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-missing-file",
+          "phase": "6a",
+          "pointer": "/scenarios/31"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-missing-mode",
+          "phase": "6a",
+          "pointer": "/scenarios/32"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-dev-null-cr-stage2",
+          "phase": "6a",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-dev-null-cr-both",
+          "phase": "6a",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-data-srcip-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-agent-id-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/8"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-rule-id-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-null-data-srcip-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-null-agent-id-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-data-srcip-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-agent-id-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/13"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-missing-rule-id-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/14"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-null-data-srcip-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/15"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-null-agent-id-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/16"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-both-ip-missing",
+          "phase": "6b",
+          "pointer": "/scenarios/17"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-both-ip-null",
+          "phase": "6b",
+          "pointer": "/scenarios/18"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-both-agent-missing",
+          "phase": "6b",
+          "pointer": "/scenarios/19"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-both-agent-null",
+          "phase": "6b",
+          "pointer": "/scenarios/20"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-agent-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-rule-s1",
+          "phase": "6b",
+          "pointer": "/scenarios/35"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-agent-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/38"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-rule-s2",
+          "phase": "6b",
+          "pointer": "/scenarios/39"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-agent-s3",
+          "phase": "6b",
+          "pointer": "/scenarios/42"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-rule-s3",
+          "phase": "6b",
+          "pointer": "/scenarios/43"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-both-agent-null",
+          "phase": "6b",
+          "pointer": "/scenarios/45"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-all-agent-missing",
+          "phase": "6b",
+          "pointer": "/scenarios/46"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-missing-path",
+          "phase": "6b",
+          "pointer": "/scenarios/49"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-null-path",
+          "phase": "6b",
+          "pointer": "/scenarios/50"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-agent-missing-1",
+          "phase": "6c",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-agent-null-1",
+          "phase": "6c",
+          "pointer": "/scenarios/5"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-rule-missing-1",
+          "phase": "6c",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-rule-null-1",
+          "phase": "6c",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-agent-missing-2",
+          "phase": "6c",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-agent-null-2",
+          "phase": "6c",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-rule-missing-2",
+          "phase": "6c",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-rule-null-2",
+          "phase": "6c",
+          "pointer": "/scenarios/13"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-dstuser-missing",
+          "phase": "6c",
+          "pointer": "/scenarios/27"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-dstuser-null",
+          "phase": "6c",
+          "pointer": "/scenarios/28"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-missing",
+          "phase": "6c",
+          "pointer": "/scenarios/29"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-command-null",
+          "phase": "6c",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-login-user-null",
+          "phase": "6c",
+          "pointer": "/scenarios/38"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-missing-1",
+          "phase": "6c",
+          "pointer": "/scenarios/43"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-null-1",
+          "phase": "6c",
+          "pointer": "/scenarios/44"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-missing-1",
+          "phase": "6c",
+          "pointer": "/scenarios/45"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-null-1",
+          "phase": "6c",
+          "pointer": "/scenarios/46"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-missing-2",
+          "phase": "6c",
+          "pointer": "/scenarios/49"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-null-2",
+          "phase": "6c",
+          "pointer": "/scenarios/50"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-missing-2",
+          "phase": "6c",
+          "pointer": "/scenarios/51"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-null-2",
+          "phase": "6c",
+          "pointer": "/scenarios/52"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-missing-3",
+          "phase": "6c",
+          "pointer": "/scenarios/55"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-agent-null-3",
+          "phase": "6c",
+          "pointer": "/scenarios/56"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-missing-3",
+          "phase": "6c",
+          "pointer": "/scenarios/57"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-rule-null-3",
+          "phase": "6c",
+          "pointer": "/scenarios/58"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-path-missing",
+          "phase": "6c",
+          "pointer": "/scenarios/71"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-path-null",
+          "phase": "6c",
+          "pointer": "/scenarios/72"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-agent-id-missing-1",
+          "phase": "6d",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-agent-id-null-1",
+          "phase": "6d",
+          "pointer": "/scenarios/5"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-rule-id-missing-1",
+          "phase": "6d",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-rule-id-null-1",
+          "phase": "6d",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-agent-id-missing-2",
+          "phase": "6d",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-agent-id-null-2",
+          "phase": "6d",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-rule-id-missing-2",
+          "phase": "6d",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-rule-id-null-2",
+          "phase": "6d",
+          "pointer": "/scenarios/13"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/36"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-path-null",
+          "phase": "6d",
+          "pointer": "/scenarios/37"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/40"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-mode-null",
+          "phase": "6d",
+          "pointer": "/scenarios/41"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-login-user-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/42"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-missing-1",
+          "phase": "6d",
+          "pointer": "/scenarios/48"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-null-1",
+          "phase": "6d",
+          "pointer": "/scenarios/49"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-missing-1",
+          "phase": "6d",
+          "pointer": "/scenarios/50"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-null-1",
+          "phase": "6d",
+          "pointer": "/scenarios/51"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-missing-2",
+          "phase": "6d",
+          "pointer": "/scenarios/54"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-null-2",
+          "phase": "6d",
+          "pointer": "/scenarios/55"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-missing-2",
+          "phase": "6d",
+          "pointer": "/scenarios/56"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-null-2",
+          "phase": "6d",
+          "pointer": "/scenarios/57"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-missing-3",
+          "phase": "6d",
+          "pointer": "/scenarios/60"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-agent-id-null-3",
+          "phase": "6d",
+          "pointer": "/scenarios/61"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-missing-3",
+          "phase": "6d",
+          "pointer": "/scenarios/62"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-rule-id-null-3",
+          "phase": "6d",
+          "pointer": "/scenarios/63"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/91"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-path-null",
+          "phase": "6d",
+          "pointer": "/scenarios/92"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/95"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-mode-null",
+          "phase": "6d",
+          "pointer": "/scenarios/96"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-command-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/98"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-command-null",
+          "phase": "6d",
+          "pointer": "/scenarios/99"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-dstuser-missing",
+          "phase": "6d",
+          "pointer": "/scenarios/101"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-dstuser-null",
+          "phase": "6d",
+          "pointer": "/scenarios/102"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-missing-1",
+          "phase": "6e",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-null-1",
+          "phase": "6e",
+          "pointer": "/scenarios/5"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-missing-1",
+          "phase": "6e",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-null-1",
+          "phase": "6e",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-missing-2",
+          "phase": "6e",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-null-2",
+          "phase": "6e",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-missing-2",
+          "phase": "6e",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-null-2",
+          "phase": "6e",
+          "pointer": "/scenarios/13"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-missing-3",
+          "phase": "6e",
+          "pointer": "/scenarios/16"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-agent-null-3",
+          "phase": "6e",
+          "pointer": "/scenarios/17"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-missing-3",
+          "phase": "6e",
+          "pointer": "/scenarios/18"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-rule-null-3",
+          "phase": "6e",
+          "pointer": "/scenarios/19"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-predicate-null",
+          "phase": "6e",
+          "pointer": "/scenarios/34"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-predicate-missing",
+          "phase": "6e",
+          "pointer": "/scenarios/36"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-audit-missing",
+          "phase": "6e",
+          "pointer": "/scenarios/37"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-missing-1",
+          "phase": "6e",
+          "pointer": "/scenarios/45"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-null-1",
+          "phase": "6e",
+          "pointer": "/scenarios/46"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-missing-1",
+          "phase": "6e",
+          "pointer": "/scenarios/47"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-null-1",
+          "phase": "6e",
+          "pointer": "/scenarios/48"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-missing-2",
+          "phase": "6e",
+          "pointer": "/scenarios/51"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-null-2",
+          "phase": "6e",
+          "pointer": "/scenarios/52"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-missing-2",
+          "phase": "6e",
+          "pointer": "/scenarios/53"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-null-2",
+          "phase": "6e",
+          "pointer": "/scenarios/54"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-missing-3",
+          "phase": "6e",
+          "pointer": "/scenarios/57"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-agent-null-3",
+          "phase": "6e",
+          "pointer": "/scenarios/58"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-missing-3",
+          "phase": "6e",
+          "pointer": "/scenarios/59"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-rule-null-3",
+          "phase": "6e",
+          "pointer": "/scenarios/60"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-predicate-null",
+          "phase": "6e",
+          "pointer": "/scenarios/75"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-predicate-missing",
+          "phase": "6e",
+          "pointer": "/scenarios/77"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-audit-missing",
+          "phase": "6e",
+          "pointer": "/scenarios/78"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-agent-id-missing-1",
+          "phase": "6f",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-agent-id-null-1",
+          "phase": "6f",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-rule-id-missing-1",
+          "phase": "6f",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-rule-id-null-1",
+          "phase": "6f",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-data-srcip-missing-1",
+          "phase": "6f",
+          "pointer": "/scenarios/13"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-data-srcip-null-1",
+          "phase": "6f",
+          "pointer": "/scenarios/14"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-agent-id-missing-2",
+          "phase": "6f",
+          "pointer": "/scenarios/16"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-agent-id-null-2",
+          "phase": "6f",
+          "pointer": "/scenarios/17"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-rule-id-missing-2",
+          "phase": "6f",
+          "pointer": "/scenarios/18"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-rule-id-null-2",
+          "phase": "6f",
+          "pointer": "/scenarios/19"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-data-srcip-missing-2",
+          "phase": "6f",
+          "pointer": "/scenarios/20"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-data-srcip-null-2",
+          "phase": "6f",
+          "pointer": "/scenarios/21"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-agent-id-missing-1",
+          "phase": "6f",
+          "pointer": "/scenarios/41"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-agent-id-null-1",
+          "phase": "6f",
+          "pointer": "/scenarios/42"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-rule-id-missing-1",
+          "phase": "6f",
+          "pointer": "/scenarios/43"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-rule-id-null-1",
+          "phase": "6f",
+          "pointer": "/scenarios/44"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-agent-id-missing-2",
+          "phase": "6f",
+          "pointer": "/scenarios/46"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-agent-id-null-2",
+          "phase": "6f",
+          "pointer": "/scenarios/47"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-rule-id-missing-2",
+          "phase": "6f",
+          "pointer": "/scenarios/48"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-rule-id-null-2",
+          "phase": "6f",
+          "pointer": "/scenarios/49"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-event-missing",
+          "phase": "6f",
+          "pointer": "/scenarios/62"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-event-null",
+          "phase": "6f",
+          "pointer": "/scenarios/63"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-path-missing",
+          "phase": "6f",
+          "pointer": "/scenarios/64"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-path-null",
+          "phase": "6f",
+          "pointer": "/scenarios/65"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-source-absent",
+          "phase": "6f",
+          "pointer": "/scenarios/79"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-agent-id-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-agent-id-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/5"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-rule-id-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-rule-id-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-agent-id-missing-2",
+          "phase": "6g",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-agent-id-null-2",
+          "phase": "6g",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-rule-id-missing-2",
+          "phase": "6g",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-rule-id-null-2",
+          "phase": "6g",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-event-missing",
+          "phase": "6g",
+          "pointer": "/scenarios/25"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-event-null",
+          "phase": "6g",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-path-missing",
+          "phase": "6g",
+          "pointer": "/scenarios/27"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-path-null",
+          "phase": "6g",
+          "pointer": "/scenarios/28"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-source-absent",
+          "phase": "6g",
+          "pointer": "/scenarios/42"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-agent-id-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/44"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-agent-id-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/45"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-rule-id-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/46"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-rule-id-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/47"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-syscheck-event-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/48"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-syscheck-event-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/49"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-syscheck-path-missing-1",
+          "phase": "6g",
+          "pointer": "/scenarios/50"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-syscheck-path-null-1",
+          "phase": "6g",
+          "pointer": "/scenarios/51"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-agent-id-missing-2",
+          "phase": "6g",
+          "pointer": "/scenarios/52"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-agent-id-null-2",
+          "phase": "6g",
+          "pointer": "/scenarios/53"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-data-url-missing-2",
+          "phase": "6g",
+          "pointer": "/scenarios/54"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-data-url-null-2",
+          "phase": "6g",
+          "pointer": "/scenarios/55"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-request-rule-missing",
+          "phase": "6g",
+          "pointer": "/scenarios/87"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-request-rule-null",
+          "phase": "6g",
+          "pointer": "/scenarios/88"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-source-absent",
+          "phase": "6g",
+          "pointer": "/scenarios/93"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-agent-id-missing-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/1"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-agent-id-null-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/2"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-rule-id-missing-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/3"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-rule-id-null-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/4"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-syscheck-event-missing-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/5"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-syscheck-event-null-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/6"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-syscheck-path-missing-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/7"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-syscheck-path-null-1",
+          "phase": "6gr",
+          "pointer": "/scenarios/8"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-agent-id-missing-2",
+          "phase": "6gr",
+          "pointer": "/scenarios/9"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-agent-id-null-2",
+          "phase": "6gr",
+          "pointer": "/scenarios/10"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-data-url-missing-2",
+          "phase": "6gr",
+          "pointer": "/scenarios/11"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-data-url-null-2",
+          "phase": "6gr",
+          "pointer": "/scenarios/12"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-request-rule-missing",
+          "phase": "6gr",
+          "pointer": "/scenarios/44"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-request-rule-null",
+          "phase": "6gr",
+          "pointer": "/scenarios/45"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-source-absent",
+          "phase": "6gr",
+          "pointer": "/scenarios/50"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Missing/null predicate and join fields"
+    },
+    {
+      "classification": "INCONCLUSIVE",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "18 unique equal/partial timestamp investigations remain INCONCLUSIVE. Two Phase 6A boundary and two optional-username investigations also remain historically INCONCLUSIVE, totaling 22. Recovery repeats one tie identity without resolving it.",
+      "id": "L10",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "ssh-equal-timestamps",
+          "phase": "6b",
+          "pointer": "/scenarios/26"
+        },
+        {
+          "evidence": "docs/verification/phase6/6b-v1/results.json",
+          "id": "pers-all-equal-timestamps",
+          "phase": "6b",
+          "pointer": "/scenarios/60"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "ssh-equal-timestamps",
+          "phase": "6c",
+          "pointer": "/scenarios/18"
+        },
+        {
+          "evidence": "docs/verification/phase6/6c-v1/results.json",
+          "id": "pers-equal-timestamps",
+          "phase": "6c",
+          "pointer": "/scenarios/64"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh003-equal-timestamps",
+          "phase": "6d",
+          "pointer": "/scenarios/18"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-equal-timestamps",
+          "phase": "6d",
+          "pointer": "/scenarios/71"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-equal-login-sudo",
+          "phase": "6d",
+          "pointer": "/scenarios/72"
+        },
+        {
+          "evidence": "docs/verification/phase6/6d-v1/results.json",
+          "id": "ssh004-equal-sudo-fim",
+          "phase": "6d",
+          "pointer": "/scenarios/73"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-all-equal",
+          "phase": "6e",
+          "pointer": "/scenarios/27"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-first-pair-tied",
+          "phase": "6e",
+          "pointer": "/scenarios/28"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "ssh005-last-pair-tied",
+          "phase": "6e",
+          "pointer": "/scenarios/29"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-all-equal",
+          "phase": "6e",
+          "pointer": "/scenarios/68"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-first-pair-tied",
+          "phase": "6e",
+          "pointer": "/scenarios/69"
+        },
+        {
+          "evidence": "docs/verification/phase6/6e-v1/results.json",
+          "id": "evas001-last-pair-tied",
+          "phase": "6e",
+          "pointer": "/scenarios/70"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web001-equal-timestamps",
+          "phase": "6f",
+          "pointer": "/scenarios/30"
+        },
+        {
+          "evidence": "docs/verification/phase6/6f-v1/results.json",
+          "id": "web002-equal-timestamps",
+          "phase": "6f",
+          "pointer": "/scenarios/58"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web003-equal-timestamps",
+          "phase": "6g",
+          "pointer": "/scenarios/21"
+        },
+        {
+          "evidence": "docs/verification/phase6/6g-v1/results.json",
+          "id": "web004-equal-timestamps",
+          "phase": "6g",
+          "pointer": "/scenarios/63"
+        },
+        {
+          "evidence": "docs/verification/phase6/6gr-v1/results.json",
+          "id": "web004-equal-timestamps",
+          "phase": "6gr",
+          "pointer": "/scenarios/20"
+        }
+      ],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Equal-timestamp ordering"
+    },
+    {
+      "classification": "CONFIRMED",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "Absent/null final username does not wildcard-match preceding populated username; no intended detection coverage claimed.",
+      "id": "L11",
+      "publication_evidence": [
+        "rules/privilege-escalation/WCORR-PRIV-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-optional-user-absent",
+          "phase": "6a",
+          "pointer": "/scenarios/15"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "priv-optional-user-null",
+          "phase": "6a",
+          "pointer": "/scenarios/16"
+        }
+      ],
+      "scope": [
+        "WCORR-PRIV-001"
+      ],
+      "subject": "PRIV optional username"
+    },
+    {
+      "classification": "INCONCLUSIVE",
+      "evidence_basis": "Recorded scenario observations and published predicates",
+      "finding": "No-sequence observations confound exclusion with path join or first-stage directory predicate. Isolated scalar exclusion effectiveness unproven.",
+      "id": "L12",
+      "publication_evidence": [
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-dev-null-cr-stage2",
+          "phase": "6a",
+          "pointer": "/scenarios/33"
+        },
+        {
+          "evidence": "docs/verification/phase6/6a-v1/results.json",
+          "id": "mal-dev-null-cr-both",
+          "phase": "6a",
+          "pointer": "/scenarios/34"
+        }
+      ],
+      "scope": [
+        "WCORR-MAL-001"
+      ],
+      "subject": "MAL exclusion isolation"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "Different category values tested for some rules; missing/null ordering/category fields not covered.",
+      "id": "L13",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Missing/null timestamps and categories"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "Scalar fixture evidence does not establish multivalued predicate/join behaviour.",
+      "id": "L14",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Multivalued fields"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "One candidate chain per partition; selection under competing events not established.",
+      "id": "L15",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Competing sequences"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "Event timestamp reversals tested; delayed ingestion and scheduling interactions not established.",
+      "id": "L16",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Ingestion delay and arrival ordering"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "No scheduler/overlap/state/deduplication evidence.",
+      "id": "L17",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Scheduling and deduplication"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "Synthetic strict mappings cannot establish native alert field types, keyword multifields, normalization or population.",
+      "id": "L18",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Native Wazuh mappings and field population"
+    },
+    {
+      "classification": "UNTESTED",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "No representative load, benign baseline, precision/recall or operational efficacy evidence.",
+      "id": "L19",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/privilege-escalation/WCORR-PRIV-001.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql",
+        "rules/malware/WCORR-MAL-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": "All rules; applicability depends on published predicates",
+      "subject": "Production scale and detection efficacy"
+    },
+    {
+      "classification": "NOT APPLICABLE",
+      "evidence_basis": "Published query inspection and complete 582-record inventory; no executed coverage identified for this behaviour.",
+      "finding": "Only PRIV and MAL have stage-specific joins; other rules use their stated global joins.",
+      "id": "L20",
+      "publication_evidence": [
+        "rules/ssh/WCORR-SSH-001.eql",
+        "rules/ssh/WCORR-SSH-002.eql",
+        "rules/ssh/WCORR-SSH-003.eql",
+        "rules/ssh/WCORR-SSH-004.eql",
+        "rules/ssh/WCORR-SSH-005.eql",
+        "rules/web/WCORR-WEB-001.eql",
+        "rules/web/WCORR-WEB-002.eql",
+        "rules/web/WCORR-WEB-003.eql",
+        "rules/web/WCORR-WEB-004.eql",
+        "rules/persistence/WCORR-PERS-001.eql",
+        "rules/persistence/WCORR-PERS-002.eql",
+        "rules/defence-evasion/WCORR-EVAS-001.eql"
+      ],
+      "scenario_evidence": [],
+      "scope": [
+        "WCORR-SSH-001",
+        "WCORR-SSH-002",
+        "WCORR-SSH-003",
+        "WCORR-SSH-004",
+        "WCORR-SSH-005",
+        "WCORR-WEB-001",
+        "WCORR-WEB-002",
+        "WCORR-WEB-003",
+        "WCORR-WEB-004",
+        "WCORR-PERS-001",
+        "WCORR-PERS-002",
+        "WCORR-EVAS-001"
+      ],
+      "subject": "Stage-specific join mismatch for rules without stage joins"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,1257 @@
+{
+  "recorded_at_utc": "WITHHELD: production execution date",
+  "phase": "7B",
+  "status": "NATIVE EXECUTION COMPLETE",
+  "index_pattern": "wazuh-alerts-4.x-*",
+  "window": {
+    "scope": "Fixed bounded historical production window; exact dates withheld for publication."
+  },
+  "integrity_pass_count": 14,
+  "rules": [
+    {
+      "rule_id": "WCORR-SSH-001",
+      "source_path": "rules/ssh/WCORR-SSH-001.eql",
+      "sha256": "3dfada3fd2d79dc3952022922fa737e7d5877dec2802da142244ea3cea4beb91",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "15m",
+      "current_execution_status": "POSITIVE",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 1,
+      "hits_total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5712"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 850.496
+            }
+          ]
+        }
+      ],
+      "elasticsearch_errors": null,
+      "limitations": "Same agent and source IP do not prove account compromise or matching usernames: failures use data.srcuser and successes data.dstuser. An unrelated success from another IP cannot complete the sequence.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword, data.srcip.keyword with maxspan=15m\n  [any where\n    rule.id.keyword in (\"5712\", \"5763\") and\n    data.srcip.keyword != null\n  ]\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.srcip.keyword != null\n  ]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-SSH-002",
+      "source_path": "rules/ssh/WCORR-SSH-002.eql",
+      "sha256": "6fe2f2fecc882435f94e251e3c18dc36506b95d29594ef627e2e4a77e7501c12",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "15m",
+      "current_execution_status": "POSITIVE",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 6,
+      "hits_total": {
+        "value": 6,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 14.005
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 564.202
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 210.869
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 344.367
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 476.4
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5715"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "5402"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 247.074
+            }
+          ]
+        }
+      ],
+      "elasticsearch_errors": null,
+      "limitations": "SSH and sudo users are not equated. Substring matching can miss shells and alternative commands. This contextual rule overlaps PRIV-001 and PERS-001; prefer their additional evidence. Routine administration can match.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=15m\n  [any where\n    rule.id.keyword == \"5715\"\n  ]\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*usermod*\" or\n      data.command.keyword like \"*passwd*\" or\n      data.command.keyword like \"*visudo*\" or\n      data.command.keyword like \"*systemctl disable*\" or\n      data.command.keyword like \"*systemctl stop*\" or\n      data.command.keyword like \"*crontab*\" or\n      data.command.keyword like \"*chmod*\" or\n      data.command.keyword like \"*chown*\"\n    )\n  ]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-SSH-003",
+      "source_path": "rules/ssh/WCORR-SSH-003.eql",
+      "sha256": "b1b405f98bf6175e816bbd4432ac7b449955e2dc214c506ec75dcb8553321776",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Realtime FIM reduces timing ambiguity but does not identify a process or SSH session. Scheduled-only monitoring is excluded and must remain covered by separate FIM alerts.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-SSH-004",
+      "source_path": "rules/ssh/WCORR-SSH-004.eql",
+      "sha256": "cf06bb2906a157801c277065d64ca2d843432427ce408c1df614cebcfdd64a6f",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Agent and time correlation does not prove actor or session continuity. Unlike SSH-003 this source has no realtime FIM predicate; scheduled observation timing can misattribute changes. Legitimate administration can match.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"5402\", \"5407\")]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-SSH-005",
+      "source_path": "rules/ssh/WCORR-SSH-005.eql",
+      "sha256": "d2e1ef87e5bf9f168ac0b64c55f27e2098aa0ae3311a1dfb46b11f20eec3b80c",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.audit.command.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "SCP command telemetry and FIM are joined only by agent and time; no transferred-file, user or session equality is enforced. Scheduled FIM and legitimate transfers can match.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword == \"92603\" and\n    data.audit.command.keyword == \"scp\"\n  ]\n  [any where rule.id.keyword in (\"550\", \"554\")]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-WEB-001",
+      "source_path": "rules/web/WCORR-WEB-001.eql",
+      "sha256": "e354480ff7ddc057025538343fe262992156911ba0012de0ea6c33dd1535d03f",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.srcip.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "10m",
+      "current_execution_status": "POSITIVE",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 10,
+      "hits_total": {
+        "value": 10,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": true,
+      "sequences": [
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31105"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.001
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31105"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.001
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31105"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.001
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.193
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 1.554
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.002
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.214
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31516"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 1.633
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31516"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.002
+            }
+          ]
+        },
+        {
+          "join_keys": "WITHHELD: production identifiers; no pseudonyms published",
+          "events": [
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31151"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.0
+            },
+            {
+              "index": "WITHHELD: dated production index",
+              "event_id": "WITHHELD: production event identifier",
+              "source": {
+                "rule": {
+                  "id": "31104"
+                }
+              },
+              "elapsed_seconds_from_sequence_start": 0.001
+            }
+          ]
+        }
+      ],
+      "elasticsearch_errors": null,
+      "limitations": "Same recorded client IP does not confirm exploitation. Historical attribution is uncertain because client/server address ambiguity was reported; reverse proxies can link unrelated activity.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword, data.srcip.keyword\nwith maxspan=10m\n  [any where rule.id.keyword in\n    (\"31151\", \"31515\", \"31516\")\n    and data.srcip.keyword != null]\n  [any where rule.id.keyword in\n    (\"31103\", \"31104\", \"31105\", \"31110\",\n     \"31164\", \"31166\", \"31168\")\n    and data.srcip.keyword != null]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-WEB-002",
+      "source_path": "rules/web/WCORR-WEB-002.eql",
+      "sha256": "26f9d26cdfdc0521ae8d0d3c9fa06c5775d046ff9e2426bcff2c043a1c201aff",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "10m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "PHP creation is joined by endpoint and time, not HTTP client identity; causality is unproven. Legitimate deployments can create PHP files.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31151\", \"31103\", \"31104\", \"31105\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-WEB-003",
+      "source_path": "rules/web/WCORR-WEB-003.eql",
+      "sha256": "b81834c7c28348dca9a4be421a4c251f572f593de82001f041a1b456e24af428",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "10m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Investigative correlation only: HTTP 200 does not prove exploitation. FIM detection time may differ from creation time, and legitimate deployments may match.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31106\", \"31110\", \"31166\", \"31168\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-WEB-004",
+      "source_path": "rules/web/WCORR-WEB-004.eql",
+      "sha256": "b67180707b02050e1333c9c3938506da02a5ada66c9369476e6f662cc94b2c03",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.url.keyword",
+        "rule.id.keyword",
+        "syscheck.event.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "The requested PHP URL is not verified against the exact created file. Nested upload paths are included; the request stage deliberately has no rule-ID restriction, allowing other classifications including 31101.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n  [any where data.url.keyword != null\n    and data.url.keyword like\n      \"/wp-content/uploads/*.php*\"]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-PRIV-001",
+      "source_path": "rules/privilege-escalation/WCORR-PRIV-001.eql",
+      "sha256": "60908232bf5d32c872bdfaa87bbb1177cc7be8fd867d815918ee0483c7484bc2",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.command.keyword",
+        "data.dstuser.keyword",
+        "data.srcuser.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "The source says the optional third-stage key accommodates missing data.srcuser and that account creation remains associated by agent and time. Optional-field syntax does not itself guarantee wildcard joining: missing values can become null and fail to join a non-null username. Verify this claim in the target engine; do not silently change the query. SSH-to-sudo attribution is stronger, but account creation causality remains unproven. sudo su followed by useradd in a root shell is intentionally excluded.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.dstuser.keyword != null\n  ] by data.dstuser.keyword\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    data.srcuser.keyword != null and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*adduser*\"\n    )\n  ] by data.srcuser.keyword\n  [any where\n    rule.id.keyword == \"5902\"\n  ] by ?data.srcuser.keyword\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-PERS-001",
+      "source_path": "rules/persistence/WCORR-PERS-001.eql",
+      "sha256": "fa68921dc320770b8205616aff38b10d84c95518b4a85673d248a8803d9effc9",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Legitimate cron administration can produce the same sequence; agent and time do not establish actor continuity.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword == \"2834\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/var/spool/cron/*\" or\n    syscheck.path.keyword like \"/var/spool/cron/crontabs/*\" or\n    syscheck.path.keyword like \"/etc/cron.d/*\" or\n    syscheck.path.keyword == \"/etc/crontab\"\n  )]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-PERS-002",
+      "source_path": "rules/persistence/WCORR-PERS-002.eql",
+      "sha256": "3523502f6e1d1b107bd34b9c0d5f00b159972c065552c1f84ce160e4f7d34a3c",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "rule.id.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "30m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "A service failure after a unit-file change does not establish causality. Legitimate service installation and maintenance can match.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/etc/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/usr/lib/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/lib/systemd/system/*.service\"\n  )]\n  [any where rule.id.keyword == \"40704\"]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-EVAS-001",
+      "source_path": "rules/defence-evasion/WCORR-EVAS-001.eql",
+      "sha256": "63ab3dc6183ab8c0201288e6a7b5278bdc258f9c3c3240e40e4ff3d36d481f4f",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.audit.type.keyword",
+        "rule.id.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "20m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Legitimate audit-service maintenance can match this potentially significant defence-evasion sequence.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=20m\n  [any where rule.id.keyword in (\"5402\", \"5407\")]\n  [any where rule.id.keyword == \"80705\"\n    and data.audit.type.keyword == \"CONFIG_CHANGE\"]\n  [any where rule.id.keyword == \"80703\"]\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    },
+    {
+      "rule_id": "WCORR-MAL-001",
+      "source_path": "rules/malware/WCORR-MAL-001.eql",
+      "sha256": "f2764d7b25baccfcdf0788abcbee70b12e0bc47ff83a3207a8e3a7b8e30d1d6a",
+      "manifest_match": true,
+      "v1_0_0_match": true,
+      "required_fields": [
+        "timestamp",
+        "type.keyword",
+        "agent.id.keyword",
+        "data.file.keyword",
+        "rule.id.keyword",
+        "syscheck.mode.keyword",
+        "syscheck.path.keyword"
+      ],
+      "timestamp_field": "timestamp",
+      "event_category_field": "type.keyword",
+      "maxspan": "60m",
+      "current_execution_status": "ZERO_MATCHES",
+      "query_executed": true,
+      "http_status": 200,
+      "timed_out": false,
+      "is_partial": false,
+      "is_running": false,
+      "shards": null,
+      "returned_sequence_count": 0,
+      "hits_total": {
+        "value": 0,
+        "relation": "eq"
+      },
+      "result_limit": 10,
+      "at_result_limit": false,
+      "sequences": [],
+      "elasticsearch_errors": null,
+      "limitations": "Requires rootcheck to expose the same executable path in data.file.keyword; population outside the recurring anomaly is unestablished. Realtime-only FIM excludes scheduled observations and reduces coverage. Matching paths and timing do not establish malware execution.",
+      "native_execution_success": true,
+      "request": {
+        "query": "sequence by agent.id.keyword with maxspan=60m\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword like \"/usr/bin/*\" or\n      syscheck.path.keyword like \"/usr/sbin/*\" or\n      syscheck.path.keyword like \"/bin/*\" or\n      syscheck.path.keyword like \"/sbin/*\"\n    )\n  ] by syscheck.path.keyword\n  [any where\n    rule.id.keyword in (\"510\", \"521\") and\n    data.file.keyword != null and\n    data.file.keyword != \"/dev/null\\r\"\n  ] by data.file.keyword\n",
+        "timestamp_field": "timestamp",
+        "event_category_field": "type.keyword",
+        "filter": {
+          "publication_redaction": "Fixed timestamp range applied during execution; exact bounds withheld. This is evidence, not a replayable request."
+        },
+        "size": 10,
+        "fetch_size": 100,
+        "wait_for_completion_timeout": "45s",
+        "keep_on_completion": false,
+        "allow_partial_search_results": false,
+        "allow_partial_sequence_results": false
+      }
+    }
+  ],
+  "prior_ssh_001": {
+    "provenance": "User-established result in task instruction; not independently re-executed or corroborated by raw repository evidence",
+    "status": "PASS",
+    "sequence_count": 1,
+    "date": "WITHHELD: historical production event date",
+    "ordered_wazuh_rule_ids": [
+      "5712",
+      "5715"
+    ],
+    "join_keys": "WITHHELD: production identifiers; same agent/source IP reported historically",
+    "maxspan": "15m",
+    "elapsed_approx_seconds": 850,
+    "usernames": "different",
+    "account_compromise_proven": false
+  },
+  "connection_and_mapping_evidence": {
+    "scope": "Production native execution; sensitive infrastructure, field capabilities, per-index availability and population details withheld for publication.",
+    "field_caps_status": 200,
+    "field_mapping_status": 403,
+    "tls_chain_verified": true,
+    "tls_hostname_verified": true,
+    "version_confirmation": "Operator-supplied only; root inspection denied. Detailed mappings remain unverified."
+  },
+  "requests": [
+    {
+      "path": "/wazuh-alerts-4.x-*/_field_caps?fields=agent.id.keyword,data.audit.command.keyword,data.audit.type.keyword,data.command.keyword,data.dstuser.keyword,data.file.keyword,data.srcip.keyword,data.srcuser.keyword,data.url.keyword,rule.id.keyword,syscheck.event.keyword,syscheck.mode.keyword,syscheck.path.keyword,timestamp,type.keyword&include_unmapped=true",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_search?allow_partial_search_results=false",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_eql/search",
+      "http_status": 200
+    },
+    {
+      "path": "/wazuh-alerts-4.x-*/_mapping/field/agent.id.keyword,data.audit.command.keyword,data.audit.type.keyword,data.command.keyword,data.dstuser.keyword,data.file.keyword,data.srcip.keyword,data.srcuser.keyword,data.url.keyword,rule.id.keyword,syscheck.event.keyword,syscheck.mode.keyword,syscheck.path.keyword,timestamp,type.keyword",
+      "http_status": 403
+    }
+  ],
+  "redaction": "Publication sanitisation: production IPs, agent/event identifiers and deterministic identifier hashes withheld without replacement aliases; exact dates, index lists, infrastructure details, timings, telemetry populations and per-field availability withheld. Ordered event rule IDs, returned sequence counts, execution outcomes and result-cap caveats retained. Redacted requests are historical evidence, not replayable requests. No new evidence generated. Relative event offsets are calculated from original timestamps; they preserve sequence timing without publishing absolute event times.",
+  "safety": "Only read-only metadata and search requests; no activation, writes, Cases or configuration changes.",
+  "prior_request_format_attempts": {
+    "count": 29,
+    "http_status": 400,
+    "query_execution_reached": false,
+    "errors": [
+      {
+        "attempts": 15,
+        "type": "x_content_parse_exception",
+        "reason": "unknown field [timeout] (14 initial requests and one diagnostic)"
+      },
+      {
+        "attempts": 14,
+        "type": "x_content_parse_exception",
+        "reason": "unknown field [_source]"
+      }
+    ],
+    "resolution": "Removed unsupported request body properties; exact query sources unchanged."
+  },
+  "summary": {
+    "native_execution_success": 14,
+    "positive_rules": 3,
+    "zero_match_rules": 11,
+    "blocked_or_incompatible": 0,
+    "returned_sequences": 17
+  },
+  "next_phase": "Phase 7C — isolated laboratory semantic and positive/negative sequence validation of the unchanged v1.0.0 catalogue; no production ingestion, activation or publication."
+}

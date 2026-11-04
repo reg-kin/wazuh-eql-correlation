@@ -1,0 +1,83 @@
+{
+  "all_command_checks_passed": true,
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "tests/validate_development.py",
+        "--historical"
+      ],
+      "returncode": 0,
+      "stderr": "test_configuration_variable_consistency (__main__.RepositoryChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.RepositoryChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.RepositoryChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.RepositoryChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.RepositoryChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.RepositoryChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.RepositoryChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.RepositoryChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.RepositoryChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.RepositoryChecks.test_publication_manifest) ... ok\ntest_report_exact_inventory (__main__.RepositoryChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.RepositoryChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.RepositoryChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.RepositoryChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.RepositoryChecks.test_structure) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.096s\n\nOK (skipped=1)\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python3",
+        "tests/validate_development.py"
+      ],
+      "returncode": 0,
+      "stderr": "test_configuration_variable_consistency (__main__.DevelopmentChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.DevelopmentChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.DevelopmentChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.DevelopmentChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.DevelopmentChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.DevelopmentChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.DevelopmentChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.DevelopmentChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.DevelopmentChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.DevelopmentChecks.test_publication_manifest) ... ok\ntest_report_exact_inventory (__main__.DevelopmentChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.DevelopmentChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.DevelopmentChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.DevelopmentChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.DevelopmentChecks.test_structure) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 1.509s\n\nOK (skipped=1)\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_phase6*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stderr": "test_endpoint_scope (test_phase6_engine.HarnessChecks.test_endpoint_scope) ... ok\ntest_fixture_contract (test_phase6_engine.HarnessChecks.test_fixture_contract) ... ok\ntest_resource_stop (test_phase6_engine.HarnessChecks.test_resource_stop) ... ok\ntest_write_scope_before_http (test_phase6_engine.HarnessChecks.test_write_scope_before_http) ... ok\ntest_boundary_and_username_dispositions (test_phase6_qualification.QualificationChecks.test_boundary_and_username_dispositions) ... ok\ntest_development_rejects_unlisted_file (test_phase6_qualification.QualificationChecks.test_development_rejects_unlisted_file) ... ok\ntest_historical_rejects_extra_missing_and_corrupt_files (test_phase6_qualification.QualificationChecks.test_historical_rejects_extra_missing_and_corrupt_files) ... ok\ntest_retained_evidence_and_assertions (test_phase6_qualification.QualificationChecks.test_retained_evidence_and_assertions) ... ok\ntest_documentation_address_exception_is_narrow (test_phase6b_engine.Phase6BChecks.test_documentation_address_exception_is_narrow) ... ok\ntest_fixture_contract_and_isolation (test_phase6b_engine.Phase6BChecks.test_fixture_contract_and_isolation) ... ok\ntest_index_conflict_stops_before_writes (test_phase6b_engine.Phase6BChecks.test_index_conflict_stops_before_writes) ... ok\ntest_retained_engine_evidence (test_phase6b_engine.Phase6BChecks.test_retained_engine_evidence) ... ok\ntest_write_scope (test_phase6b_engine.Phase6BChecks.test_write_scope) ... ok\ntest_fixture_contract (test_phase6c_engine.Phase6CChecks.test_fixture_contract) ... ok\ntest_retained_evidence (test_phase6c_engine.Phase6CChecks.test_retained_evidence) ... ok\ntest_write_scope_and_conflict (test_phase6c_engine.Phase6CChecks.test_write_scope_and_conflict) ... ok\ntest_fixture_contract (test_phase6d_engine.Phase6DChecks.test_fixture_contract) ... ok\ntest_green_health_guard (test_phase6d_engine.Phase6DChecks.test_green_health_guard) ... ok\ntest_retained_evidence (test_phase6d_engine.Phase6DChecks.test_retained_evidence) ... ok\ntest_synthetic_path_exception_is_narrow (test_phase6d_engine.Phase6DChecks.test_synthetic_path_exception_is_narrow) ... ok\ntest_write_scope_and_conflict (test_phase6d_engine.Phase6DChecks.test_write_scope_and_conflict) ... ok\ntest_fixture_contract (test_phase6e_engine.Phase6EChecks.test_fixture_contract) ... ok\ntest_green_health_guard (test_phase6e_engine.Phase6EChecks.test_green_health_guard) ... ok\ntest_partition_isolation_and_predeclared_coverage (test_phase6e_engine.Phase6EChecks.test_partition_isolation_and_predeclared_coverage) ... ok\ntest_retained_evidence (test_phase6e_engine.Phase6EChecks.test_retained_evidence) ... ok\ntest_write_scope_and_conflict (test_phase6e_engine.Phase6EChecks.test_write_scope_and_conflict) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.451s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "?? docs/verification/phase6/\n?? tests/fixtures/\n?? tests/phase6_engine.py\n?? tests/phase6b_engine.py\n?? tests/phase6c_engine.py\n?? tests/phase6d_engine.py\n?? tests/phase6e_engine.py\n?? tests/test_phase6_engine.py\n?? tests/test_phase6_qualification.py\n?? tests/test_phase6b_engine.py\n?? tests/test_phase6c_engine.py\n?? tests/test_phase6d_engine.py\n?? tests/test_phase6e_engine.py\n?? tests/validate_development.py\n"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/validate_development.py"
+      ],
+      "returncode": 0,
+      "stderr": "test_configuration_variable_consistency (__main__.DevelopmentChecks.test_configuration_variable_consistency) ... ok\ntest_documentation_links_and_consistency (__main__.DevelopmentChecks.test_documentation_links_and_consistency) ... ok\ntest_exact_catalogue_and_counts (__main__.DevelopmentChecks.test_exact_catalogue_and_counts) ... ok\ntest_fourteen_sources_and_integrity (__main__.DevelopmentChecks.test_fourteen_sources_and_integrity) ... ok\ntest_no_embedded_credentials_or_material (__main__.DevelopmentChecks.test_no_embedded_credentials_or_material) ... ok\ntest_no_pending_definitions (__main__.DevelopmentChecks.test_no_pending_definitions) ... ok\ntest_no_private_addresses_identifiers_logs_or_dependencies (__main__.DevelopmentChecks.test_no_private_addresses_identifiers_logs_or_dependencies) ... ok\ntest_phase3_preservation (__main__.DevelopmentChecks.test_phase3_preservation) ... ok\ntest_project_identity (__main__.DevelopmentChecks.test_project_identity) ... ok\ntest_publication_manifest (__main__.DevelopmentChecks.test_publication_manifest) ... ok\ntest_report_exact_inventory (__main__.DevelopmentChecks.test_report_exact_inventory) ... ok\ntest_required_metadata_and_entry_documentation (__main__.DevelopmentChecks.test_required_metadata_and_entry_documentation) ... ok\ntest_revised_join_and_filter_contracts (__main__.DevelopmentChecks.test_revised_join_and_filter_contracts) ... ok\ntest_source_expression_preservation (__main__.DevelopmentChecks.test_source_expression_preservation) ... skipped 'External source comparison requires WCORR_SOURCE_FILE'\ntest_structure (__main__.DevelopmentChecks.test_structure) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 1.300s\n\nOK (skipped=1)\n",
+      "stdout": ""
+    }
+  ],
+  "engine_counts": {
+    "FAIL": 0,
+    "INCONCLUSIVE": 6,
+    "PASS": 76
+  },
+  "prewrite_checks": {
+    "development": "14 passed; 1 optional external-source skip",
+    "historical": "14 passed; 1 optional external-source skip",
+    "new_offline_before_engine": "3 passed; retained-evidence test skipped before evidence existed",
+    "prior_offline_evidence": "21 passed"
+  },
+  "prior_classifications_preserved": true,
+  "prior_evidence_and_indices_preserved": "see integrity.json exact hash/source checks",
+  "tracked_and_untracked_whitespace_errors": []
+}

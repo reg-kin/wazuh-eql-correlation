@@ -1,0 +1,5082 @@
+[
+  {
+    "id": "ssh005-positive",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-positive-s1",
+        "source": {
+          "timestamp": "2030-01-01T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-positive-s2",
+        "source": {
+          "timestamp": "2030-01-01T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-positive-s3",
+        "source": {
+          "timestamp": "2030-01-01T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-01T00:00:00+00:00",
+          "lt": "2030-01-02T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-positive-s1",
+        "ssh005-positive-s2",
+        "ssh005-positive-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "positive"
+  },
+  {
+    "id": "ssh005-alternate-id",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-alternate-id-s1",
+        "source": {
+          "timestamp": "2030-01-02T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-alternate-id-s2",
+        "source": {
+          "timestamp": "2030-01-02T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-alternate-id-s3",
+        "source": {
+          "timestamp": "2030-01-02T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "554"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-02T00:00:00+00:00",
+          "lt": "2030-01-03T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-alternate-id-s1",
+        "ssh005-alternate-id-s2",
+        "ssh005-alternate-id-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "alternate-id"
+  },
+  {
+    "id": "ssh005-wrong-id-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-wrong-id-1-s1",
+        "source": {
+          "timestamp": "2030-01-03T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-1-s2",
+        "source": {
+          "timestamp": "2030-01-03T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-1-s3",
+        "source": {
+          "timestamp": "2030-01-03T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-03T00:00:00+00:00",
+          "lt": "2030-01-04T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-1"
+  },
+  {
+    "id": "ssh005-agent-mismatch-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-mismatch-1-s1",
+        "source": {
+          "timestamp": "2030-01-04T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-1-s2",
+        "source": {
+          "timestamp": "2030-01-04T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-1-s3",
+        "source": {
+          "timestamp": "2030-01-04T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-04T00:00:00+00:00",
+          "lt": "2030-01-05T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-1"
+  },
+  {
+    "id": "ssh005-agent-missing-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-missing-1-s1",
+        "source": {
+          "timestamp": "2030-01-05T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-1-s2",
+        "source": {
+          "timestamp": "2030-01-05T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-1-s3",
+        "source": {
+          "timestamp": "2030-01-05T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-05T00:00:00+00:00",
+          "lt": "2030-01-06T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-1"
+  },
+  {
+    "id": "ssh005-agent-null-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-null-1-s1",
+        "source": {
+          "timestamp": "2030-01-06T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-1-s2",
+        "source": {
+          "timestamp": "2030-01-06T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-1-s3",
+        "source": {
+          "timestamp": "2030-01-06T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-06T00:00:00+00:00",
+          "lt": "2030-01-07T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-1"
+  },
+  {
+    "id": "ssh005-rule-missing-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-missing-1-s1",
+        "source": {
+          "timestamp": "2030-01-07T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-1-s2",
+        "source": {
+          "timestamp": "2030-01-07T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-1-s3",
+        "source": {
+          "timestamp": "2030-01-07T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-07T00:00:00+00:00",
+          "lt": "2030-01-08T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-1"
+  },
+  {
+    "id": "ssh005-rule-null-1",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-null-1-s1",
+        "source": {
+          "timestamp": "2030-01-08T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-1-s2",
+        "source": {
+          "timestamp": "2030-01-08T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-1-s3",
+        "source": {
+          "timestamp": "2030-01-08T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-08T00:00:00+00:00",
+          "lt": "2030-01-09T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-1"
+  },
+  {
+    "id": "ssh005-wrong-id-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-wrong-id-2-s1",
+        "source": {
+          "timestamp": "2030-01-09T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-2-s2",
+        "source": {
+          "timestamp": "2030-01-09T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-2-s3",
+        "source": {
+          "timestamp": "2030-01-09T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-09T00:00:00+00:00",
+          "lt": "2030-01-10T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-2"
+  },
+  {
+    "id": "ssh005-agent-mismatch-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-mismatch-2-s1",
+        "source": {
+          "timestamp": "2030-01-10T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-2-s2",
+        "source": {
+          "timestamp": "2030-01-10T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-2-s3",
+        "source": {
+          "timestamp": "2030-01-10T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-10T00:00:00+00:00",
+          "lt": "2030-01-11T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-2"
+  },
+  {
+    "id": "ssh005-agent-missing-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-missing-2-s1",
+        "source": {
+          "timestamp": "2030-01-11T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-2-s2",
+        "source": {
+          "timestamp": "2030-01-11T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-2-s3",
+        "source": {
+          "timestamp": "2030-01-11T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-11T00:00:00+00:00",
+          "lt": "2030-01-12T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-2"
+  },
+  {
+    "id": "ssh005-agent-null-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-null-2-s1",
+        "source": {
+          "timestamp": "2030-01-12T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-2-s2",
+        "source": {
+          "timestamp": "2030-01-12T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-2-s3",
+        "source": {
+          "timestamp": "2030-01-12T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-12T00:00:00+00:00",
+          "lt": "2030-01-13T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-2"
+  },
+  {
+    "id": "ssh005-rule-missing-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-missing-2-s1",
+        "source": {
+          "timestamp": "2030-01-13T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-2-s2",
+        "source": {
+          "timestamp": "2030-01-13T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-2-s3",
+        "source": {
+          "timestamp": "2030-01-13T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-13T00:00:00+00:00",
+          "lt": "2030-01-14T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-2"
+  },
+  {
+    "id": "ssh005-rule-null-2",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-null-2-s1",
+        "source": {
+          "timestamp": "2030-01-14T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-2-s2",
+        "source": {
+          "timestamp": "2030-01-14T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-2-s3",
+        "source": {
+          "timestamp": "2030-01-14T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-14T00:00:00+00:00",
+          "lt": "2030-01-15T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-2"
+  },
+  {
+    "id": "ssh005-wrong-id-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-wrong-id-3-s1",
+        "source": {
+          "timestamp": "2030-01-15T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-3-s2",
+        "source": {
+          "timestamp": "2030-01-15T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-wrong-id-3-s3",
+        "source": {
+          "timestamp": "2030-01-15T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-15T00:00:00+00:00",
+          "lt": "2030-01-16T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-3"
+  },
+  {
+    "id": "ssh005-agent-mismatch-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-mismatch-3-s1",
+        "source": {
+          "timestamp": "2030-01-16T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-3-s2",
+        "source": {
+          "timestamp": "2030-01-16T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-mismatch-3-s3",
+        "source": {
+          "timestamp": "2030-01-16T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-16T00:00:00+00:00",
+          "lt": "2030-01-17T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-3"
+  },
+  {
+    "id": "ssh005-agent-missing-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-missing-3-s1",
+        "source": {
+          "timestamp": "2030-01-17T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-3-s2",
+        "source": {
+          "timestamp": "2030-01-17T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-missing-3-s3",
+        "source": {
+          "timestamp": "2030-01-17T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-17T00:00:00+00:00",
+          "lt": "2030-01-18T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-3"
+  },
+  {
+    "id": "ssh005-agent-null-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-agent-null-3-s1",
+        "source": {
+          "timestamp": "2030-01-18T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-3-s2",
+        "source": {
+          "timestamp": "2030-01-18T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-agent-null-3-s3",
+        "source": {
+          "timestamp": "2030-01-18T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-18T00:00:00+00:00",
+          "lt": "2030-01-19T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-3"
+  },
+  {
+    "id": "ssh005-rule-missing-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-missing-3-s1",
+        "source": {
+          "timestamp": "2030-01-19T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-3-s2",
+        "source": {
+          "timestamp": "2030-01-19T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-missing-3-s3",
+        "source": {
+          "timestamp": "2030-01-19T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-19T00:00:00+00:00",
+          "lt": "2030-01-20T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-3"
+  },
+  {
+    "id": "ssh005-rule-null-3",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-rule-null-3-s1",
+        "source": {
+          "timestamp": "2030-01-20T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-3-s2",
+        "source": {
+          "timestamp": "2030-01-20T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-rule-null-3-s3",
+        "source": {
+          "timestamp": "2030-01-20T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-20T00:00:00+00:00",
+          "lt": "2030-01-21T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-3"
+  },
+  {
+    "id": "ssh005-inside",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-inside-s1",
+        "source": {
+          "timestamp": "2030-01-21T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-inside-s2",
+        "source": {
+          "timestamp": "2030-01-21T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-inside-s3",
+        "source": {
+          "timestamp": "2030-01-21T00:29:59+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-21T00:00:00+00:00",
+          "lt": "2030-01-22T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-inside-s1",
+        "ssh005-inside-s2",
+        "ssh005-inside-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "inside"
+  },
+  {
+    "id": "ssh005-boundary",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-boundary-s1",
+        "source": {
+          "timestamp": "2030-01-22T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-boundary-s2",
+        "source": {
+          "timestamp": "2030-01-22T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-boundary-s3",
+        "source": {
+          "timestamp": "2030-01-22T00:30:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-22T00:00:00+00:00",
+          "lt": "2030-01-23T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-boundary-s1",
+        "ssh005-boundary-s2",
+        "ssh005-boundary-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "boundary"
+  },
+  {
+    "id": "ssh005-outside",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-outside-s1",
+        "source": {
+          "timestamp": "2030-01-23T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-outside-s2",
+        "source": {
+          "timestamp": "2030-01-23T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-outside-s3",
+        "source": {
+          "timestamp": "2030-01-23T00:30:01+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-23T00:00:00+00:00",
+          "lt": "2030-01-24T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "outside"
+  },
+  {
+    "id": "ssh005-adjacent-total-outside",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-adjacent-total-outside-s1",
+        "source": {
+          "timestamp": "2030-01-24T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-adjacent-total-outside-s2",
+        "source": {
+          "timestamp": "2030-01-24T00:29:59+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-adjacent-total-outside-s3",
+        "source": {
+          "timestamp": "2030-01-24T00:30:01+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-24T00:00:00+00:00",
+          "lt": "2030-01-25T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "adjacent-total-outside"
+  },
+  {
+    "id": "ssh005-reversed",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-reversed-s1",
+        "source": {
+          "timestamp": "2030-01-25T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-reversed-s2",
+        "source": {
+          "timestamp": "2030-01-25T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-reversed-s3",
+        "source": {
+          "timestamp": "2030-01-25T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-25T00:00:00+00:00",
+          "lt": "2030-01-26T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "reversed"
+  },
+  {
+    "id": "ssh005-first-pair-reversed",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-first-pair-reversed-s1",
+        "source": {
+          "timestamp": "2030-01-26T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-first-pair-reversed-s2",
+        "source": {
+          "timestamp": "2030-01-26T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-first-pair-reversed-s3",
+        "source": {
+          "timestamp": "2030-01-26T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-26T00:00:00+00:00",
+          "lt": "2030-01-27T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "first-pair-reversed"
+  },
+  {
+    "id": "ssh005-last-pair-reversed",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-last-pair-reversed-s1",
+        "source": {
+          "timestamp": "2030-01-27T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-last-pair-reversed-s2",
+        "source": {
+          "timestamp": "2030-01-27T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-last-pair-reversed-s3",
+        "source": {
+          "timestamp": "2030-01-27T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-27T00:00:00+00:00",
+          "lt": "2030-01-28T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "last-pair-reversed"
+  },
+  {
+    "id": "ssh005-all-equal",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-all-equal-s1",
+        "source": {
+          "timestamp": "2030-01-28T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-all-equal-s2",
+        "source": {
+          "timestamp": "2030-01-28T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-all-equal-s3",
+        "source": {
+          "timestamp": "2030-01-28T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-28T00:00:00+00:00",
+          "lt": "2030-01-29T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "all-equal"
+  },
+  {
+    "id": "ssh005-first-pair-tied",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-first-pair-tied-s1",
+        "source": {
+          "timestamp": "2030-01-29T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-first-pair-tied-s2",
+        "source": {
+          "timestamp": "2030-01-29T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-first-pair-tied-s3",
+        "source": {
+          "timestamp": "2030-01-29T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-29T00:00:00+00:00",
+          "lt": "2030-01-30T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "first-pair-tied"
+  },
+  {
+    "id": "ssh005-last-pair-tied",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-last-pair-tied-s1",
+        "source": {
+          "timestamp": "2030-01-30T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-last-pair-tied-s2",
+        "source": {
+          "timestamp": "2030-01-30T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-last-pair-tied-s3",
+        "source": {
+          "timestamp": "2030-01-30T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-30T00:00:00+00:00",
+          "lt": "2030-01-31T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "last-pair-tied"
+  },
+  {
+    "id": "ssh005-predicate-case",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-case-s1",
+        "source": {
+          "timestamp": "2030-01-31T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-case-s2",
+        "source": {
+          "timestamp": "2030-01-31T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "SCP"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-case-s3",
+        "source": {
+          "timestamp": "2030-01-31T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-01-31T00:00:00+00:00",
+          "lt": "2030-02-01T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-case"
+  },
+  {
+    "id": "ssh005-predicate-prefix",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-prefix-s1",
+        "source": {
+          "timestamp": "2030-02-01T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-prefix-s2",
+        "source": {
+          "timestamp": "2030-02-01T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "xscp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-prefix-s3",
+        "source": {
+          "timestamp": "2030-02-01T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-01T00:00:00+00:00",
+          "lt": "2030-02-02T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-prefix"
+  },
+  {
+    "id": "ssh005-predicate-suffix",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-suffix-s1",
+        "source": {
+          "timestamp": "2030-02-02T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-suffix-s2",
+        "source": {
+          "timestamp": "2030-02-02T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp x"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-suffix-s3",
+        "source": {
+          "timestamp": "2030-02-02T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-02T00:00:00+00:00",
+          "lt": "2030-02-03T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-suffix"
+  },
+  {
+    "id": "ssh005-predicate-path",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-path-s1",
+        "source": {
+          "timestamp": "2030-02-03T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-path-s2",
+        "source": {
+          "timestamp": "2030-02-03T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "/usr/bin/scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-path-s3",
+        "source": {
+          "timestamp": "2030-02-03T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-03T00:00:00+00:00",
+          "lt": "2030-02-04T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-path"
+  },
+  {
+    "id": "ssh005-predicate-null",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-null-s1",
+        "source": {
+          "timestamp": "2030-02-04T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-null-s2",
+        "source": {
+          "timestamp": "2030-02-04T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": null
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-null-s3",
+        "source": {
+          "timestamp": "2030-02-04T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-04T00:00:00+00:00",
+          "lt": "2030-02-05T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-null"
+  },
+  {
+    "id": "ssh005-predicate-empty",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-empty-s1",
+        "source": {
+          "timestamp": "2030-02-05T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-empty-s2",
+        "source": {
+          "timestamp": "2030-02-05T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-empty-s3",
+        "source": {
+          "timestamp": "2030-02-05T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-05T00:00:00+00:00",
+          "lt": "2030-02-06T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-empty"
+  },
+  {
+    "id": "ssh005-predicate-missing",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-missing-s1",
+        "source": {
+          "timestamp": "2030-02-06T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-missing-s2",
+        "source": {
+          "timestamp": "2030-02-06T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {}
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-missing-s3",
+        "source": {
+          "timestamp": "2030-02-06T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-06T00:00:00+00:00",
+          "lt": "2030-02-07T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-missing"
+  },
+  {
+    "id": "ssh005-audit-missing",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-audit-missing-s1",
+        "source": {
+          "timestamp": "2030-02-07T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-audit-missing-s2",
+        "source": {
+          "timestamp": "2030-02-07T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          }
+        }
+      },
+      {
+        "id": "ssh005-audit-missing-s3",
+        "source": {
+          "timestamp": "2030-02-07T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-07T00:00:00+00:00",
+          "lt": "2030-02-08T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "audit-missing"
+  },
+  {
+    "id": "ssh005-predicate-wrong-stage",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-predicate-wrong-stage-s1",
+        "source": {
+          "timestamp": "2030-02-08T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-wrong-stage-s2",
+        "source": {
+          "timestamp": "2030-02-08T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          }
+        }
+      },
+      {
+        "id": "ssh005-predicate-wrong-stage-s3",
+        "source": {
+          "timestamp": "2030-02-08T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-08T00:00:00+00:00",
+          "lt": "2030-02-09T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-wrong-stage"
+  },
+  {
+    "id": "ssh005-unrelated-users-path-mode",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-unrelated-users-path-mode-s1",
+        "source": {
+          "timestamp": "2030-02-09T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          },
+          "data": {
+            "srcuser": "user0",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      },
+      {
+        "id": "ssh005-unrelated-users-path-mode-s2",
+        "source": {
+          "timestamp": "2030-02-09T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            },
+            "srcuser": "user1",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      },
+      {
+        "id": "ssh005-unrelated-users-path-mode-s3",
+        "source": {
+          "timestamp": "2030-02-09T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          },
+          "data": {
+            "srcuser": "user2",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-09T00:00:00+00:00",
+          "lt": "2030-02-10T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-unrelated-users-path-mode-s1",
+        "ssh005-unrelated-users-path-mode-s2",
+        "ssh005-unrelated-users-path-mode-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "unrelated-users-path-mode"
+  },
+  {
+    "id": "ssh005-category-different",
+    "rule": "ssh005",
+    "events": [
+      {
+        "id": "ssh005-category-different-s1",
+        "source": {
+          "timestamp": "2030-02-10T00:00:00+00:00",
+          "type": "category0",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5715"
+          }
+        }
+      },
+      {
+        "id": "ssh005-category-different-s2",
+        "source": {
+          "timestamp": "2030-02-10T00:01:00+00:00",
+          "type": "category1",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "92603"
+          },
+          "data": {
+            "audit": {
+              "command": "scp"
+            }
+          }
+        }
+      },
+      {
+        "id": "ssh005-category-different-s3",
+        "source": {
+          "timestamp": "2030-02-10T00:02:00+00:00",
+          "type": "category2",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "550"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-10T00:00:00+00:00",
+          "lt": "2030-02-11T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "ssh005-category-different-s1",
+        "ssh005-category-different-s2",
+        "ssh005-category-different-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "category-different"
+  },
+  {
+    "id": "evas001-positive",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-positive-s1",
+        "source": {
+          "timestamp": "2030-02-11T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-positive-s2",
+        "source": {
+          "timestamp": "2030-02-11T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-positive-s3",
+        "source": {
+          "timestamp": "2030-02-11T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-11T00:00:00+00:00",
+          "lt": "2030-02-12T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-positive-s1",
+        "evas001-positive-s2",
+        "evas001-positive-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "positive"
+  },
+  {
+    "id": "evas001-alternate-id",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-alternate-id-s1",
+        "source": {
+          "timestamp": "2030-02-12T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5407"
+          }
+        }
+      },
+      {
+        "id": "evas001-alternate-id-s2",
+        "source": {
+          "timestamp": "2030-02-12T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-alternate-id-s3",
+        "source": {
+          "timestamp": "2030-02-12T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-12T00:00:00+00:00",
+          "lt": "2030-02-13T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-alternate-id-s1",
+        "evas001-alternate-id-s2",
+        "evas001-alternate-id-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "alternate-id"
+  },
+  {
+    "id": "evas001-wrong-id-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-wrong-id-1-s1",
+        "source": {
+          "timestamp": "2030-02-13T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-1-s2",
+        "source": {
+          "timestamp": "2030-02-13T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-1-s3",
+        "source": {
+          "timestamp": "2030-02-13T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-13T00:00:00+00:00",
+          "lt": "2030-02-14T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-1"
+  },
+  {
+    "id": "evas001-agent-mismatch-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-mismatch-1-s1",
+        "source": {
+          "timestamp": "2030-02-14T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-1-s2",
+        "source": {
+          "timestamp": "2030-02-14T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-1-s3",
+        "source": {
+          "timestamp": "2030-02-14T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-14T00:00:00+00:00",
+          "lt": "2030-02-15T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-1"
+  },
+  {
+    "id": "evas001-agent-missing-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-missing-1-s1",
+        "source": {
+          "timestamp": "2030-02-15T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-1-s2",
+        "source": {
+          "timestamp": "2030-02-15T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-1-s3",
+        "source": {
+          "timestamp": "2030-02-15T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-15T00:00:00+00:00",
+          "lt": "2030-02-16T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-1"
+  },
+  {
+    "id": "evas001-agent-null-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-null-1-s1",
+        "source": {
+          "timestamp": "2030-02-16T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-1-s2",
+        "source": {
+          "timestamp": "2030-02-16T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-1-s3",
+        "source": {
+          "timestamp": "2030-02-16T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-16T00:00:00+00:00",
+          "lt": "2030-02-17T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-1"
+  },
+  {
+    "id": "evas001-rule-missing-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-missing-1-s1",
+        "source": {
+          "timestamp": "2030-02-17T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      },
+      {
+        "id": "evas001-rule-missing-1-s2",
+        "source": {
+          "timestamp": "2030-02-17T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-missing-1-s3",
+        "source": {
+          "timestamp": "2030-02-17T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-17T00:00:00+00:00",
+          "lt": "2030-02-18T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-1"
+  },
+  {
+    "id": "evas001-rule-null-1",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-null-1-s1",
+        "source": {
+          "timestamp": "2030-02-18T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-1-s2",
+        "source": {
+          "timestamp": "2030-02-18T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-1-s3",
+        "source": {
+          "timestamp": "2030-02-18T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-18T00:00:00+00:00",
+          "lt": "2030-02-19T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-1"
+  },
+  {
+    "id": "evas001-wrong-id-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-wrong-id-2-s1",
+        "source": {
+          "timestamp": "2030-02-19T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-2-s2",
+        "source": {
+          "timestamp": "2030-02-19T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-2-s3",
+        "source": {
+          "timestamp": "2030-02-19T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-19T00:00:00+00:00",
+          "lt": "2030-02-20T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-2"
+  },
+  {
+    "id": "evas001-agent-mismatch-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-mismatch-2-s1",
+        "source": {
+          "timestamp": "2030-02-20T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-2-s2",
+        "source": {
+          "timestamp": "2030-02-20T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-2-s3",
+        "source": {
+          "timestamp": "2030-02-20T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-20T00:00:00+00:00",
+          "lt": "2030-02-21T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-2"
+  },
+  {
+    "id": "evas001-agent-missing-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-missing-2-s1",
+        "source": {
+          "timestamp": "2030-02-21T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-2-s2",
+        "source": {
+          "timestamp": "2030-02-21T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-2-s3",
+        "source": {
+          "timestamp": "2030-02-21T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-21T00:00:00+00:00",
+          "lt": "2030-02-22T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-2"
+  },
+  {
+    "id": "evas001-agent-null-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-null-2-s1",
+        "source": {
+          "timestamp": "2030-02-22T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-2-s2",
+        "source": {
+          "timestamp": "2030-02-22T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-2-s3",
+        "source": {
+          "timestamp": "2030-02-22T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-22T00:00:00+00:00",
+          "lt": "2030-02-23T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-2"
+  },
+  {
+    "id": "evas001-rule-missing-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-missing-2-s1",
+        "source": {
+          "timestamp": "2030-02-23T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-missing-2-s2",
+        "source": {
+          "timestamp": "2030-02-23T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {},
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-missing-2-s3",
+        "source": {
+          "timestamp": "2030-02-23T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-23T00:00:00+00:00",
+          "lt": "2030-02-24T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-2"
+  },
+  {
+    "id": "evas001-rule-null-2",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-null-2-s1",
+        "source": {
+          "timestamp": "2030-02-24T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-2-s2",
+        "source": {
+          "timestamp": "2030-02-24T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-2-s3",
+        "source": {
+          "timestamp": "2030-02-24T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-24T00:00:00+00:00",
+          "lt": "2030-02-25T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-2"
+  },
+  {
+    "id": "evas001-wrong-id-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-wrong-id-3-s1",
+        "source": {
+          "timestamp": "2030-02-25T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-3-s2",
+        "source": {
+          "timestamp": "2030-02-25T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-wrong-id-3-s3",
+        "source": {
+          "timestamp": "2030-02-25T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "99999"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-25T00:00:00+00:00",
+          "lt": "2030-02-26T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "wrong-id-3"
+  },
+  {
+    "id": "evas001-agent-mismatch-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-mismatch-3-s1",
+        "source": {
+          "timestamp": "2030-02-26T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-3-s2",
+        "source": {
+          "timestamp": "2030-02-26T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-mismatch-3-s3",
+        "source": {
+          "timestamp": "2030-02-26T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "other-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-26T00:00:00+00:00",
+          "lt": "2030-02-27T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-mismatch-3"
+  },
+  {
+    "id": "evas001-agent-missing-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-missing-3-s1",
+        "source": {
+          "timestamp": "2030-02-27T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-3-s2",
+        "source": {
+          "timestamp": "2030-02-27T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-missing-3-s3",
+        "source": {
+          "timestamp": "2030-02-27T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {},
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-27T00:00:00+00:00",
+          "lt": "2030-02-28T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-missing-3"
+  },
+  {
+    "id": "evas001-agent-null-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-agent-null-3-s1",
+        "source": {
+          "timestamp": "2030-02-28T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-3-s2",
+        "source": {
+          "timestamp": "2030-02-28T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-agent-null-3-s3",
+        "source": {
+          "timestamp": "2030-02-28T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": null
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-02-28T00:00:00+00:00",
+          "lt": "2030-03-01T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "agent-null-3"
+  },
+  {
+    "id": "evas001-rule-missing-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-missing-3-s1",
+        "source": {
+          "timestamp": "2030-03-01T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-missing-3-s2",
+        "source": {
+          "timestamp": "2030-03-01T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-missing-3-s3",
+        "source": {
+          "timestamp": "2030-03-01T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {}
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-01T00:00:00+00:00",
+          "lt": "2030-03-02T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-missing-3"
+  },
+  {
+    "id": "evas001-rule-null-3",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-rule-null-3-s1",
+        "source": {
+          "timestamp": "2030-03-02T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-3-s2",
+        "source": {
+          "timestamp": "2030-03-02T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-rule-null-3-s3",
+        "source": {
+          "timestamp": "2030-03-02T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": null
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-02T00:00:00+00:00",
+          "lt": "2030-03-03T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "rule-null-3"
+  },
+  {
+    "id": "evas001-inside",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-inside-s1",
+        "source": {
+          "timestamp": "2030-03-03T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-inside-s2",
+        "source": {
+          "timestamp": "2030-03-03T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-inside-s3",
+        "source": {
+          "timestamp": "2030-03-03T00:19:59+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-03T00:00:00+00:00",
+          "lt": "2030-03-04T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-inside-s1",
+        "evas001-inside-s2",
+        "evas001-inside-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "inside"
+  },
+  {
+    "id": "evas001-boundary",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-boundary-s1",
+        "source": {
+          "timestamp": "2030-03-04T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-boundary-s2",
+        "source": {
+          "timestamp": "2030-03-04T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-boundary-s3",
+        "source": {
+          "timestamp": "2030-03-04T00:20:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-04T00:00:00+00:00",
+          "lt": "2030-03-05T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-boundary-s1",
+        "evas001-boundary-s2",
+        "evas001-boundary-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "boundary"
+  },
+  {
+    "id": "evas001-outside",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-outside-s1",
+        "source": {
+          "timestamp": "2030-03-05T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-outside-s2",
+        "source": {
+          "timestamp": "2030-03-05T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-outside-s3",
+        "source": {
+          "timestamp": "2030-03-05T00:20:01+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-05T00:00:00+00:00",
+          "lt": "2030-03-06T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "outside"
+  },
+  {
+    "id": "evas001-adjacent-total-outside",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-adjacent-total-outside-s1",
+        "source": {
+          "timestamp": "2030-03-06T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-adjacent-total-outside-s2",
+        "source": {
+          "timestamp": "2030-03-06T00:19:59+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-adjacent-total-outside-s3",
+        "source": {
+          "timestamp": "2030-03-06T00:20:01+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-06T00:00:00+00:00",
+          "lt": "2030-03-07T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "adjacent-total-outside"
+  },
+  {
+    "id": "evas001-reversed",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-reversed-s1",
+        "source": {
+          "timestamp": "2030-03-07T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-reversed-s2",
+        "source": {
+          "timestamp": "2030-03-07T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-reversed-s3",
+        "source": {
+          "timestamp": "2030-03-07T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-07T00:00:00+00:00",
+          "lt": "2030-03-08T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "reversed"
+  },
+  {
+    "id": "evas001-first-pair-reversed",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-first-pair-reversed-s1",
+        "source": {
+          "timestamp": "2030-03-08T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-first-pair-reversed-s2",
+        "source": {
+          "timestamp": "2030-03-08T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-first-pair-reversed-s3",
+        "source": {
+          "timestamp": "2030-03-08T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-08T00:00:00+00:00",
+          "lt": "2030-03-09T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "first-pair-reversed"
+  },
+  {
+    "id": "evas001-last-pair-reversed",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-last-pair-reversed-s1",
+        "source": {
+          "timestamp": "2030-03-09T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-last-pair-reversed-s2",
+        "source": {
+          "timestamp": "2030-03-09T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-last-pair-reversed-s3",
+        "source": {
+          "timestamp": "2030-03-09T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-09T00:00:00+00:00",
+          "lt": "2030-03-10T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "last-pair-reversed"
+  },
+  {
+    "id": "evas001-all-equal",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-all-equal-s1",
+        "source": {
+          "timestamp": "2030-03-10T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-all-equal-s2",
+        "source": {
+          "timestamp": "2030-03-10T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-all-equal-s3",
+        "source": {
+          "timestamp": "2030-03-10T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-10T00:00:00+00:00",
+          "lt": "2030-03-11T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "all-equal"
+  },
+  {
+    "id": "evas001-first-pair-tied",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-first-pair-tied-s1",
+        "source": {
+          "timestamp": "2030-03-11T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-first-pair-tied-s2",
+        "source": {
+          "timestamp": "2030-03-11T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-first-pair-tied-s3",
+        "source": {
+          "timestamp": "2030-03-11T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-11T00:00:00+00:00",
+          "lt": "2030-03-12T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "first-pair-tied"
+  },
+  {
+    "id": "evas001-last-pair-tied",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-last-pair-tied-s1",
+        "source": {
+          "timestamp": "2030-03-12T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-last-pair-tied-s2",
+        "source": {
+          "timestamp": "2030-03-12T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-last-pair-tied-s3",
+        "source": {
+          "timestamp": "2030-03-12T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-12T00:00:00+00:00",
+          "lt": "2030-03-13T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": null,
+    "classification": "semantic_investigation",
+    "note": "last-pair-tied"
+  },
+  {
+    "id": "evas001-predicate-case",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-case-s1",
+        "source": {
+          "timestamp": "2030-03-13T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-case-s2",
+        "source": {
+          "timestamp": "2030-03-13T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "config_change"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-case-s3",
+        "source": {
+          "timestamp": "2030-03-13T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-13T00:00:00+00:00",
+          "lt": "2030-03-14T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-case"
+  },
+  {
+    "id": "evas001-predicate-prefix",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-prefix-s1",
+        "source": {
+          "timestamp": "2030-03-14T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-prefix-s2",
+        "source": {
+          "timestamp": "2030-03-14T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "xCONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-prefix-s3",
+        "source": {
+          "timestamp": "2030-03-14T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-14T00:00:00+00:00",
+          "lt": "2030-03-15T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-prefix"
+  },
+  {
+    "id": "evas001-predicate-suffix",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-suffix-s1",
+        "source": {
+          "timestamp": "2030-03-15T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-suffix-s2",
+        "source": {
+          "timestamp": "2030-03-15T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE x"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-suffix-s3",
+        "source": {
+          "timestamp": "2030-03-15T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-15T00:00:00+00:00",
+          "lt": "2030-03-16T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-suffix"
+  },
+  {
+    "id": "evas001-predicate-path",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-path-s1",
+        "source": {
+          "timestamp": "2030-03-16T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-path-s2",
+        "source": {
+          "timestamp": "2030-03-16T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "OTHER"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-path-s3",
+        "source": {
+          "timestamp": "2030-03-16T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-16T00:00:00+00:00",
+          "lt": "2030-03-17T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-path"
+  },
+  {
+    "id": "evas001-predicate-null",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-null-s1",
+        "source": {
+          "timestamp": "2030-03-17T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-null-s2",
+        "source": {
+          "timestamp": "2030-03-17T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": null
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-null-s3",
+        "source": {
+          "timestamp": "2030-03-17T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-17T00:00:00+00:00",
+          "lt": "2030-03-18T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-null"
+  },
+  {
+    "id": "evas001-predicate-empty",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-empty-s1",
+        "source": {
+          "timestamp": "2030-03-18T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-empty-s2",
+        "source": {
+          "timestamp": "2030-03-18T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-empty-s3",
+        "source": {
+          "timestamp": "2030-03-18T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-18T00:00:00+00:00",
+          "lt": "2030-03-19T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-empty"
+  },
+  {
+    "id": "evas001-predicate-missing",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-missing-s1",
+        "source": {
+          "timestamp": "2030-03-19T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-missing-s2",
+        "source": {
+          "timestamp": "2030-03-19T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {}
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-missing-s3",
+        "source": {
+          "timestamp": "2030-03-19T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-19T00:00:00+00:00",
+          "lt": "2030-03-20T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-missing"
+  },
+  {
+    "id": "evas001-audit-missing",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-audit-missing-s1",
+        "source": {
+          "timestamp": "2030-03-20T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-audit-missing-s2",
+        "source": {
+          "timestamp": "2030-03-20T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          }
+        }
+      },
+      {
+        "id": "evas001-audit-missing-s3",
+        "source": {
+          "timestamp": "2030-03-20T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-20T00:00:00+00:00",
+          "lt": "2030-03-21T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "audit-missing"
+  },
+  {
+    "id": "evas001-predicate-wrong-stage",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-predicate-wrong-stage-s1",
+        "source": {
+          "timestamp": "2030-03-21T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-wrong-stage-s2",
+        "source": {
+          "timestamp": "2030-03-21T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          }
+        }
+      },
+      {
+        "id": "evas001-predicate-wrong-stage-s3",
+        "source": {
+          "timestamp": "2030-03-21T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-21T00:00:00+00:00",
+          "lt": "2030-03-22T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [],
+    "classification": "deterministic",
+    "note": "predicate-wrong-stage"
+  },
+  {
+    "id": "evas001-unrelated-users-path-mode",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-unrelated-users-path-mode-s1",
+        "source": {
+          "timestamp": "2030-03-22T00:00:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          },
+          "data": {
+            "srcuser": "user0",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      },
+      {
+        "id": "evas001-unrelated-users-path-mode-s2",
+        "source": {
+          "timestamp": "2030-03-22T00:01:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            },
+            "srcuser": "user1",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      },
+      {
+        "id": "evas001-unrelated-users-path-mode-s3",
+        "source": {
+          "timestamp": "2030-03-22T00:02:00+00:00",
+          "type": "synthetic",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          },
+          "data": {
+            "srcuser": "user2",
+            "dstuser": "nonroot"
+          },
+          "syscheck": {
+            "path": "/synthetic/unrelated",
+            "mode": "scheduled"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-22T00:00:00+00:00",
+          "lt": "2030-03-23T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-unrelated-users-path-mode-s1",
+        "evas001-unrelated-users-path-mode-s2",
+        "evas001-unrelated-users-path-mode-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "unrelated-users-path-mode"
+  },
+  {
+    "id": "evas001-category-different",
+    "rule": "evas001",
+    "events": [
+      {
+        "id": "evas001-category-different-s1",
+        "source": {
+          "timestamp": "2030-03-23T00:00:00+00:00",
+          "type": "category0",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "5402"
+          }
+        }
+      },
+      {
+        "id": "evas001-category-different-s2",
+        "source": {
+          "timestamp": "2030-03-23T00:01:00+00:00",
+          "type": "category1",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80705"
+          },
+          "data": {
+            "audit": {
+              "type": "CONFIG_CHANGE"
+            }
+          }
+        }
+      },
+      {
+        "id": "evas001-category-different-s3",
+        "source": {
+          "timestamp": "2030-03-23T00:02:00+00:00",
+          "type": "category2",
+          "agent": {
+            "id": "lab-agent"
+          },
+          "rule": {
+            "id": "80703"
+          }
+        }
+      }
+    ],
+    "filter": {
+      "range": {
+        "timestamp": {
+          "gte": "2030-03-23T00:00:00+00:00",
+          "lt": "2030-03-24T00:00:00+00:00"
+        }
+      }
+    },
+    "expected": [
+      [
+        "evas001-category-different-s1",
+        "evas001-category-different-s2",
+        "evas001-category-different-s3"
+      ]
+    ],
+    "classification": "deterministic",
+    "note": "category-different"
+  }
+]
