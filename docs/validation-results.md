@@ -1,5 +1,13 @@
 # Validation status
 
+## Current scheduled validation — 5 November 2026
+
+All 14 rules passed synthetic scheduled Kibana detection tests and generated scheduled security alerts on Elasticsearch/Kibana 8.19.20 (user-confirmed). PRIV-001 used a validated agent-only candidate, not the unchanged published username-correlated expression. Tests used isolated synthetic indices, preserved original source-event ancestry and did not modify production rules or Wazuh configuration. See the [scheduled validation report](verification/scheduled-kibana-validation/REPORT.md) for the matrix, supplied alert details, candidate digest and evidence limitations.
+
+The [Phase 7B report](verification/phase7/7b-v1/REPORT.md) records bounded native execution of all 14 frozen rules (three positive, eleven zero-match). Production qualification remains pending for representative Wazuh telemetry, field compatibility, event coverage and detection accuracy. The new report supersedes historical scheduled-alert readiness conclusions, not historical test results or integrity records.
+
+The sections below retain earlier evidence context with current qualifications.
+
 ## A. Historical execution of earlier versions
 
 These are supplied historical query-execution results, not measurements made during repository construction and not proof of detection efficacy. Each query used size limited to 10; returned sequence counts are not exhaustive index-wide totals. Counts of 10 may reflect the request cap. Dates, time ranges, full query requests, raw responses, effective mappings and result provenance beyond the supplied summary were not provided. No precision, recall or coverage claim can be calculated from them.
@@ -49,9 +57,9 @@ These are supplied historical query-execution results, not measurements made dur
 
 **WCORR-EVAS-001:** Authorised audit configuration and administration may match; agent-level joins do not identify an actor.
 
-**WCORR-MAL-001:** Scheduled FIM observations were correlated with repeated rootcheck anomalies involving /dev/null and a carriage return character. These observations do not establish malware execution; the Phase 2 revision addresses these weaknesses, but requires lab validation.
+**WCORR-MAL-001:** Scheduled FIM observations were correlated with repeated rootcheck anomalies involving /dev/null and a carriage return character. These observations do not establish malware execution; the Phase 2 revision addresses these weaknesses, and later user-confirmed positive/negative file-path and scheduled alert tests are recorded in the new report.
 
-All rules with zero historical matches have not demonstrated positive detection efficacy. All five SSH definitions have now been recovered. PRIV-001 and MAL-001 have revised source definitions; their historical counts do not validate those revisions. No rules have been activated in Kibana as part of this repository.
+Zero historical matches do not establish production detection efficacy; the later user-confirmed synthetic scheduled positives are recorded above. All five SSH definitions have now been recovered. PRIV-001 and MAL-001 have revised source definitions; their historical counts do not validate those revisions. Scheduled synthetic activation is now user-confirmed as recorded above; production activation is not established.
 
 ## Future evidence record
 
@@ -63,7 +71,7 @@ All 14 source definitions have repository integrity, metadata, field-inventory a
 
 ## C. Final-expression live or isolated-lab execution
 
-NOT_PERFORMED for all 14. No new positive detections are claimed. Source WEB-001 reports 10 historical matches, with source attribution ambiguity; WEB-002 reports zero historical sequences and earlier synthetic positive/negative tests; WEB-003 and WEB-004 report zero. These supplied summaries lack complete requests, responses, dates and reproducible fixtures. The revised source provides no new execution evidence for PRIV-001 or MAL-001, nor complete evidence for the SSH revisions. Earlier Phase 1 counts remain historical only.
+The earlier NOT_PERFORMED status is superseded by bounded Phase 7B native execution and the user-confirmed scheduled synthetic results above. The following supplied source summaries remain historical context. Source WEB-001 reports 10 historical matches, with source attribution ambiguity; WEB-002 reports zero historical sequences and earlier synthetic positive/negative tests; WEB-003 and WEB-004 report zero. These supplied summaries lack complete requests, responses, dates and reproducible fixtures. The revised source provides no new execution evidence for PRIV-001 or MAL-001, nor complete evidence for the SSH revisions. Earlier Phase 1 counts remain historical only.
 
 ## Source inconsistencies and evidence gaps
 
@@ -71,8 +79,8 @@ SSH-002 standalone adds two null predicates absent in Dev Tools; Dev Tools is de
 
 ## D. Synthetic positive and negative detection tests
 
-No reproducible synthetic test suite or final-expression positive/negative execution evidence is included for this complete pack. Earlier WEB-002 test summaries are historical context only. The Python repository tests are not detection tests. All 14 require labelled positive and negative lab cases, including missing-field behaviour, timing boundaries and join negatives.
+Phase 6 contains historical synthetic fixtures and semantic test evidence; those records remain unchanged. Primary scheduled-test fixtures and execution exports for the current 14-rule programme are not included. Earlier WEB-002 test summaries remain historical context. Repository integrity checks alone do not establish detection efficacy. The later scheduled results establish user-confirmed synthetic positives for all 14 (PRIV-001 candidate), with positive/negative file-path tests specifically confirmed for MAL-001. Comprehensive labelled negative cases, missing-field behaviour, timing boundaries and join negatives remain qualification work.
 
 ## E. Operational Kibana activation
 
-No rules are claimed installed or enabled. Disabled rule creation, effective timestamp/category settings, sequence coverage, execution windows, overlapping searches, duplicate alerts and suppression all require separate operational verification. No activation occurred during this audit.
+All 14 generated scheduled synthetic alerts (user-confirmed); this does not establish production installation or enablement. Disabled rule creation, effective timestamp/category settings, sequence coverage, execution windows, overlapping searches, duplicate alerts and suppression all require separate operational verification. No production activation is established by this documentation update.

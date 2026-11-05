@@ -2,6 +2,8 @@
 import copy
 import hashlib
 import unittest
+import subprocess
+import validate_development as development
 from collections import Counter
 from unittest.mock import patch
 import phase6gr_engine as recovery
@@ -86,7 +88,18 @@ class RecoveryChecks(unittest.TestCase):
             self.assertTrue(v['identity_count_equal'] and v['all_ids_and_sources_equal'])
         for path, v in i['preexisting_unchanged'].items():
             self.assertEqual(v['before'], v['after'], path)
-            self.assertEqual(v['after'], recovery.digest(path), path)
+            if path in development.CURRENT_DOCUMENTATION:
+                # This record describes preservation at the historical run.
+                frozen = subprocess.check_output(
+                    ['git', 'show', 'v1.0.0:' + path], cwd=engine.ROOT)
+                self.assertEqual(v['after'], hashlib.sha256(frozen).hexdigest(), path)
+            elif path == 'tests/test_phase6_qualification.py':
+                # The current contract test now materialises historical docs.
+                frozen = subprocess.check_output(
+                    ['git', 'show', '73cc69c7179f9156a138c2ef444d7e8b0c7a3900:' + path], cwd=engine.ROOT)
+                self.assertEqual(v['after'], hashlib.sha256(frozen).hexdigest(), path)
+            else:
+                self.assertEqual(v['after'], recovery.digest(path), path)
         self.assertEqual(len(i['rules']), 14)
         for path, v in i['rules'].items(): self.assertEqual(v['actual'], recovery.digest(path))
         old = recovery.load('docs/verification/phase6/6g-v1/results.json')
