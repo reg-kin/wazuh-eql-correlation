@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -81,7 +82,11 @@ class QualificationChecks(unittest.TestCase):
             for name in manifest['publication_files']:
                 target = root / name
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(ROOT / name, target)
+                if name in development.CURRENT_DOCUMENTATION:
+                    target.write_bytes(subprocess.check_output(
+                        ['git', 'show', 'v1.0.0:' + name], cwd=ROOT))
+                else:
+                    shutil.copyfile(ROOT / name, target)
             check = release.RepositoryChecks('test_publication_manifest')
             check.setUpClass()
             with patch.object(release, 'ROOT', root):
