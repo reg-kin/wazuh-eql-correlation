@@ -2,9 +2,25 @@
 
 Multi-stage security alert correlation for Wazuh using Elasticsearch EQL, with Logstash ingestion, detection rules and deployment guidance.
 
-Project identifier: `wazuh-eql-correlation`. Apache-2.0; UK English documentation. No GitHub location or publication is claimed.
+Project identifier: `wazuh-eql-correlation`. Apache-2.0; UK English documentation. Version `v1.1.0` is tagged at merge commit `aafd896b8323f04a5653c25199e39b21646681c9` and is qualified for experimental source publication; isolated import and activation testing of the unchanged package remains outstanding.
 
 **Experimental reference implementation — all 14 rules passed user-confirmed synthetic scheduled Kibana detection tests on 5 November 2026 (Elasticsearch/Kibana 8.19.20), generating scheduled security alerts.** PRIV-001 used a validated agent-only candidate; its published username-correlated expression remains unchanged. See the [scheduled validation report](docs/verification/scheduled-kibana-validation/REPORT.md) for provenance, alert ancestry and limitations. This is not a production-validated rule pack. Production qualification remains pending for representative Wazuh telemetry, field compatibility, event coverage and detection accuracy. See the [publication audit](docs/verification/PHASE3_PUBLICATION_AUDIT.md) and [checksum manifest](docs/verification/PUBLICATION_MANIFEST.json).
+
+## Quick Start — published disabled rule package
+
+1. Download the repository source archive for tag **v1.1.0** from the public repository’s release/tag page, or clone the repository and check out that tag. Keep the complete source tree so the validators and checksum manifest accompany the NDJSON. The full Python validator requires a Git checkout with repository history and tags; for a source archive, run the checksum command below and use a matching Git checkout for full validation. Confirm the tag resolves to `aafd896b8323f04a5653c25199e39b21646681c9`; use a trusted repository reference, since bundled hashes alone do not authenticate origin.
+2. From the extracted repository root, validate the package offline:
+
+   ```sh
+   PYTHONDONTWRITEBYTECODE=1 python3 tests/validate_public_release.py
+   (cd deployment/public-release && sha256sum -c MANIFEST.sha256)
+   ```
+
+   Expect 14 disabled rules and 16 successful manifest entries. The optional external-source comparison is skipped when its source file is unavailable. Offline checks do not prove Kibana import or execution compatibility.
+3. Follow the [authoritative installation procedure](docs/installation.md#authoritative-public-release-procedure) and [isolated Kibana test plan](docs/verification/ISOLATED_KIBANA_TEST_PLAN.md). Inventory conflicts first, then in an approved isolated Kibana space use **Security → Rules → Import rules**, selecting `deployment/public-release/kibana-rules.ndjson`. Decline overwrite and ID regeneration; verify all 14 UUIDs and disabled states after import. Use the detection-rule importer, not saved-object import.
+4. Keep rules disabled until native timestamp/category settings, mappings, telemetry and safety gates pass. Controlled lab activation is a separate test stage; production qualification remains pending. Required adaptations belong to a separately reviewed variant, with fresh integrity evidence.
+
+The checksum-protected package README’s “not yet committed or published” statement describes its preparation snapshot and is outdated for the tagged source. Its Default-space and adaptation instructions are superseded by the authoritative installation guide. Package bytes and historical evidence remain preserved.
 
 ```text
 Wazuh Manager 4.14.7
