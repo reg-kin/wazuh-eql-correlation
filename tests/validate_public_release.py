@@ -17,6 +17,7 @@ REPORT = 'docs/verification/PUBLIC_RELEASE_RECONCILIATION.json'
 development.DEVELOPMENT_FILES |= {
     'tests/validate_public_release.py',
     'docs/verification/PUBLIC_RELEASE_INTEGRATION.md',
+    'docs/verification/ISOLATED_KIBANA_TEST_PLAN.md',
     REPORT,
     'docs/public-release-configuration.md',
     'deployment/public-release/README.md',

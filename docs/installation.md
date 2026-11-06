@@ -64,6 +64,8 @@ The first command is the validator for the current integrated tree. Direct `test
 
 Experimental public source publication means the documented artefacts and offline integrity checks are suitable for review. It does not qualify isolated Kibana import or production deployment. No live import of this unchanged export has been qualified here. Checksums verify local payload consistency; the recorded archive hash is historical integration evidence. The original archive is absent from this package, so these checks do not independently authenticate archive origin or prove live-export provenance.
 
+The [isolated Kibana test plan](verification/ISOLATED_KIBANA_TEST_PLAN.md) expands these gates into an evidence and acceptance procedure. Version `v1.1.0` is tagged at `aafd896b8323f04a5653c25199e39b21646681c9`; the preserved package README’s unpublished-status sentence is a preparation snapshot, not current repository status. Historical integration reports likewise describe their original working-tree state.
+
 For separately authorised isolated import qualification:
 
 1. Use an isolated matching-version Elasticsearch/Kibana 8.19.20 lab with no production ingestion. Select its explicitly approved Kibana space; Default is permissible only if that space is itself isolated and approved. Confirm the unchanged index pattern cannot reach production data. If isolation requires different indices or settings, stop unchanged-package qualification and prepare a separately reviewed lab variant with its own hashes and evidence.
