@@ -1,0 +1,64 @@
+{
+  "rule_id": "WCORR-SSH-004",
+  "name": "WCORR-SSH-004: SSH login, sudo and sensitive file modification",
+  "description": "Detects a three-stage sequence involving remote access, privilege use and modification of security-sensitive files.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"5402\", \"5407\")]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 78,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "SSH"
+  ],
+  "false_positives": [
+    "Agent and time correlation does not prove actor or session continuity. Unlike SSH-003 this source has no realtime FIM predicate; scheduled observation timing can misattribute changes. Legitimate administration can match."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH, sudo and sensitive-path FIM alerts; assess scheduled FIM observation delays.",
+  "version": 1
+}

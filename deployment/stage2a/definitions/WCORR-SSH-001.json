@@ -1,0 +1,64 @@
+{
+  "rule_id": "WCORR-SSH-001",
+  "name": "WCORR-SSH-001: Brute-force followed by authentication from the same IP",
+  "description": "Detects an SSH brute-force alert followed by successful authentication on the same Wazuh agent within 15 minutes.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword, data.srcip.keyword with maxspan=15m\n  [any where\n    rule.id.keyword in (\"5712\", \"5763\") and\n    data.srcip.keyword != null\n  ]\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.srcip.keyword != null\n  ]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-25m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 73,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "SSH"
+  ],
+  "false_positives": [
+    "Same agent and source IP do not prove account compromise or matching usernames: failures use data.srcuser and successes data.dstuser. An unrelated success from another IP cannot complete the sequence."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.srcip.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH brute-force and successful authentication alerts with populated native source IP and agent join fields.",
+  "version": 1
+}

@@ -1,0 +1,64 @@
+{
+  "rule_id": "WCORR-SSH-005",
+  "name": "WCORR-SSH-005: SSH login, SCP execution and file modification",
+  "description": "Detects an SSH login followed by SCP execution and a file creation or modification event.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword == \"92603\" and\n    data.audit.command.keyword == \"scp\"\n  ]\n  [any where rule.id.keyword in (\"550\", \"554\")]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "medium",
+  "risk_score": 62,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "SSH"
+  ],
+  "false_positives": [
+    "SCP command telemetry and FIM are joined only by agent and time; no transferred-file, user or session equality is enforced. Scheduled FIM and legitimate transfers can match."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.audit.command.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect rule 92603 audit command telemetry identifying scp, SSH authentication and file FIM alerts.",
+  "version": 1
+}

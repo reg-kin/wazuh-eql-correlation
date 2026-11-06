@@ -1,0 +1,69 @@
+{
+  "rule_id": "WCORR-WEB-002",
+  "name": "WCORR-WEB-002: Web attack followed by suspicious PHP file creation",
+  "description": "This rule detects web attack indicators followed by the creation of a PHP file in the WordPress uploads directory.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31151\", \"31103\", \"31104\", \"31105\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-20m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 82,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "WEB"
+  ],
+  "false_positives": [
+    "PHP creation is joined by endpoint and time, not HTTP client identity; causality is unproven. Legitimate deployments can create PHP files."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.event.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect web alerts and added-file FIM in the exact WordPress Docker volume path; verify that path locally.",
+  "version": 1
+}

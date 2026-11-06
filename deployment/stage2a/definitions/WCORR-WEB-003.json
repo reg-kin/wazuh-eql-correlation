@@ -1,0 +1,69 @@
+{
+  "rule_id": "WCORR-WEB-003",
+  "name": "WCORR-WEB-003: Server-side exploitation indicator followed by PHP file creation",
+  "description": "This rule uses a narrower selection of web exploitation indicators followed by PHP file creation.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=10m\n  [any where rule.id.keyword in\n    (\"31106\", \"31110\", \"31166\", \"31168\")]\n  [any where rule.id.keyword == \"554\"\n    and syscheck.event.keyword == \"added\"\n    and syscheck.path.keyword like\n      \"/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php\"]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-20m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 85,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "WEB"
+  ],
+  "false_positives": [
+    "Investigative correlation only: HTTP 200 does not prove exploitation. FIM detection time may differ from creation time, and legitimate deployments may match."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.event.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect the narrower exploitation rule IDs and added-file FIM at the exact WordPress Docker volume path.",
+  "version": 1
+}

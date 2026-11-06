@@ -1,0 +1,12 @@
+sequence by agent.id.keyword with maxspan=10m
+      [any where
+        rule.id.keyword in (
+          "31151", "31103", "31104", "31105"
+        )
+      ]
+      [any where
+        rule.id.keyword == "554" and
+        syscheck.event.keyword == "added" and
+        syscheck.path.keyword like
+          "/var/lib/docker/volumes/web_wp_data/_data/wp-content/uploads/*.php"
+      ]

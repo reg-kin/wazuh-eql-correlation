@@ -16,6 +16,23 @@ import validate_repository as release
 
 # Explicit inventory: additions require review here, never a directory wildcard.
 DEVELOPMENT_FILES = {
+    'scripts/stage2a.py',
+    'tests/test_stage2a.py',
+    'deployment/stage2a/REPORT.md',
+    'deployment/stage2a/definitions/WCORR-EVAS-001.json',
+    'deployment/stage2a/definitions/WCORR-MAL-001.json',
+    'deployment/stage2a/definitions/WCORR-PERS-001.json',
+    'deployment/stage2a/definitions/WCORR-PERS-002.json',
+    'deployment/stage2a/definitions/WCORR-PRIV-001.json',
+    'deployment/stage2a/definitions/WCORR-SSH-001.json',
+    'deployment/stage2a/definitions/WCORR-SSH-002.json',
+    'deployment/stage2a/definitions/WCORR-SSH-003.json',
+    'deployment/stage2a/definitions/WCORR-SSH-004.json',
+    'deployment/stage2a/definitions/WCORR-SSH-005.json',
+    'deployment/stage2a/definitions/WCORR-WEB-001.json',
+    'deployment/stage2a/definitions/WCORR-WEB-002.json',
+    'deployment/stage2a/definitions/WCORR-WEB-003.json',
+    'deployment/stage2a/definitions/WCORR-WEB-004.json',
     'docs/verification/scheduled-kibana-validation/REPORT.md',
     'docs/verification/phase7/7b-v1/REPORT.md',
     'docs/verification/phase7/7b-v1/results.json',

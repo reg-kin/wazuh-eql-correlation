@@ -1,0 +1,15 @@
+sequence by agent.id.keyword with maxspan=30m
+  [any where
+    rule.id.keyword == "5715"
+  ]
+  [any where
+    rule.id.keyword in ("5402", "5407") and
+    data.dstuser.keyword == "root" and
+    (
+      data.command.keyword like "*useradd*" or
+      data.command.keyword like "*adduser*"
+    )
+  ]
+  [any where
+    rule.id.keyword == "5902"
+  ]

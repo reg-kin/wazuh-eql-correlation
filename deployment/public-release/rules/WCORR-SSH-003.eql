@@ -1,0 +1,20 @@
+sequence by agent.id.keyword with maxspan=30m
+  [any where
+    rule.id.keyword == "5715"
+  ]
+  [any where
+    rule.id.keyword in ("550", "554") and
+    syscheck.mode.keyword == "realtime" and
+    (
+      syscheck.path.keyword in (
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/group",
+        "/etc/gshadow",
+        "/etc/sudoers"
+      ) or
+      syscheck.path.keyword like "/etc/sudoers.d/*" or
+      syscheck.path.keyword like "/home/*/.ssh/authorized_keys" or
+      syscheck.path.keyword == "/root/.ssh/authorized_keys"
+    )
+  ]
