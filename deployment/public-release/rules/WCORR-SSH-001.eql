@@ -1,0 +1,9 @@
+sequence by agent.id.keyword, data.srcip.keyword with maxspan=15m
+  [any where
+    rule.id.keyword in ("5712", "5763") and
+    data.srcip.keyword != null
+  ]
+  [any where
+    rule.id.keyword == "5715" and
+    data.srcip.keyword != null
+  ]

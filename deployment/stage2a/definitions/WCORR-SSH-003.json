@@ -1,0 +1,69 @@
+{
+  "rule_id": "WCORR-SSH-003",
+  "name": "WCORR-SSH-003: SSH followed by realtime sensitive file modification",
+  "description": "Correlates remote access with subsequent modification of sensitive Linux authentication or access-control files. This SSH-linked rule is restricted to realtime FIM events",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where\n    rule.id.keyword in (\"550\", \"554\") and\n    syscheck.mode.keyword == \"realtime\" and\n    (\n      syscheck.path.keyword in (\n        \"/etc/passwd\",\n        \"/etc/shadow\",\n        \"/etc/group\",\n        \"/etc/gshadow\",\n        \"/etc/sudoers\"\n      ) or\n      syscheck.path.keyword like \"/etc/sudoers.d/*\" or\n      syscheck.path.keyword like \"/home/*/.ssh/authorized_keys\" or\n      syscheck.path.keyword == \"/root/.ssh/authorized_keys\"\n    )\n  ]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 70,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "SSH"
+  ],
+  "false_positives": [
+    "Realtime FIM reduces timing ambiguity but does not identify a process or SSH session. Scheduled-only monitoring is excluded and must remain covered by separate FIM alerts."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.mode.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Enable realtime FIM for the specified authentication, sudoers and authorised-key paths.",
+  "version": 1
+}

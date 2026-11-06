@@ -1,0 +1,64 @@
+{
+  "rule_id": "WCORR-PERS-001",
+  "name": "WCORR-PERS-001: SSH login \u2192 crontab editor \u2192 cron modification",
+  "description": "Detects an SSH login followed by a crontab editor event and a FIM alert for a cron-related file.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword == \"2834\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/var/spool/cron/*\" or\n    syscheck.path.keyword like \"/var/spool/cron/crontabs/*\" or\n    syscheck.path.keyword like \"/etc/cron.d/*\" or\n    syscheck.path.keyword == \"/etc/crontab\"\n  )]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 78,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "PERS"
+  ],
+  "false_positives": [
+    "Legitimate cron administration can produce the same sequence; agent and time do not establish actor continuity."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH, 2834 crontab-editor alerts and FIM for all specified cron paths.",
+  "version": 1
+}

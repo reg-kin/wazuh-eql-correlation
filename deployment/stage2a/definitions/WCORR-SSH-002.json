@@ -1,0 +1,69 @@
+{
+  "rule_id": "WCORR-SSH-002",
+  "name": "WCORR-SSH-002: SSH followed by sensitive sudo activity",
+  "description": "Detects successful SSH authentication followed by privileged command execution within 15 minutes.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=15m\n  [any where\n    rule.id.keyword == \"5715\"\n  ]\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*usermod*\" or\n      data.command.keyword like \"*passwd*\" or\n      data.command.keyword like \"*visudo*\" or\n      data.command.keyword like \"*systemctl disable*\" or\n      data.command.keyword like \"*systemctl stop*\" or\n      data.command.keyword like \"*crontab*\" or\n      data.command.keyword like \"*chmod*\" or\n      data.command.keyword like \"*chown*\"\n    )\n  ]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-25m",
+  "to": "now",
+  "enabled": false,
+  "severity": "medium",
+  "risk_score": 47,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "SSH"
+  ],
+  "false_positives": [
+    "SSH and sudo users are not equated. Substring matching can miss shells and alternative commands. This contextual rule overlaps PRIV-001 and PERS-001; prefer their additional evidence. Routine administration can match."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.command.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.dstuser.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH and sudo alerts with native command and target-user fields; review sensitive-command coverage.",
+  "version": 1
+}

@@ -1,0 +1,74 @@
+{
+  "rule_id": "WCORR-PRIV-001",
+  "name": "WCORR-PRIV-001: SSH access \u2192 privileged account creation",
+  "description": "Detects a successful SSH login followed by sudo activity targeting root and a subsequent new-user event on the same monitored endpoint.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where\n    rule.id.keyword == \"5715\" and\n    data.dstuser.keyword != null\n  ] by data.dstuser.keyword\n  [any where\n    rule.id.keyword in (\"5402\", \"5407\") and\n    data.dstuser.keyword == \"root\" and\n    data.srcuser.keyword != null and\n    (\n      data.command.keyword like \"*useradd*\" or\n      data.command.keyword like \"*adduser*\"\n    )\n  ] by data.srcuser.keyword\n  [any where\n    rule.id.keyword == \"5902\"\n  ] by ?data.srcuser.keyword\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "high",
+  "risk_score": 82,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "PRIV"
+  ],
+  "false_positives": [
+    "The source says the optional third-stage key accommodates missing data.srcuser and that account creation remains associated by agent and time. Optional-field syntax does not itself guarantee wildcard joining: missing values can become null and fail to join a non-null username. Verify this claim in the target engine; do not silently change the query. SSH-to-sudo attribution is stronger, but account creation causality remains unproven. sudo su followed by useradd in a root shell is intentionally excluded."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.command.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.dstuser.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "data.srcuser.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH destination usernames, sudo source usernames and commands, and 5902 new-user events. Validate stage-specific joins and missing third-stage usernames explicitly.",
+  "version": 1
+}

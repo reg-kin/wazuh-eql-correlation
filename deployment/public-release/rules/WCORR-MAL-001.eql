@@ -1,0 +1,16 @@
+sequence by agent.id.keyword with maxspan=60m
+      [any where
+        rule.id.keyword in ("550", "554") and
+        syscheck.mode.keyword == "realtime" and
+        (
+          syscheck.path.keyword like "/usr/bin/*" or
+          syscheck.path.keyword like "/usr/sbin/*" or
+          syscheck.path.keyword like "/bin/*" or
+          syscheck.path.keyword like "/sbin/*"
+        )
+      ] by syscheck.path.keyword
+      [any where
+        rule.id.keyword in ("510", "521") and
+        data.file.keyword != null and
+        data.file.keyword != "/dev/null\r"
+      ] by data.file.keyword

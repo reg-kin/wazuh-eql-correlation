@@ -20,3 +20,7 @@ Historical counts refer to earlier versions, with size limited to 10; they are n
 | [WCORR-PERS-002](../rules/persistence/WCORR-PERS-002.md) | UNCHANGED | Medium / 60 | 30m | 0 | PASS (user-confirmed) |
 | [WCORR-EVAS-001](../rules/defence-evasion/WCORR-EVAS-001.md) | UNCHANGED | High / 80 | 20m | 0 | PASS (user-confirmed) |
 | [WCORR-MAL-001](../rules/malware/WCORR-MAL-001.md) | REVISED | High / 75 | 60m | 7 | PASS (user-confirmed) |
+
+## Public-release variant
+
+The [portable import](../deployment/public-release/kibana-rules.ndjson) is a separate versioned artefact; the table above describes preserved historical sources and evidence. Its 14 original UUIDs map to WCORR catalogue IDs in the [reconciliation inventory](verification/PUBLIC_RELEASE_RECONCILIATION.json). Twelve queries have identical tokens to the canonical sources; SSH-002 adds username/command presence guards, and PRIV-001 removes username joins and presence guards for agent-level correlation. This does not establish same-user or same-session causality. All maxspans, index patterns and risk scores match the catalogue. PERS-002 severity is High in the export versus Medium in the catalogue and Stage 2A; this is preserved for review. All export schedules are 5m with `from=now-(maxspan+6m)`; WEB-002 is `now-16m`. Stage 2A remains unchanged, including its PRIV-001 hold and longer windows. See the [integration report](verification/PUBLIC_RELEASE_INTEGRATION.md) for qualification limits and the complete schedule inventory. Historical match counts must not be attributed to the exported variants.

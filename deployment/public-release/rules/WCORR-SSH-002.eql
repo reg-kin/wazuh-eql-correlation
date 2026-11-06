@@ -1,0 +1,21 @@
+sequence by agent.id.keyword with maxspan=15m
+  [any where
+    rule.id.keyword == "5715" and
+    data.dstuser.keyword != null
+  ]
+  [any where
+    rule.id.keyword in ("5402", "5407") and
+    data.dstuser.keyword == "root" and
+    data.command.keyword != null and
+    (
+      data.command.keyword like "*useradd*" or
+      data.command.keyword like "*usermod*" or
+      data.command.keyword like "*passwd*" or
+      data.command.keyword like "*visudo*" or
+      data.command.keyword like "*systemctl disable*" or
+      data.command.keyword like "*systemctl stop*" or
+      data.command.keyword like "*crontab*" or
+      data.command.keyword like "*chmod*" or
+      data.command.keyword like "*chown*"
+    )
+  ]

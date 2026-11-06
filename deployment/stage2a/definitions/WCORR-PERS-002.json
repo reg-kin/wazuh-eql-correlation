@@ -1,0 +1,64 @@
+{
+  "rule_id": "WCORR-PERS-002",
+  "name": "WCORR-PERS-002: SSH login \u2192 systemd unit modification \u2192 service failure",
+  "description": "Detects an SSH login followed by modification or creation of a systemd service unit and a subsequent service-failure alert.",
+  "type": "eql",
+  "language": "eql",
+  "index": [
+    "wazuh-alerts-4.x-*"
+  ],
+  "query": "sequence by agent.id.keyword with maxspan=30m\n  [any where rule.id.keyword == \"5715\"]\n  [any where rule.id.keyword in (\"550\", \"554\") and (\n    syscheck.path.keyword like \"/etc/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/usr/lib/systemd/system/*.service\" or\n    syscheck.path.keyword like \"/lib/systemd/system/*.service\"\n  )]\n  [any where rule.id.keyword == \"40704\"]\n",
+  "timestamp_field": "timestamp",
+  "timestamp_override": "timestamp",
+  "timestamp_override_fallback_disabled": true,
+  "event_category_override": "type.keyword",
+  "interval": "5m",
+  "from": "now-40m",
+  "to": "now",
+  "enabled": false,
+  "severity": "medium",
+  "risk_score": 60,
+  "max_signals": 100,
+  "actions": [],
+  "author": [
+    "Wazuh EQL Correlation"
+  ],
+  "tags": [
+    "Wazuh",
+    "EQL",
+    "Multi-stage",
+    "PERS"
+  ],
+  "false_positives": [
+    "A service failure after a unit-file change does not establish causality. Legitimate service installation and maintenance can match."
+  ],
+  "required_fields": [
+    {
+      "name": "timestamp",
+      "type": "date",
+      "ecs": false
+    },
+    {
+      "name": "type.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "agent.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "rule.id.keyword",
+      "type": "keyword",
+      "ecs": false
+    },
+    {
+      "name": "syscheck.path.keyword",
+      "type": "keyword",
+      "ecs": false
+    }
+  ],
+  "setup": "Collect SSH, systemd unit-file FIM and 40704 service-failure alerts.",
+  "version": 1
+}
